@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="shared">
+      <UniqueIdentifier>{6c06d467-40b2-45d1-8fd7-59c27f7e1900}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\sources\shared\Console.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Engine.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Options.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\2015\2015_01.cpp" />
+    <ClCompile Include="..\sources\2015\2015_02.cpp" />
+    <ClCompile Include="..\sources\2015\2015_03.cpp" />
+    <ClCompile Include="..\sources\2015\2015_04.cpp" />
+    <ClCompile Include="..\sources\2015\2015_04_mt.cpp" />
+    <ClCompile Include="..\sources\2015\2015_05.cpp" />
+    <ClCompile Include="..\sources\2015\2015_06.cpp" />
+    <ClCompile Include="..\sources\2015\2015_07.cpp" />
+    <ClCompile Include="..\sources\2015\2015_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sources\shared\Console.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Engine.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\input_output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Options.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\stl.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\2015\2015_01.h" />
+    <ClInclude Include="..\sources\2015\2015_02.h" />
+    <ClInclude Include="..\sources\2015\2015_03.h" />
+    <ClInclude Include="..\sources\2015\2015_04.h" />
+    <ClInclude Include="..\sources\2015\2015_04_mt.h" />
+    <ClInclude Include="..\sources\2015\2015_05.h" />
+    <ClInclude Include="..\sources\2015\2015_06.h" />
+    <ClInclude Include="..\sources\2015\2015_07.h" />
+    <ClInclude Include="..\sources\2015\2015_puzzles.h" />
+    <ClInclude Include="..\sources\2015\2015_04_shared.h" />
+  </ItemGroup>
+</Project>
