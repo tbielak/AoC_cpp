@@ -14,7 +14,7 @@
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none
 - [2016](https://adventofcode.com/2016): none
-- [2015](https://adventofcode.com/2015): days 1-7
+- [2015](https://adventofcode.com/2015): days 1-16
 
 ## Repository contents
 Repository contains the following directories:

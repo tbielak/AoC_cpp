@@ -24,6 +24,15 @@
     <ClCompile Include="..\sources\2015\2015_06.cpp" />
     <ClCompile Include="..\sources\2015\2015_07.cpp" />
     <ClCompile Include="..\sources\2015\2015_main.cpp" />
+    <ClCompile Include="..\sources\2015\2015_08.cpp" />
+    <ClCompile Include="..\sources\2015\2015_09.cpp" />
+    <ClCompile Include="..\sources\2015\2015_10.cpp" />
+    <ClCompile Include="..\sources\2015\2015_11.cpp" />
+    <ClCompile Include="..\sources\2015\2015_12.cpp" />
+    <ClCompile Include="..\sources\2015\2015_13.cpp" />
+    <ClCompile Include="..\sources\2015\2015_14.cpp" />
+    <ClCompile Include="..\sources\2015\2015_15.cpp" />
+    <ClCompile Include="..\sources\2015\2015_16.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -51,5 +60,14 @@
     <ClInclude Include="..\sources\2015\2015_07.h" />
     <ClInclude Include="..\sources\2015\2015_puzzles.h" />
     <ClInclude Include="..\sources\2015\2015_04_shared.h" />
+    <ClInclude Include="..\sources\2015\2015_08.h" />
+    <ClInclude Include="..\sources\2015\2015_09.h" />
+    <ClInclude Include="..\sources\2015\2015_10.h" />
+    <ClInclude Include="..\sources\2015\2015_11.h" />
+    <ClInclude Include="..\sources\2015\2015_12.h" />
+    <ClInclude Include="..\sources\2015\2015_13.h" />
+    <ClInclude Include="..\sources\2015\2015_14.h" />
+    <ClInclude Include="..\sources\2015\2015_15.h" />
+    <ClInclude Include="..\sources\2015\2015_16.h" />
   </ItemGroup>
 </Project>

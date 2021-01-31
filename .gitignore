@@ -4,3 +4,5 @@
 *.a
 *.lib
 *.exe
+.vs
+tmp

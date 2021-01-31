@@ -8,7 +8,16 @@ const AoC::t_names names = {
     { 4, "--- Day 4: The Ideal Stocking Stuffer ---" },
     { 5, "--- Day 5: Doesn't He Have Intern-Elves For This? ---" },
     { 6, "--- Day 6: Probably a Fire Hazard ---" },
-    { 7, "--- Day 7: Some Assembly Required ---" }
+    { 7, "--- Day 7: Some Assembly Required ---" },
+    { 8, "--- Day 8: Matchsticks ---" },
+    { 9, "--- Day 9: All in a Single Night ---" },
+    { 10, "--- Day 10: Elves Look, Elves Say ---" },
+    { 11, "--- Day 11: Corporate Policy ---" },
+    { 12, "--- Day 12: JSAbacusFramework.io ---" },
+    { 13, "--- Day 13: Knights of the Dinner Table ---" },
+    { 14, "--- Day 14: Reindeer Olympics ---" },
+    { 15, "--- Day 15: Science for Hungry People ---" },
+    { 16, "--- Day 16: Aunt Sue ---" }
 };
 
 const AoC::t_repository repo = {
@@ -22,7 +31,16 @@ const AoC::t_repository repo = {
     } } },
     { 5, {2, { { "", Day05_2015::main } } } },
     { 6, {2, { { "", Day06_2015::main } } } },
-    { 7, {2, { { "", Day07_2015::main } } } }
+    { 7, {2, { { "", Day07_2015::main } } } },
+    { 8, {2, { { "", Day08_2015::main } } } },
+    { 9, {2, { { "", Day09_2015::main } } } },
+    { 10, {2, { { "", Day10_2015::main } } } },
+    { 11, {2, { { "", Day11_2015::main } } } },
+    { 12, {2, { { "", Day12_2015::main } } } },
+    { 13, {2, { { "", Day13_2015::main } } } },
+    { 14, {2, { { "", Day14_2015::main } } } },
+    { 15, {2, { { "", Day15_2015::main } } } },
+    { 16, {2, { { "", Day16_2015::main } } } }
 };
 
 int main(int argc, char* argv[])

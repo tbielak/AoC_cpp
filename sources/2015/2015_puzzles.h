@@ -12,5 +12,14 @@
 #include "2015_05.h"
 #include "2015_06.h"
 #include "2015_07.h"
+#include "2015_08.h"
+#include "2015_09.h"
+#include "2015_10.h"
+#include "2015_11.h"
+#include "2015_12.h"
+#include "2015_13.h"
+#include "2015_14.h"
+#include "2015_15.h"
+#include "2015_16.h"
 
 #endif
