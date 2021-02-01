@@ -5,7 +5,7 @@ To run it "as designed", just run executable from command line/bash prompt, with
 > AoC_x64_Release
 ```
 
-To explore more possibilities - just run it with *-h* switch:
+To explore more possibilities - run it with *-h* switch:
 ```sh
 > AoC_x64_Release -h
 ```

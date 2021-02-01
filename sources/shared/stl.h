@@ -14,6 +14,8 @@
 #include <stdexcept>
 #include <thread>
 #include <mutex>
+#include <random>
+#include <climits>
 #include <chrono>
 
 using namespace std;

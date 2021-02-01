@@ -32,6 +32,15 @@
     <ClCompile Include="..\sources\2015\2015_14.cpp" />
     <ClCompile Include="..\sources\2015\2015_15.cpp" />
     <ClCompile Include="..\sources\2015\2015_16.cpp" />
+    <ClCompile Include="..\sources\2015\2015_17.cpp" />
+    <ClCompile Include="..\sources\2015\2015_18.cpp" />
+    <ClCompile Include="..\sources\2015\2015_19.cpp" />
+    <ClCompile Include="..\sources\2015\2015_20.cpp" />
+    <ClCompile Include="..\sources\2015\2015_21.cpp" />
+    <ClCompile Include="..\sources\2015\2015_22.cpp" />
+    <ClCompile Include="..\sources\2015\2015_23.cpp" />
+    <ClCompile Include="..\sources\2015\2015_24.cpp" />
+    <ClCompile Include="..\sources\2015\2015_25.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -72,6 +81,15 @@
     <ClInclude Include="..\sources\2015\2015_14.h" />
     <ClInclude Include="..\sources\2015\2015_15.h" />
     <ClInclude Include="..\sources\2015\2015_16.h" />
+    <ClInclude Include="..\sources\2015\2015_17.h" />
+    <ClInclude Include="..\sources\2015\2015_18.h" />
+    <ClInclude Include="..\sources\2015\2015_19.h" />
+    <ClInclude Include="..\sources\2015\2015_20.h" />
+    <ClInclude Include="..\sources\2015\2015_21.h" />
+    <ClInclude Include="..\sources\2015\2015_22.h" />
+    <ClInclude Include="..\sources\2015\2015_23.h" />
+    <ClInclude Include="..\sources\2015\2015_24.h" />
+    <ClInclude Include="..\sources\2015\2015_25.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="shared">
