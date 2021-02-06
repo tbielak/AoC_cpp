@@ -3,6 +3,10 @@
 
 #include "../shared/input_output.h"
 
+// routines delivered by NVidia CUDA compiler
+extern bool Day_04_2015_CUDA_input(const char* input, int input_length);
+extern bool Day_04_2015_CUDA_md5Check(int blocksPerGrid, int threadsPerBlock, unsigned char* results, unsigned int result_mask, int starting_point);
+
 namespace Day04_2015_CUDA
 {
 	class MD5_Computing_Engine

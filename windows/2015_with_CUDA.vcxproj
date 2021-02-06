@@ -40,6 +40,7 @@
     <ClCompile Include="..\sources\2015\2015_22.cpp" />
     <ClCompile Include="..\sources\2015\2015_23.cpp" />
     <ClCompile Include="..\sources\2015\2015_24.cpp" />
+    <ClCompile Include="..\sources\2015\2015_24_cuda.cpp" />
     <ClCompile Include="..\sources\2015\2015_25.cpp" />
     <ClCompile Include="..\sources\2015\2015_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="..\sources\2015\2015_22.h" />
     <ClInclude Include="..\sources\2015\2015_23.h" />
     <ClInclude Include="..\sources\2015\2015_24.h" />
+    <ClInclude Include="..\sources\2015\2015_24_cuda.h" />
     <ClInclude Include="..\sources\2015\2015_25.h" />
     <ClInclude Include="..\sources\2015\2015_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
@@ -86,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="..\sources\2015\2015_04_cuda_kernel.cu" />
+    <CudaCompile Include="..\sources\2015\2015_24_cuda_kernel.cu" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

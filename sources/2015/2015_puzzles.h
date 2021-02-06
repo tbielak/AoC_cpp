@@ -29,6 +29,7 @@
 #include "2015_22.h"
 #include "2015_23.h"
 #include "2015_24.h"
+#include "2015_24_CUDA.h"
 #include "2015_25.h"
 
 #endif

@@ -70,7 +70,10 @@ bool Day_04_2015_CUDA_input(const char* input, int input_length)
 bool Day_04_2015_CUDA_md5Check(int blocksPerGrid, int threadsPerBlock, unsigned char* results, unsigned int result_mask, int starting_point)
 {
 	Day_04_2015_CUDA_md5Check_kernel << <blocksPerGrid, threadsPerBlock >> > (results, result_mask, starting_point);
-	return (cudaGetLastError() == cudaSuccess);
+    bool status = (cudaGetLastError() == cudaSuccess);
+
+    cudaDeviceSynchronize();
+    return status;
 }
 
 // undefine macros (different definitions for CPU/GPU version)
