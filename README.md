@@ -9,7 +9,7 @@
 - ready to build for Linux x64 (tested with Ubuntu 20.04)
 
 ## Puzzle solutions available
-- [2020](https://adventofcode.com/2020): days 1-8
+- [2020](https://adventofcode.com/2020): days 1-16
 - [2019](https://adventofcode.com/2019): none
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none

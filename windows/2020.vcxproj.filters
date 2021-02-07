@@ -24,6 +24,14 @@
     <ClCompile Include="..\sources\2020\2020_06.cpp" />
     <ClCompile Include="..\sources\2020\2020_07.cpp" />
     <ClCompile Include="..\sources\2020\2020_08.cpp" />
+    <ClCompile Include="..\sources\2020\2020_09.cpp" />
+    <ClCompile Include="..\sources\2020\2020_10.cpp" />
+    <ClCompile Include="..\sources\2020\2020_11.cpp" />
+    <ClCompile Include="..\sources\2020\2020_12.cpp" />
+    <ClCompile Include="..\sources\2020\2020_13.cpp" />
+    <ClCompile Include="..\sources\2020\2020_14.cpp" />
+    <ClCompile Include="..\sources\2020\2020_15.cpp" />
+    <ClCompile Include="..\sources\2020\2020_16.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -50,5 +58,13 @@
     <ClInclude Include="..\sources\2020\2020_06.h" />
     <ClInclude Include="..\sources\2020\2020_07.h" />
     <ClInclude Include="..\sources\2020\2020_08.h" />
+    <ClInclude Include="..\sources\2020\2020_09.h" />
+    <ClInclude Include="..\sources\2020\2020_10.h" />
+    <ClInclude Include="..\sources\2020\2020_11.h" />
+    <ClInclude Include="..\sources\2020\2020_12.h" />
+    <ClInclude Include="..\sources\2020\2020_13.h" />
+    <ClInclude Include="..\sources\2020\2020_14.h" />
+    <ClInclude Include="..\sources\2020\2020_15.h" />
+    <ClInclude Include="..\sources\2020\2020_16.h" />
   </ItemGroup>
 </Project>
