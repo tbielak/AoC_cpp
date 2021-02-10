@@ -17,7 +17,16 @@ const AoC::t_names names = {
     { 13, "--- Day 13: Shuttle Search ---" },
     { 14, "--- Day 14: Docking Data ---" },
     { 15, "--- Day 15: Rambunctious Recitation ---" },
-    { 16, "--- Day 16: Ticket Translation ---" }
+    { 16, "--- Day 16: Ticket Translation ---" },
+    { 17, "--- Day 17: Conway Cubes ---" },
+    { 18, "--- Day 18: Operation Order ---" },
+    { 19, "--- Day 19: Monster Messages ---" },
+    { 20, "--- Day 20: Jurassic Jigsaw ---" },
+    { 21, "--- Day 21: Allergen Assessment ---" },
+    { 22, "--- Day 22: Crab Combat ---" },
+    { 23, "--- Day 23: Crab Cups ---" },
+    { 24, "--- Day 24: Lobby Layout ---" },
+    { 25, "--- Day 25: Combo Breaker ---" }
 };
 
 const AoC::t_repository repo = {
@@ -36,7 +45,16 @@ const AoC::t_repository repo = {
     { 13, {2, { { "", Day13_2020::main } } } },
     { 14, {2, { { "", Day14_2020::main } } } },
     { 15, {2, { { "", Day15_2020::main } } } },
-    { 16, {2, { { "", Day16_2020::main } } } }
+    { 16, {2, { { "", Day16_2020::main } } } },
+    { 17, {2, { { "", Day17_2020::main } } } },
+    { 18, {2, { { "Shunting-yard algorithm", Day18_2020::main } , { "LALR(1) grammar parser", Day18_2020_LALR::main } } } },
+    { 19, {2, { { "", Day19_2020::main } } } },
+    { 20, {2, { { "", Day20_2020::main } } } },
+    { 21, {2, { { "", Day21_2020::main } } } },
+    { 22, {2, { { "", Day22_2020::main } } } },
+    { 23, {2, { { "", Day23_2020::main } } } },
+    { 24, {2, { { "", Day24_2020::main } } } },
+    { 25, {2, { { "", Day25_2020::main } } } }
 };
 
 int main(int argc, char* argv[])

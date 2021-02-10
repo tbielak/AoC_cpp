@@ -9,6 +9,8 @@
 #include <vector>
 #include <set>
 #include <map>
+#include <list>
+#include <stack>
 #include <numeric>
 #include <algorithm>
 #include <stdexcept>

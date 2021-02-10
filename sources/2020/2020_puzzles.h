@@ -17,5 +17,15 @@
 #include "2020_14.h"
 #include "2020_15.h"
 #include "2020_16.h"
+#include "2020_17.h"
+#include "2020_18.h"
+#include "2020_18_LALR.h"
+#include "2020_19.h"
+#include "2020_20.h"
+#include "2020_21.h"
+#include "2020_22.h"
+#include "2020_23.h"
+#include "2020_24.h"
+#include "2020_25.h"
 
 #endif
