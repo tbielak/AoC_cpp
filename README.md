@@ -9,12 +9,12 @@
 - ready to build for Linux x64 (tested with Ubuntu 20.04)
 
 ## Puzzle solutions available
-- [2020](https://adventofcode.com/2020): ALL with bonus: two different solutions of day 18
+- [2020](https://adventofcode.com/2020): ALL + bonus: two different solutions of day 18
 - [2019](https://adventofcode.com/2019): none
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none
 - [2016](https://adventofcode.com/2016): none
-- [2015](https://adventofcode.com/2015): ALL with bonus: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
+- [2015](https://adventofcode.com/2015): ALL + bonuses: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
 
 ## Repository contents
 Repository contains the following directories:
