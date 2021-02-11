@@ -2,10 +2,10 @@
 
 To run it "as designed", just run executable from command line/bash prompt, without any parameters:
 ```sh
-> AoC_x64_Release
+> 2020_x64_Release
 ```
 
 To explore more possibilities - run it with *-h* switch:
 ```sh
-> AoC_x64_Release -h
+> 2020_x64_Release -h
 ```
