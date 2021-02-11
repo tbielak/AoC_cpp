@@ -82,7 +82,6 @@ namespace Day09_2015
 			vdist.push_back(Distance(matches[1].str(), matches[2].str(), stoi(matches[3].str())));
 		}
 
-		size_t bytes = 0;
 		auto t0 = chrono::steady_clock::now();
 		auto px = both_parts(vdist);
 		auto t1 = chrono::steady_clock::now();

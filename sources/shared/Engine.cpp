@@ -118,8 +118,7 @@ namespace AoC
 
         #ifdef INCLUDE_CUDA
         bool CUDA_required = false;
-        #endif
-        bool execution_possible = true;
+	#endif
         string s = solutions[solution].first;
         if (s != "")
         {
@@ -206,7 +205,7 @@ namespace AoC
                     for (size_t i = 1; i < time_ms.size() - 1; i++)
                         v += time_ms[i];
 
-                    output.second = v / (time_ms.size() - 2);
+                    output.second = v / double(time_ms.size() - 2);
                     break;
                 }
 

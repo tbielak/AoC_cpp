@@ -26,7 +26,7 @@ namespace Day04_2015
 			buffer[input.size()] = 0x80;
 
 			// place length (in bits) of the string at 56th buffer element, as required by MD5 padding
-			buffer[56] = unsigned char(input.size() * 8);
+			buffer[56] = (unsigned char)(input.size() * 8);
 
 			// do one MD5 transform and get part of MD5 hash
 			unsigned int result = FNAME_2015_04((unsigned int *)(&buffer[0]));

@@ -1,4 +1,4 @@
-#include "2015_04_MT.h"
+#include "2015_04_mt.h"
 
 // the function specified below is already defined in 2015_04.cpp code (see #include "2015_04_shared.h")
 // that's why we only need extern here
@@ -53,7 +53,7 @@ namespace Day04_2015_MT
 				buffer[input.size()] = 0x80;
 
 				// place length (in bits) of the string at 56th buffer element, as required by MD5 padding
-				buffer[56] = unsigned char(input.size() * 8);
+				buffer[56] = (unsigned char)(input.size() * 8);
 
 				// do one MD5 transform and get part of MD5 hash
 				unsigned int result = Day_04_2015_CPU_md5_single_transform((unsigned int*)(&buffer[0]));
