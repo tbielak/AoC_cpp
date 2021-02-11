@@ -57,11 +57,11 @@ const AoC::t_repository repo = {
     { 21, {2, { { "", Day21_2015::main } } } },
     { 22, {2, { { "", Day22_2015::main } } } },
     { 23, {2, { { "", Day23_2015::main } } } },
-    { 24, {2, { { "standard", Day24_2015::main }
     #ifdef INCLUDE_CUDA
-    , { "CUDA kernel routine{C}", Day24_2015_CUDA::main }
+    { 24, {2, { { "standard", Day24_2015::main } , { "CUDA kernel routine{C}", Day24_2015_CUDA::main } } } },
+    #else
+    { 24, {2, { { "", Day24_2015::main } } } },
     #endif
-    } } },
     { 25, {2, { { "", Day25_2015::main } } } }
 };
 
