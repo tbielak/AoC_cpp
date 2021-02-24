@@ -136,7 +136,7 @@ namespace AoC
             {
                 s.erase(pos, 3);
                 if (CUDA::cores_total > 0)
-                    s.insert(pos, ", " + to_string(CUDA::cores_total) + ", CUDA cores ("
+                    s.insert(pos, ", " + to_string(CUDA::cores_total) + " CUDA cores ("
                         + to_string(CUDA::mp) + " multiprocessors * " + to_string(CUDA::cores_mp) + " cores)");
 
                 CUDA_required = true;
