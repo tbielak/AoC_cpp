@@ -43,4 +43,4 @@ make -j 8
 cd ../../bin
 ls -la
 ```
-9. You can run the executables directly from *bin* directory. Enjoy!
+9. You can [run](../bin) the executables directly from *bin* directory. Enjoy!
