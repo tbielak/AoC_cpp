@@ -13,7 +13,10 @@ const AoC::t_names names = {
     { 9, "--- Day 9: Sensor Boost ---" },
     { 10, "--- Day 10: Monitoring Station ---" },
     { 11, "--- Day 11: Space Police ---" },
-    { 12, "--- Day 12: The N-Body Problem ---" }
+    { 12, "--- Day 12: The N-Body Problem ---" },
+    { 13, "--- Day 13: Care Package ---" },
+    { 14, "--- Day 14: Space Stoichiometry ---" },
+    { 15, "--- Day 15: Oxygen System ---" }
 };
 
 const AoC::t_repository repo = {
@@ -28,7 +31,10 @@ const AoC::t_repository repo = {
     { 9, {2, { { "", Day09_2019::main } } } },
     { 10, {2, { { "", Day10_2019::main } } } },
     { 11, {2, { { "", Day11_2019::main } } } },
-    { 12, {2, { { "", Day12_2019::main } } } }
+    { 12, {2, { { "", Day12_2019::main } } } },
+    { 13, {2, { { "", Day13_2019::main } } } },
+    { 14, {2, { { "", Day14_2019::main } } } },
+    { 15, {2, { { "", Day15_2019::main } } } }
 };
 
 int main(int argc, char* argv[])

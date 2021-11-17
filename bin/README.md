@@ -62,7 +62,7 @@ To run single day solution(s) with your input, place your input file in *bin* di
 > 2020_x64_Release -p 2 -i my_2020_02_input.txt
 ```
 
-To measure execution time of the solution(s) use *-s* switch. In this mode each puzzle solution is run at least file times and at least for five seconds. It may take some time to obtain all results, so please be patient. The highest and the lowest time measurements are dropped, the average time of all remaining executions is printed. Repeatability of results is checked after each execution. These consistency checks and preparing input for subsequent code execution are outside the measurement scope, thus the execution may last longer than expected. Example:
+To measure execution time of the solution(s) use *-s* switch. In this mode each puzzle solution is run at least five times and at least for five seconds. It may take some time to obtain all results, so please be patient. The highest and the lowest time measurements are dropped, the average time of all remaining executions is printed. Repeatability of results is checked after each execution. These consistency checks and preparing input for subsequent code execution are outside the measurement scope, thus the execution may last longer than expected. Example:
 ```sh
 > 2020_x64_Release -p 2 -s
 ```
