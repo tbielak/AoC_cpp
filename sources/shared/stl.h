@@ -11,6 +11,7 @@
 #include <map>
 #include <list>
 #include <stack>
+#include <queue>
 #include <numeric>
 #include <algorithm>
 #include <stdexcept>

@@ -10,7 +10,7 @@
 
 ## Puzzle solutions available
 - [2020](https://adventofcode.com/2020): ALL + bonus: two different solutions of day 18
-- [2019](https://adventofcode.com/2019): days 1-16
+- [2019](https://adventofcode.com/2019): days 1-18
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none
 - [2016](https://adventofcode.com/2016): none

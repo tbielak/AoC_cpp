@@ -35,6 +35,8 @@
     <ClCompile Include="..\sources\2019\2019_14.cpp" />
     <ClCompile Include="..\sources\2019\2019_15.cpp" />
     <ClCompile Include="..\sources\2019\2019_16.cpp" />
+    <ClCompile Include="..\sources\2019\2019_17.cpp" />
+    <ClCompile Include="..\sources\2019\2019_18.cpp" />
     <ClCompile Include="..\sources\2019\2019_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -57,6 +59,8 @@
     <ClInclude Include="..\sources\2019\2019_14.h" />
     <ClInclude Include="..\sources\2019\2019_15.h" />
     <ClInclude Include="..\sources\2019\2019_16.h" />
+    <ClInclude Include="..\sources\2019\2019_17.h" />
+    <ClInclude Include="..\sources\2019\2019_18.h" />
     <ClInclude Include="..\sources\2019\2019_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
