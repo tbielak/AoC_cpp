@@ -15,7 +15,7 @@ namespace Day17_2019
 	}
 
 	IntcodeVM::IntcodeVM(bool stop_on_output)
-		: _stop_on_output(stop_on_output), _state(State::empty)
+	:	_stop_on_output(stop_on_output), _state(State::empty)
 	{
 		reset();
 	}
@@ -297,7 +297,7 @@ namespace Day17_2019
 			return -1; // something unexpected happened
 
 		create_series();
-		build_paths();
+		build_routine();
 		
 		IntcodeVM collector(true);
 		collector.load(program);
@@ -320,7 +320,7 @@ namespace Day17_2019
 
 	bool Scaffold::create_commands()
 	{
-		int dir = 0;	// direction:    0 ^    1 <    2 v    3 >
+		int dir = 0;	// direction:	0 ^	1 <	2 v	3 >
 		string cmd;
 
 		int rrow = _robot.row;
@@ -330,7 +330,7 @@ namespace Day17_2019
 			int steps = 0;
 			while (1)
 			{
-				// can move robot desired direction?
+				// can robot move in desired direction?
 				if (_view[rrow + _directions[dir].row][rcol + _directions[dir].col] != '#')
 					break;
 
@@ -344,7 +344,7 @@ namespace Day17_2019
 				rcol += _directions[dir].col;
 			}
 
-			// any steps? make command, update path
+			// any steps? make command, update full path
 			if (steps > 0)
 			{
 				_commands.push_back(cmd + "," + to_string(steps));
@@ -403,17 +403,17 @@ namespace Day17_2019
 		stable_sort(_series.begin(), _series.end(), Serie::order);
 	}
 
-	void Scaffold::build_paths()
+	void Scaffold::build_routine()
 	{
 		for (size_t i = 0; i < _series.size(); i++)
-			recursive_build_routines("A", _fullpath, i);
+			recursive_build_routine("A", _fullpath, i);
 	}
 
-	void Scaffold::recursive_build_routines(const string& routine, const string& path, size_t idx)
+	void Scaffold::recursive_build_routine(const string& routine, const string& path, size_t idx)
 	{
 		// single comment for this whole method: just some ugly string operations ;)
 
-		if (_routine != "")	// needed one solution only
+		if (_routine != "")	// needed one solution only (single routine is enough)
 			return;
 
 		string s = path;
@@ -465,7 +465,7 @@ namespace Day17_2019
 		}
 
 		for (size_t i = 0; i < _series.size(); i++)
-			recursive_build_routines(new_routine, s, i);
+			recursive_build_routine(new_routine, s, i);
 	}
 
 	int part_one(const Scaffold& scaffold)

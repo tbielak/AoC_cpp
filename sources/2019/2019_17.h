@@ -123,8 +123,8 @@ namespace Day17_2019
 
 		bool create_commands();
 		void create_series();
-		void build_paths();
-		void recursive_build_routines(const string& level, const string& path, size_t idx);
+		void build_routine();
+		void recursive_build_routine(const string& level, const string& path, size_t idx);
 	};
 
 	t_output main(const t_input& input);
