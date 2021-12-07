@@ -12,12 +12,13 @@ File | Description
 2015_with_CUDA_x64_Release.exe | 2015 puzzles solutions, including solutions running on CUDA device
 2019_x64_Release.exe | 2019 puzzles solutions
 2020_x64_Release.exe | 2020 puzzles solutions
+2021_x64_Release.exe | 2021 puzzles solutions
 
 You can also build them in Debug configuration or for x86 platform. In result you'll see appropriate *exe* files in this folder.
 
 To run executable "as designed", just pick up one and run it from command line prompt, without any parameters:
 ```sh
-> 2020_x64_Release
+> 2021_x64_Release
 ```
 
 ## Linux executables
@@ -29,10 +30,11 @@ File | Description
 2015 | 2015 puzzles solutions (x64 code, O3 optimization)
 2019 | 2019 puzzles solutions (x64 code, O3 optimization)
 2020 | 2020 puzzles solutions (x64 code, O3 optimization)
+2021 | 2021 puzzles solutions (x64 code, O3 optimization)
 
 To run executable "as designed", just pick up one and run it from bash prompt, without any parameters:
 ```sh
-$ ./2020
+$ ./2021
 ```
 
 ## Command line options

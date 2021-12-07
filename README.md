@@ -2,15 +2,16 @@
 [Advent of Code](http://adventofcode.com) solutions in C++ 11/14/17 (Windows x86/x64, Windows with CUDA x64, Linux x64)
 
 ## Features
-- Advent of Code 2015-2020 solutions in C++ 11/14/17
+- Advent of Code 2015-2021 solutions in C++ 11/14/17
 - using STL only (in non-CUDA solutions)
 - ready to build for Windows x86/x64 in Microsoft Visual Studio Community 2019
 - ready to build for Windows x64 with CUDA 11.2 to speed up some solutions on various CUDA architectures
 - ready to build for Linux x64 (tested with Ubuntu 20.04)
 
 ## Puzzle solutions available
+- [2021](https://adventofcode.com/2021): day 1
 - [2020](https://adventofcode.com/2020): ALL + bonus: two different solutions of day 18
-- [2019](https://adventofcode.com/2019): days 1-18
+- [2019](https://adventofcode.com/2019): days 1-19
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none
 - [2016](https://adventofcode.com/2016): none
