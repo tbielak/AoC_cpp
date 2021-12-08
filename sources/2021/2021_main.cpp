@@ -2,11 +2,13 @@
 #include "2021_puzzles.h"
 
 const AoC::t_names names = {
-    { 1, "--- Day 1: Sonar Sweep ---" }
+    { 1, "--- Day 1: Sonar Sweep ---" },
+    { 2, "--- Day 2: Dive! ---" }
 };
 
 const AoC::t_repository repo = {
-    { 1, {2, { { "", Day01_2021::main } } } }
+    { 1, {2, { { "", Day01_2021::main } } } },
+    { 2, {2, { { "", Day02_2021::main } } } }
 };
 
 int main(int argc, char* argv[])
