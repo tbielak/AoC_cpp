@@ -3,12 +3,14 @@
 
 const AoC::t_names names = {
     { 1, "--- Day 1: Sonar Sweep ---" },
-    { 2, "--- Day 2: Dive! ---" }
+    { 2, "--- Day 2: Dive! ---" },
+    { 3, "--- Day 3: Binary Diagnostic ---" }
 };
 
 const AoC::t_repository repo = {
     { 1, {2, { { "", Day01_2021::main } } } },
-    { 2, {2, { { "", Day02_2021::main } } } }
+    { 2, {2, { { "", Day02_2021::main } } } },
+    { 3, {2, { { "", Day03_2021::main } } } }
 };
 
 int main(int argc, char* argv[])
