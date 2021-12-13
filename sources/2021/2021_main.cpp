@@ -6,8 +6,9 @@ const AoC::t_names names = {
     { 2, "--- Day 2: Dive! ---" },
     { 3, "--- Day 3: Binary Diagnostic ---" },
     { 4, "--- Day 4: Giant Squid ---" },
-    { 5, "--- Day 5: Hydrothermal Venture ---"},
-    { 6, "--- Day 6: Lanternfish ---" }
+    { 5, "--- Day 5: Hydrothermal Venture ---" },
+    { 6, "--- Day 6: Lanternfish ---" },
+    { 7, "--- Day 7: The Treachery of Whales ---" }
 };
 
 const AoC::t_repository repo = {
@@ -16,7 +17,8 @@ const AoC::t_repository repo = {
     { 3, {2, { { "", Day03_2021::main } } } },
     { 4, {2, { { "", Day04_2021::main } } } },
     { 5, {2, { { "", Day05_2021::main } } } },
-    { 6, {2, { { "", Day06_2021::main } } } }
+    { 6, {2, { { "", Day06_2021::main } } } },
+    { 7, {2, { { "", Day07_2021::main } } } }
 };
 
 int main(int argc, char* argv[])
