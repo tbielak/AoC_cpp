@@ -28,6 +28,7 @@
     <ClCompile Include="..\sources\2021\2021_07.cpp" />
     <ClCompile Include="..\sources\2021\2021_08.cpp" />
     <ClCompile Include="..\sources\2021\2021_09.cpp" />
+    <ClCompile Include="..\sources\2021\2021_10.cpp" />
     <ClCompile Include="..\sources\2021\2021_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="..\sources\2021\2021_07.h" />
     <ClInclude Include="..\sources\2021\2021_08.h" />
     <ClInclude Include="..\sources\2021\2021_09.h" />
+    <ClInclude Include="..\sources\2021\2021_10.h" />
     <ClInclude Include="..\sources\2021\2021_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
