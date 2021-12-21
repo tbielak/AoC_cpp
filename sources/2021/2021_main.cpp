@@ -15,7 +15,8 @@ const AoC::t_names names = {
     { 11, "--- Day 11: Dumbo Octopus ---" },
     { 12, "--- Day 12: Passage Pathing ---" },
     { 13, "--- Day 13: Transparent Origami ---" },
-    { 14, "--- Day 14: Extended Polymerization ---" }
+    { 14, "--- Day 14: Extended Polymerization ---" },
+    { 15, "--- Day 15: Chiton ---" }
 };
 
 const AoC::t_repository repo = {
@@ -32,7 +33,8 @@ const AoC::t_repository repo = {
     { 11, {2, { { "", Day11_2021::main } } } },
     { 12, {2, { { "", Day12_2021::main } } } },
     { 13, {2, { { "", Day13_2021::main } } } },
-    { 14, {2, { { "", Day14_2021::main } } } }
+    { 14, {2, { { "", Day14_2021::main } } } },
+    { 15, {2, { { "", Day15_2021::main } } } }
 };
 
 int main(int argc, char* argv[])
