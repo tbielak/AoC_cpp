@@ -4,4 +4,4 @@ Directory | Contents
 [2019](2019) | Year 2019 solutions.
 [2020](2020) | Year 2020 solutions.
 [2021](2021) | Year 2021 solutions.
-[shared](shared) | Code shared between various years. Classes that form execution environment for all the puzzles.
+[shared](shared) | Code shared between various years. Classes that form execution environment for all the puzzles. See [here](../bin) to explore solutions running.

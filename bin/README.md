@@ -44,7 +44,7 @@ To get familiar with command line options, run the executable with *-h* switch (
 > 2021_x64_Release -h
 ```
 
-To run single day puzzle solution(s) use *-p* switch and select the day. Example of running 2nd day puzzle solution(s):
+To run single day puzzle solution(s) use *-p* switch and select the day. Example of running 7th day puzzle solution(s):
 ```sh
 > 2021_x64_Release -p 7
 ```
