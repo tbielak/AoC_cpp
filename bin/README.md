@@ -41,37 +41,37 @@ $ ./2021
 
 To get familiar with command line options, run the executable with *-h* switch (help):
 ```sh
-> 2020_x64_Release -h
+> 2021_x64_Release -h
 ```
 
 To run single day puzzle solution(s) use *-p* switch and select the day. Example of running 2nd day puzzle solution(s):
 ```sh
-> 2020_x64_Release -p 2
+> 2021_x64_Release -p 7
 ```
 
-Some puzzles have more than one solution of the problem. To see how solutions are available use *-s* switch:
+Some puzzles have more than one solution of the problem. To see how many solutions is available use *-a* switch:
 ```sh
-> 2020_x64_Release -s
+> 2020_x64_Release -a
 ```
 
 To run single solution also use *-p* switch and select the day and the solution. Example of running 18th day, 2nd puzzle solution:
 ```sh
-> 2020_x64_Release -p 18:2
+> 2021_x64_Release -p 18:2
 ```
 
 To run single day solution(s) with your input, place your input file in *bin* directory and put the filename in *-i* switch. Example:
 ```sh
-> 2020_x64_Release -p 2 -i my_2020_02_input.txt
+> 2021_x64_Release -p 2 -i my_2021_02_input.txt
 ```
 
-To measure execution time of the solution(s) use *-s* switch. In this mode each puzzle solution is run at least five times and at least for five seconds. It may take some time to obtain all results, so please be patient. The highest and the lowest time measurements are dropped, the average time of all remaining executions is printed. Repeatability of results is checked after each execution. These consistency checks and preparing input for subsequent code execution are outside the measurement scope, thus the execution may last longer than expected. Example:
+To measure execution time of the solution(s) use *-s* switch. In this mode each puzzle solution is run at least five times and at least for five seconds. It may take some time to obtain all results, so please be patient. The highest and the lowest time measurements are dropped, the average time of all remaining executions is printed. Repeatability of results is checked after each execution. These consistency checks and preparing input for subsequent code executions are outside the measurement scope, thus the execution may last longer than expected. Time of execution does not include loading input from file. Command example:
 ```sh
-> 2020_x64_Release -p 2 -s
+> 2021_x64_Release -p 2 -s
 ```
 
-Output printed on console is colored text. Selecting the colors is achieved by emitting escape sequences, which should work fine in Linux out of the box. In Windows this feature in supported by *cmd.exe* and *conhost.exe* starting from Windows 10 TH2 v1511. If you see the garbage instead of colors, use *-c* switch to disable coloring (it is also useful when redirecting output to file for further processing):
+Output is printed on console using colored text. Selecting the colors is achieved by emitting escape sequences, which should work fine in Linux out of the box. In Windows this feature in supported by *cmd.exe* and *conhost.exe* starting from Windows 10 TH2 v1511. If you see the garbage instead of colors, use *-c* switch to disable coloring (it is also useful when redirecting output to file for further processing):
 ```sh
-> 2020_x64_Release -p 2 -c
+> 2021_x64_Release -p 2 -c
 ```
 
 ## Debugging the solution
