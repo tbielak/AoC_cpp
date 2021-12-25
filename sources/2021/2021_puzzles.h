@@ -20,5 +20,6 @@
 #include "2021_17.h"
 #include "2021_18_strings.h"
 #include "2021_18_pairs.h"
+#include "2021_19.h"
 
 #endif
