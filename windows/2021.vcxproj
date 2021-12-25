@@ -36,6 +36,8 @@
     <ClCompile Include="..\sources\2021\2021_15.cpp" />
     <ClCompile Include="..\sources\2021\2021_16.cpp" />
     <ClCompile Include="..\sources\2021\2021_17.cpp" />
+    <ClCompile Include="..\sources\2021\2021_18_pairs.cpp" />
+    <ClCompile Include="..\sources\2021\2021_18_strings.cpp" />
     <ClCompile Include="..\sources\2021\2021_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -59,6 +61,8 @@
     <ClInclude Include="..\sources\2021\2021_15.h" />
     <ClInclude Include="..\sources\2021\2021_16.h" />
     <ClInclude Include="..\sources\2021\2021_17.h" />
+    <ClInclude Include="..\sources\2021\2021_18_pairs.h" />
+    <ClInclude Include="..\sources\2021\2021_18_strings.h" />
     <ClInclude Include="..\sources\2021\2021_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
