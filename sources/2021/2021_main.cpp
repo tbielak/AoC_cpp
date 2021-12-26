@@ -20,7 +20,8 @@ const AoC::t_names names = {
     { 16, "--- Day 16: Packet Decoder ---" },
     { 17, "--- Day 17: Trick Shot ---" },
     { 18, "--- Day 18: Snailfish ---" },
-    { 19, "--- Day 19: Beacon Scanner ---" }
+    { 19, "--- Day 19: Beacon Scanner ---" },
+    { 20, "--- Day 20: Trench Map ---" }
 };
 
 const AoC::t_repository repo = {
@@ -42,7 +43,8 @@ const AoC::t_repository repo = {
     { 16, {2, { { "", Day16_2021::main } } } },
     { 17, {2, { { "", Day17_2021::main } } } },
     { 18, {2, { { "strings", Day18_2021_Strings::main } , { "pairs", Day18_2021_Pairs::main } } } },
-    { 19, {2, { { "", Day19_2021::main } } } }
+    { 19, {2, { { "", Day19_2021::main } } } },
+    { 20, {2, { { "", Day20_2021::main } } } }
 };
 
 int main(int argc, char* argv[])

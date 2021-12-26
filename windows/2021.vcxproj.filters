@@ -36,6 +36,7 @@
     <ClCompile Include="..\sources\2021\2021_18_pairs.cpp" />
     <ClCompile Include="..\sources\2021\2021_18_strings.cpp" />
     <ClCompile Include="..\sources\2021\2021_19.cpp" />
+    <ClCompile Include="..\sources\2021\2021_20.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -74,5 +75,6 @@
     <ClInclude Include="..\sources\2021\2021_18_pairs.h" />
     <ClInclude Include="..\sources\2021\2021_18_strings.h" />
     <ClInclude Include="..\sources\2021\2021_19.h" />
+    <ClInclude Include="..\sources\2021\2021_20.h" />
   </ItemGroup>
 </Project>
