@@ -6,3 +6,5 @@
 *.exe
 .vs
 tmp
+build
+bin/2*
