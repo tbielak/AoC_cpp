@@ -5,7 +5,7 @@
 - Advent of Code 2015-2021 solutions in C++ 11/14/17
 - using STL only (in non-CUDA solutions)
 - ready to build for Windows x86/x64 in Microsoft Visual Studio Community 2019
-- ready to build for Windows x64 with CUDA 11.2 to speed up some solutions on various CUDA architectures
+- ready to build for Windows x64 with CUDA 11.5 to speed up some solutions on various CUDA architectures
 - ready to build for Linux x64 (tested with Ubuntu 20.04)
 
 ## Puzzle solutions available

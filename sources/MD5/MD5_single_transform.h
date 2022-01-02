@@ -1,9 +1,9 @@
-// this file is shared by CPU and GPU code (CUDA)
+// this file can be shared by CPU and GPU code (CUDA)
 // CPU code is compiled by cl.exe of Visual Studio (Windows) or gcc (Linux)
 // GPU code is compiled by nvcc.exe NVidia compiler (Windows)
 
-#ifndef __2015_04_SHARED__
-#define __2015_04_SHARED__
+#ifndef __MD5_SINGLE_TRANSFORM__
+#define __MD5_SINGLE_TRANSFORM__
 
 // disclaimer: sorry for using defines instead of constexpr or so,
 // but CUDA RT likes low level C/C++ constructs only (afaik)
@@ -42,8 +42,8 @@
 #define HH(a, b, c, d, x, s, ac) a = ROTATE_LEFT((a) + H((b), (c), (d)) + (x) + (ac), (s)) + (b)
 #define II(a, b, c, d, x, s, ac) a = ROTATE_LEFT((a) + I((b), (c), (d)) + (x) + (ac), (s)) + (b)
 
-// PREFIX_2015_04 is empty on CPU side, and defined as __device__ on GPU side
-// FNAME_2015_04 reflects CPU/GPU side: see other 2015_04* files for more understanding
+// MD5_SINGLE_TRANSFORM_PREFIX is empty on CPU side, and defined as __device__ on GPU side
+// MD5_SINGLE_TRANSFORM_FNAME reflects CPU/GPU side: see files using it (e.g. 2015_04*) for more understanding
 //
 // Code below (+ macros above) performs a single MD5 transform defined in
 // RFC 1321, chapter: 3.4 Step 4. Process Message in 16 - Word Blocks
@@ -51,7 +51,7 @@
 //
 // do not try to understand it, just enjoy :)
 //
-PREFIX_2015_04 unsigned int FNAME_2015_04(unsigned int* x)
+MD5_SINGLE_TRANSFORM_PREFIX unsigned int MD5_SINGLE_TRANSFORM_FNAME(unsigned int* x)
 {
     unsigned int state[4];
     state[0] = 0x67452301;

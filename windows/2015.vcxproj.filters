@@ -4,6 +4,9 @@
     <Filter Include="shared">
       <UniqueIdentifier>{6c06d467-40b2-45d1-8fd7-59c27f7e1900}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{a15da378-9aaa-4514-b2d6-dd5f56bcfc33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\sources\shared\Console.cpp">
@@ -68,7 +71,6 @@
     <ClInclude Include="..\sources\2015\2015_06.h" />
     <ClInclude Include="..\sources\2015\2015_07.h" />
     <ClInclude Include="..\sources\2015\2015_puzzles.h" />
-    <ClInclude Include="..\sources\2015\2015_04_shared.h" />
     <ClInclude Include="..\sources\2015\2015_08.h" />
     <ClInclude Include="..\sources\2015\2015_09.h" />
     <ClInclude Include="..\sources\2015\2015_10.h" />
@@ -87,5 +89,8 @@
     <ClInclude Include="..\sources\2015\2015_23.h" />
     <ClInclude Include="..\sources\2015\2015_24.h" />
     <ClInclude Include="..\sources\2015\2015_25.h" />
+    <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

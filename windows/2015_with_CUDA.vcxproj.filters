@@ -72,7 +72,6 @@
     <ClInclude Include="..\sources\2015\2015_06.h" />
     <ClInclude Include="..\sources\2015\2015_07.h" />
     <ClInclude Include="..\sources\2015\2015_puzzles.h" />
-    <ClInclude Include="..\sources\2015\2015_04_shared.h" />
     <ClInclude Include="..\sources\2015\2015_08.h" />
     <ClInclude Include="..\sources\2015\2015_09.h" />
     <ClInclude Include="..\sources\2015\2015_10.h" />
@@ -92,10 +91,16 @@
     <ClInclude Include="..\sources\2015\2015_24.h" />
     <ClInclude Include="..\sources\2015\2015_25.h" />
     <ClInclude Include="..\sources\2015\2015_24_cuda.h" />
+    <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="shared">
       <UniqueIdentifier>{f5c98777-3114-4a2f-9791-c579debb5d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{4fdb4db0-cfcd-4111-acce-012a83be3bee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

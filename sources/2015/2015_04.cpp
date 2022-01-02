@@ -2,9 +2,9 @@
 
 // below: including single-MD5-transform routine shared by two CPU solutions and one GPU solution
 // note: CPU version requires an empty prefix
-#define PREFIX_2015_04
-#define FNAME_2015_04 Day_04_2015_CPU_md5_single_transform
-#include "2015_04_shared.h"
+#define MD5_SINGLE_TRANSFORM_PREFIX
+#define MD5_SINGLE_TRANSFORM_FNAME Day_04_2015_CPU_md5_single_transform
+#include "../MD5/MD5_single_transform.h"
 
 namespace Day04_2015
 {
@@ -29,7 +29,7 @@ namespace Day04_2015
 			buffer[56] = (unsigned char)(input.size() * 8);
 
 			// do one MD5 transform and get part of MD5 hash
-			unsigned int result = FNAME_2015_04((unsigned int *)(&buffer[0]));
+			unsigned int result = MD5_SINGLE_TRANSFORM_FNAME((unsigned int *)(&buffer[0]));
 
 			// check requested number of zeros
 			if ((result & result_mask[part - 1]) == result)
@@ -58,5 +58,5 @@ namespace Day04_2015
 }
 
 // undefine macros (different definitions for CPU/GPU version)
-#undef PREFIX_2015_04
-#undef FNAME_2015_04
+#undef MD5_SINGLE_TRANSFORM_PREFIX
+#undef MD5_SINGLE_TRANSFORM_FNAME

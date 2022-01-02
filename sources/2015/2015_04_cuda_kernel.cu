@@ -7,9 +7,9 @@ __constant__ int day_04_2015_CUDA_input_length;
 
 // below: including single-MD5-transform routine shared by two CPU solutions and one GPU solution
 // note: GPU version requires prefix __device__ placing the code on GPU side
-#define PREFIX_2015_04 __device__
-#define FNAME_2015_04 Day_04_2015_CUDA_md5_single_transform
-#include "2015_04_shared.h"
+#define MD5_SINGLE_TRANSFORM_PREFIX __device__
+#define MD5_SINGLE_TRANSFORM_FNAME Day_04_2015_CUDA_md5_single_transform
+#include "../MD5/MD5_single_transform.h"
 
 // CUDA device kernel code
 __global__ void Day_04_2015_CUDA_md5Check_kernel(unsigned char* results, unsigned int result_mask, int starting_point)
@@ -48,7 +48,7 @@ __global__ void Day_04_2015_CUDA_md5Check_kernel(unsigned char* results, unsigne
     *((int*)(&buffer[56])) = length;
 
     // do single MD5 transform and take part of the digest
-    unsigned int result = FNAME_2015_04((unsigned int*)buffer);
+    unsigned int result = MD5_SINGLE_TRANSFORM_FNAME((unsigned int*)buffer);
 
     // check requested number of zeros and store result
     results[idx] = ((result & result_mask) == result) ? 1 : 0;
@@ -77,5 +77,5 @@ bool Day_04_2015_CUDA_md5Check(int blocksPerGrid, int threadsPerBlock, unsigned 
 }
 
 // undefine macros (different definitions for CPU/GPU version)
-#undef PREFIX_2015_04
-#undef FNAME_2015_04
+#undef MD5_SINGLE_TRANSFORM_PREFIX
+#undef MD5_SINGLE_TRANSFORM_FNAME
