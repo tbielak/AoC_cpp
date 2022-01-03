@@ -20,7 +20,7 @@ namespace Day05_2016
 		bool _part_two;
 		string _result;
 		vector<thread*> _threads;
-		map<int, int> _found;		// step number to result found
+		map<int, unsigned int> _found;		// step number to result found
 		mutex _m;
 
 		static void worker(MD5_Computing_Engine* engine);
