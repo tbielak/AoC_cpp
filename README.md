@@ -14,7 +14,7 @@
 - [2019](https://adventofcode.com/2019): days 1-19
 - [2018](https://adventofcode.com/2018): none
 - [2017](https://adventofcode.com/2017): none
-- [2016](https://adventofcode.com/2016): days 1-5
+- [2016](https://adventofcode.com/2016): days 1-10
 - [2015](https://adventofcode.com/2015): ALL + bonuses: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
 
 ## Repository contents

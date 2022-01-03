@@ -21,6 +21,11 @@
     <ClCompile Include="..\sources\2016\2016_03.cpp" />
     <ClCompile Include="..\sources\2016\2016_04.cpp" />
     <ClCompile Include="..\sources\2016\2016_05.cpp" />
+    <ClCompile Include="..\sources\2016\2016_06.cpp" />
+    <ClCompile Include="..\sources\2016\2016_07.cpp" />
+    <ClCompile Include="..\sources\2016\2016_08.cpp" />
+    <ClCompile Include="..\sources\2016\2016_09.cpp" />
+    <ClCompile Include="..\sources\2016\2016_10.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -44,5 +49,10 @@
     <ClInclude Include="..\sources\2016\2016_03.h" />
     <ClInclude Include="..\sources\2016\2016_04.h" />
     <ClInclude Include="..\sources\2016\2016_05.h" />
+    <ClInclude Include="..\sources\2016\2016_06.h" />
+    <ClInclude Include="..\sources\2016\2016_07.h" />
+    <ClInclude Include="..\sources\2016\2016_08.h" />
+    <ClInclude Include="..\sources\2016\2016_09.h" />
+    <ClInclude Include="..\sources\2016\2016_10.h" />
   </ItemGroup>
 </Project>
