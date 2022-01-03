@@ -76,7 +76,12 @@ namespace AoC
         }
 
         while (getline(f, line))
-            input.push_back(line);
+        {
+            if (line.size() == 0)
+                input.push_back(line);
+            else
+                input.push_back(line.back() == 13 ? line.substr(0, line.size() - 1) : line);
+        }
 
         f.close();
         return true;
