@@ -11,7 +11,8 @@ const AoC::t_names names = {
     { 7, "--- Day 7: Internet Protocol Version 7 ---"},
     { 8, "--- Day 8: Two-Factor Authentication ---" },
     { 9, "--- Day 9: Explosives in Cyberspace ---" },
-    { 10, "--- Day 10: Balance Bots ---" }
+    { 10, "--- Day 10: Balance Bots ---" },
+    { 11, "--- Day 11: Radioisotope Thermoelectric Generators ---" }
 };
 
 const AoC::t_repository repo = {
@@ -24,7 +25,8 @@ const AoC::t_repository repo = {
     { 7, {2, { { "", Day07_2016::main } } } },
     { 8, {2, { { "", Day08_2016::main } } } },
     { 9, {2, { { "", Day09_2016::main } } } },
-    { 10, {2, { { "", Day10_2016::main } } } }
+    { 10, {2, { { "", Day10_2016::main } } } },
+    { 11, {2, { { "", Day11_2016::main } } } }
 };
 
 int main(int argc, char* argv[])
