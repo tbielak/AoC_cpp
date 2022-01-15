@@ -51,7 +51,11 @@
 //
 // do not try to understand it, just enjoy :)
 //
+#ifdef MD5_SINGLE_TRANSFORM_RETURNS_STRING
+MD5_SINGLE_TRANSFORM_PREFIX string MD5_SINGLE_TRANSFORM_FNAME(unsigned int* x)
+#else
 MD5_SINGLE_TRANSFORM_PREFIX unsigned int MD5_SINGLE_TRANSFORM_FNAME(unsigned int* x)
+#endif
 {
     unsigned int state[4];
     state[0] = 0x67452301;
@@ -138,7 +142,19 @@ MD5_SINGLE_TRANSFORM_PREFIX unsigned int MD5_SINGLE_TRANSFORM_FNAME(unsigned int
     state[2] += c;
     state[3] += d;
 
+    #ifdef MD5_SINGLE_TRANSFORM_RETURNS_STRING
+    string s(32, '0');
+    char* bytes = (char*)(&state[0]);
+    for (int i = 0; i < 32; i++)
+    {
+        char c = char((bytes[i / 2] >> (((i & 1 ) ^ 1) << 2)) & 15);
+        s[i] = (c > 9) ? char(c + 'a' - 10) : char(c + '0');
+    }
+
+    return s;
+    #else
     return state[0];
+    #endif
 }
 
 #endif
