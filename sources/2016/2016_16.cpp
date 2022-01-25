@@ -7,7 +7,7 @@
 
 namespace Day16_2016
 {
-	string checksum(const string& input, int target_size)
+	string Main::checksum(const string& input, int target_size)
 	{
 		// create pattern
 		string data = input;
@@ -29,26 +29,13 @@ namespace Day16_2016
 		return data.substr(0, target_size);
 	}
 
-	string part_one(const t_input& input)
+	AoC::Output Main::part_one(const string& input)
 	{
-		return checksum(input[0], 272);
+		return checksum(input, 272);
 	}
 
-	string part_two(const t_input& input)
+	AoC::Output Main::part_two(const string& input)
 	{
-		return checksum(input[0], 35651584);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(p1);
-		solutions.push_back(p2);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return checksum(input, 35651584);
 	}
 }

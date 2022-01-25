@@ -101,7 +101,7 @@ namespace Day18_2021_Pairs
 				return;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		Number n(input[0]);
 		for (size_t i = 1; i < input.size(); i++)
@@ -110,7 +110,7 @@ namespace Day18_2021_Pairs
 		return n.magnitude();
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		int largest = 0;
 
@@ -125,18 +125,5 @@ namespace Day18_2021_Pairs
 				}
 
 		return largest;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

@@ -2,26 +2,30 @@
 
 namespace Day17_2015
 {
-	t_vecint both_parts(const t_vecint& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
+		t_vecint ints;
+		for (const auto& line : input)
+			ints.push_back(stoi(line));
+
 		t_vecint result(2);
 
-		int minc = (int)input.size();
+		int minc = (int)ints.size();
 		for (int part = 1; part <= 2; part++)
 		{
 			int cnt = 0;
-			int loop = 1 << input.size();
+			int loop = 1 << ints.size();
 			for (int j = 0; j < loop; j++)
 			{
 				int m = 0;
 				int v = 0;
 				int b = j;
-				for (size_t i = 0; i < input.size(); i++)
+				for (size_t i = 0; i < ints.size(); i++)
 				{
 					if (b & 1)
 					{
 						m++;
-						v += input[i];
+						v += ints[i];
 					}
 
 					b >>= 1;
@@ -46,22 +50,5 @@ namespace Day17_2015
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_vecint vinput;
-		for (const auto& line : input)
-			vinput.push_back(stoi(line));
-
-
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(vinput);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

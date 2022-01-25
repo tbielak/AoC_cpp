@@ -1,7 +1,7 @@
 #ifndef __2020_23__
 #define __2020_23__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day23_2020
 {
@@ -22,10 +22,10 @@ namespace Day23_2020
 
 		inline size_t previous(size_t x);
 
-		void play(size_t round_count);
+		CrabCups& play(size_t round_count);
 
 		string clockwise() const;
-		uintmax_t mul() const;
+		int64_t mul() const;
 
 	private:
 		size_t _count;
@@ -34,7 +34,12 @@ namespace Day23_2020
 		vector<Cup*> _ordered;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

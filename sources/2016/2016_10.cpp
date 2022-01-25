@@ -22,7 +22,7 @@ namespace Day10_2016
 	{
 	}
 
-	void set_value(t_bots& bots, const SetIns& ins, const LowHigh& cmp, int& cmp_bot)
+	void Main::set_value(t_bots& bots, const SetIns& ins, const LowHigh& cmp, int& cmp_bot)
 	{
 		auto it = bots.find(ins.bot);
 		if (it == bots.end())
@@ -59,7 +59,7 @@ namespace Day10_2016
 		}
 	}
 
-	pair<int, int> both_parts(const t_input& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
 		// read input
 		smatch matches;
@@ -130,17 +130,5 @@ namespace Day10_2016
 
 		// done!
 		return make_pair(cmp_bot, outputbin[0] * outputbin[1] * outputbin[2]);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto bp = both_parts(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(bp.first));
-		solutions.push_back(to_string(bp.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

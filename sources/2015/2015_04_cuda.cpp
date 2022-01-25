@@ -77,24 +77,15 @@ namespace Day04_2015_CUDA
 		return -1;
 	}
 
-	t_output main(const t_input& input)
+	AoC::Output Main::part_one(const string& input)
 	{
-		string line = input[0];
-
-		auto t0 = chrono::steady_clock::now();
 		MD5_Computing_Engine engine;
-		int p1 = -1;
-		int p2 = -1;
-		if (engine.set_input(line))
-		{
-			p1 = engine.run(0xff0f0000);
-			p2 = engine.run(0xff000000);
-		}
-		auto t1 = chrono::steady_clock::now();
+		return engine.set_input(input) ? engine.run(0xff0f0000) : -1;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::part_two(const string& input)
+	{
+		MD5_Computing_Engine engine;
+		return engine.set_input(input) ? engine.run(0xff000000) : -1;
 	}
 }

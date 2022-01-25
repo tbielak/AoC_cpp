@@ -10,12 +10,21 @@ namespace Day06_2019
 		target = input.substr(position + 1);
 	}
 
-	int count_them(const string& s)
+	t_vecItem Main::load(const vector<string>& input)
+	{
+		t_vecItem items;
+		for (const auto& line : input)
+			items.push_back(Item(line));
+
+		return items;
+	}
+
+	int Main::count_them(const string& s)
 	{
 		return (int)count(s.begin(), s.end(), ')');
 	}
 
-	void recursive_scan_part_one(int& cnt, t_vecItem& items, const string& src, const string& path)
+	void Main::recursive_scan_part_one(int& cnt, t_vecItem& items, const string& src, const string& path)
 	{
 		for (auto& s : items)
 		{
@@ -30,7 +39,7 @@ namespace Day06_2019
 		}
 	}
 
-	void recursive_scan_part_two(t_vecItem& items, const string& src, const string& path, string& san, string& you)
+	void Main::recursive_scan_part_two(t_vecItem& items, const string& src, const string& path, string& san, string& you)
 	{
 		for (auto& s : items)
 		{
@@ -50,39 +59,26 @@ namespace Day06_2019
 		}
 	}
 
-	int part_one(t_vecItem input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
+		t_vecItem items = load(input);
+
 		int cnt = 0;
-		recursive_scan_part_one(cnt, input, "COM", "COM");
+		recursive_scan_part_one(cnt, items, "COM", "COM");
 		return cnt;
 	}
 
-	int part_two(t_vecItem input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		t_vecItem items = load(input);
+
 		string san, you;
-		recursive_scan_part_two(input, "COM", "COM", san, you);
+		recursive_scan_part_two(items, "COM", "COM", san, you);
 
 		size_t i = 0;
 		while (san[i] == you[i])
 			i++;
 
 		return count_them(san.substr(i)) + count_them(you.substr(i));
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_vecItem items;
-		for (const auto& line : input)
-			items.push_back(Item(line));
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(items);
-		auto p2 = part_two(items);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

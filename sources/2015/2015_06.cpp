@@ -51,8 +51,27 @@ namespace Day06_2015
 			[](auto v, const auto& i) { return accumulate(i.cbegin(), i.cend(), v); });
 	}
 
-	int part_one(const t_vecInstruction& instructions)
+	t_vecInstruction Main::load(const vector<string>& input)
 	{
+		smatch matches;
+		regex regex("(turn on|turn off|toggle) ([0-9]*),([0-9]*) through ([0-9]*),([0-9]*)");
+		t_vecInstruction instructions;
+		for (const auto& line : input)
+		{
+			regex_search(line, matches, regex);
+			instructions.push_back(Instruction(
+				matches[1].str(),
+				make_pair(stoi(matches[2].str()), stoi(matches[3].str())),
+				make_pair(stoi(matches[4].str()), stoi(matches[5].str()))));
+		}
+		
+		return instructions;
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		t_vecInstruction instructions = load(input);
+
 		Grid g;
 		for (const auto& i : instructions)
 		{
@@ -67,8 +86,10 @@ namespace Day06_2015
 		return g.sum();
 	}
 
-	int part_two(const t_vecInstruction& instructions)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		t_vecInstruction instructions = load(input);
+
 		Grid g;
 		for (const auto& i : instructions)
 		{
@@ -81,30 +102,5 @@ namespace Day06_2015
 		}
 
 		return g.sum();
-	}
-
-	t_output main(const t_input& input)
-	{
-		smatch matches;
-		regex regex("(turn on|turn off|toggle) ([0-9]*),([0-9]*) through ([0-9]*),([0-9]*)");
-		t_vecInstruction instructions;
-		for (const auto& line : input)
-		{
-			regex_search(line, matches, regex);
-			instructions.push_back(Instruction(
-				matches[1].str(),
-				make_pair(stoi(matches[2].str()), stoi(matches[3].str())),
-				make_pair(stoi(matches[4].str()), stoi(matches[5].str()))));
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(instructions);
-		auto p2 = part_two(instructions);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

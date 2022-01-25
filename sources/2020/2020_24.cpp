@@ -3,7 +3,7 @@
 namespace Day24_2020
 {
 	Lobby::Lobby(const vector<string>& input)
-	:	_width(-1), _height(-1)
+		: _width(-1), _height(-1)
 	{
 		_xmin = 0;
 		_xmax = 0;
@@ -101,31 +101,18 @@ namespace Day24_2020
 		return cnt;
 	}
 
-	size_t part_one(Lobby& lobby)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return lobby.count_blacks();
+		return Lobby(input).count_blacks();
 	}
 
-	size_t part_two(Lobby& lobby)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		Lobby lobby(input);
 		lobby.create_floor();
 		for (int i = 0; i < 100; i++)
 			lobby.living_art();
 
 		return lobby.count_blacks_on_the_floor();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		Lobby lobby(input);
-		auto p1 = part_one(lobby);
-		auto p2 = part_two(lobby);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

@@ -3,7 +3,7 @@
 namespace Day21_2015
 {
 	template<typename Functor>
-	int calculate(int rcfg, Functor ftor)
+	int Main::calculate(int rcfg, Functor ftor)
 	{
 		int c = 0;
 		for (const auto& ring : rings)
@@ -17,8 +17,12 @@ namespace Day21_2015
 		return c;
 	}
 
-	pair<int, int> both_parts(int boss_hitpoints, int boss_damage, int boss_armor)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
+		int boss_hitpoints = stoi(input[0].substr(input[0].find(": ") + 2));
+		int boss_damage = stoi(input[1].substr(input[1].find(": ") + 2));
+		int boss_armor = stoi(input[2].substr(input[2].find(": ") + 2));
+
 		auto ring_damage = [](const Item& r) -> int { return r.damage; };
 		auto ring_armor = [](const Item& r) -> int { return r.armor; };
 		auto ring_cost = [](const Item& r) -> int { return r.cost; };
@@ -72,21 +76,5 @@ namespace Day21_2015
 						}
 
 		return pair<int, int>(mincost, maxcost);
-	}
-
-	t_output main(const t_input& input)
-	{
-		int boss_hitpoints = stoi(input[0].substr(input[0].find(": ") + 2));
-		int boss_damage = stoi(input[1].substr(input[1].find(": ") + 2));
-		int boss_armor = stoi(input[2].substr(input[2].find(": ") + 2));
-		
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(boss_hitpoints, boss_damage, boss_armor);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

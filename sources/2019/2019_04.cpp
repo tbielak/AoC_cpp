@@ -2,8 +2,12 @@
 
 namespace Day04_2019
 {
-	vector<int> both_parts(int from, int to)
+	AoC::Output Main::both_parts(const string& input)
 	{
+		size_t position = input.find_first_of('-');
+		int from = stoi(input.substr(0, position));
+		int to = stoi(input.substr(position + 1));
+
 		vector<int> result(2);
 		for (int i = from; i <= to; i++)
 		{
@@ -48,21 +52,5 @@ namespace Day04_2019
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		size_t position = input[0].find_first_of('-');
-		int from = stoi(input[0].substr(0, position));
-		int to = stoi(input[0].substr(position + 1));
-
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(from, to);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

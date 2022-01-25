@@ -1,7 +1,7 @@
 #ifndef __2015_14__
 #define __2015_14__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day14_2015
 {
@@ -34,7 +34,18 @@ namespace Day14_2015
 
 	typedef vector<Race> t_vecRace;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static t_vecReindeer load(const vector<string>& input);
+
+		static int first_fly(int finish, const t_vecReindeer& reindeers);
+		static int second_fly(int finish, const t_vecReindeer& input);
+	};
 }
 
 #endif

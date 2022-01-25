@@ -85,25 +85,13 @@ namespace Day04_2015_MT
 		_result = (_result == -1) ? value : min(_result, value);
 	}
 
-	int both_parts(int part, const string& line)
+	AoC::Output Main::part_one(const string& input)
 	{
-		const vector<unsigned int> result_mask = { 0xff0f0000, 0xff000000 };
-		MD5_Computing_Engine engine(line, result_mask[part - 1]);
-		return engine.run();
+		return MD5_Computing_Engine(input, 0xff0f0000).run();
 	}
 
-	t_output main(const t_input& input)
+	AoC::Output Main::part_two(const string& input)
 	{
-		string line = input[0];
-		
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = both_parts(1, line);
-		auto p2 = both_parts(2, line);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return MD5_Computing_Engine(input, 0xff000000).run();
 	}
 }

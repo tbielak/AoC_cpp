@@ -1,7 +1,7 @@
 #ifndef __2015_07__
 #define __2015_07__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day07_2015
 {
@@ -47,7 +47,19 @@ namespace Day07_2015
 		static word execute(const t_vecInstruction& instructions);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		Main();
+
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		word _wire_a;
+
+		static t_vecInstruction load(const vector<string>& input);
+	};
 }
 
 #endif

@@ -139,9 +139,9 @@ namespace Day05_2019
 		_memory[_memory[_ip++]] = value;
 	}
 
-	int part_one(const t_Memory& program)
+	AoC::Output Main::part_one(const string& input)
 	{
-		IntcodeVM vm(program);
+		IntcodeVM vm(IntcodeVM::parse(input));
 		vm.add_input(1);
 		vm.run();
 
@@ -152,26 +152,11 @@ namespace Day05_2019
 		return value;
 	}
 
-	int part_two(const t_Memory& program)
+	AoC::Output Main::part_two(const string& input)
 	{
-		IntcodeVM vm(program);
+		IntcodeVM vm(IntcodeVM::parse(input));
 		vm.add_input(5);
 		vm.run();
 		return vm.get_output();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto program = IntcodeVM::parse(input[0]);
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(program);
-		auto p2 = part_two(program);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

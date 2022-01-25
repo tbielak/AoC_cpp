@@ -4,7 +4,7 @@ namespace Day11_2019
 {
 	t_Memory IntcodeVM::parse(const string& input)
 	{
-		intmax_t addr = 0;
+		int64_t addr = 0;
 		t_Memory m;
 		string s;
 		stringstream ss(input);
@@ -35,26 +35,26 @@ namespace Day11_2019
 		_output.clear();
 	}
 
-	void IntcodeVM::patch(intmax_t address, intmax_t value)
+	void IntcodeVM::patch(int64_t address, int64_t value)
 	{
 		_memory[address] = value;
 	}
 
-	void IntcodeVM::add_input(intmax_t value)
+	void IntcodeVM::add_input(int64_t value)
 	{
 		_input.push_back(value);
 	}
 
-	intmax_t IntcodeVM::get_input()
+	int64_t IntcodeVM::get_input()
 	{
-		intmax_t value = _input.front();
+		int64_t value = _input.front();
 		_input.pop_front();
 		return value;
 	}
 
-	intmax_t IntcodeVM::get_output()
+	int64_t IntcodeVM::get_output()
 	{
-		intmax_t value = _output.front();
+		int64_t value = _output.front();
 		_output.pop_front();
 		return value;
 	}
@@ -73,7 +73,7 @@ namespace Day11_2019
 		while (1)
 		{
 			Operation op = (Operation)(_memory[_ip] % 100);
-			intmax_t param = _memory[_ip++] / 100;
+			int64_t param = _memory[_ip++] / 100;
 			Mode mode1 = (Mode)(param % 10); param /= 10;
 			Mode mode2 = (Mode)(param % 10); param /= 10;
 			Mode mode3 = (Mode)(param % 10);
@@ -119,8 +119,8 @@ namespace Day11_2019
 
 				case Operation::jump_if_true:
 				{
-					intmax_t src = fetch(mode1);
-					intmax_t target = fetch(mode2);
+					int64_t src = fetch(mode1);
+					int64_t target = fetch(mode2);
 					if (src != 0)
 						_ip = target;
 
@@ -129,8 +129,8 @@ namespace Day11_2019
 
 				case Operation::jump_if_false:
 				{
-					intmax_t src = fetch(mode1);
-					intmax_t target = fetch(mode2);
+					int64_t src = fetch(mode1);
+					int64_t target = fetch(mode2);
 					if (src == 0)
 						_ip = target;
 
@@ -165,7 +165,7 @@ namespace Day11_2019
 		}
 	}
 
-	intmax_t IntcodeVM::mem(intmax_t address)
+	int64_t IntcodeVM::mem(int64_t address)
 	{
 		return _memory[address];
 	}
@@ -175,9 +175,9 @@ namespace Day11_2019
 		return _state;
 	}
 
-	intmax_t IntcodeVM::fetch(Mode mode)
+	int64_t IntcodeVM::fetch(Mode mode)
 	{
-		intmax_t value = 0;
+		int64_t value = 0;
 		switch (mode)
 		{
 			case Mode::position: { value = _memory[_memory[_ip]]; break; }
@@ -190,7 +190,7 @@ namespace Day11_2019
 		return value;
 	}
 
-	void IntcodeVM::store(intmax_t value, Mode mode)
+	void IntcodeVM::store(int64_t value, Mode mode)
 	{
 		switch (mode)
 		{
@@ -286,9 +286,9 @@ namespace Day11_2019
 		}
 	}
 
-	size_t RegistrationIdentifier::painted_count()
+	int RegistrationIdentifier::painted_count()
 	{
-		return count_if(_area.begin(), _area.end(), [](const auto& x) { return x.second.painted; });
+		return (int)count_if(_area.begin(), _area.end(), [](const auto& x) { return x.second.painted; });
 	}
 
 	vector<string> RegistrationIdentifier::plate()
@@ -305,8 +305,7 @@ namespace Day11_2019
 			max_y = max(max_y, panel.first.y);
 		}
 
-		string s(max_x - min_x + 1, ' ');
-		vector<string> result(max_y - min_y + 1, s);
+		vector<string> result(max_y - min_y + 1, string(max_x - min_x + 1, ' '));
 		for (auto& panel : _area)
 			if (panel.second.color == 1)
 				result[panel.first.y][panel.first.x] = -37;
@@ -321,31 +320,17 @@ namespace Day11_2019
 			_area[position] = Features();
 	}
 
-	size_t part_one(RegistrationIdentifier& regid, const t_Memory& program)
+	AoC::Output Main::part_one(const string& input)
 	{
-		regid.paint(program, 0);
+		RegistrationIdentifier regid;
+		regid.paint(IntcodeVM::parse(input), 0);
 		return regid.painted_count();
 	}
 
-	vector<string> part_two(RegistrationIdentifier& regid, const t_Memory& program)
+	AoC::Output Main::part_two(const string& input)
 	{
-		regid.paint(program, 1);
-		return regid.plate();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto program = IntcodeVM::parse(input[0]);
-
 		RegistrationIdentifier regid;
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(regid, program);
-		auto p2 = part_two(regid, program);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.insert(solutions.end(), p2.begin(), p2.end());
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		regid.paint(IntcodeVM::parse(input), 1);
+		return regid.plate();
 	}
 }

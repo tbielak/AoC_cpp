@@ -1,7 +1,7 @@
 #ifndef __2019_09__
 #define __2019_09__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day09_2019
 {
@@ -29,8 +29,8 @@ namespace Day09_2019
 	// - instructions: addition, multiplication and halt
 	// - peeking the memory
 
-	typedef map<intmax_t, intmax_t> t_Memory;  // address to value
-	typedef list<intmax_t> t_List;
+	typedef map<int64_t, int64_t> t_Memory;  // address to value
+	typedef list<int64_t> t_List;
 
 	class IntcodeVM
 	{
@@ -42,19 +42,19 @@ namespace Day09_2019
 		IntcodeVM(bool stop_on_output);
 		void load(const t_Memory& program);
 		void reset();
-		void patch(intmax_t address, intmax_t value);
-		void add_input(intmax_t value);
-		intmax_t get_input();
-		intmax_t get_output();
+		void patch(int64_t address, int64_t value);
+		void add_input(int64_t value);
+		int64_t get_input();
+		int64_t get_output();
 		void run();
-		intmax_t mem(intmax_t address);
+		int64_t mem(int64_t address);
 		State state() const;
 
 	private:
 		bool _stop_on_output;
 		State _state;
-		intmax_t _ip;
-		intmax_t _rel_base;
+		int64_t _ip;
+		int64_t _rel_base;
 		t_Memory _memory;
 		t_List _input;
 		t_List _output;
@@ -66,11 +66,15 @@ namespace Day09_2019
 
 		enum class Mode { position = 0, immediate = 1, relative = 2 };
 
-		intmax_t fetch(Mode mode);
-		void store(intmax_t value, Mode mode);
+		int64_t fetch(Mode mode);
+		void store(int64_t value, Mode mode);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const string& input);
+	};
 }
 
 #endif

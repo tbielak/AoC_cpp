@@ -12,12 +12,13 @@ namespace Day09_2021
 		return x == rhs.x && y == rhs.y;
 	}
 
-	int part_one(t_basins& basins, const t_input& input)
+	t_basins Main::load(const vector<string>& input)
 	{
+		t_basins basins;
+		
 		int height = (int)input.size();
 		int width = (int)input[0].size();
-		
-		int risk_level = 0;
+
 		for (int y = 0; y < height; y++)
 		{
 			for (int x = 0; x < width; x++)
@@ -30,15 +31,14 @@ namespace Day09_2021
 					// low point found
 					basins.push_back(t_vecPoint());
 					basins.back().push_back(Point(x, y));
-					risk_level += ((input[y][x] - '0') + 1);
 				}
 			}
 		}
 
-		return risk_level;
+		return basins;
 	}
 
-	void add_point(t_vecPoint& b, const Point& p)
+	void Main::add_point(t_vecPoint& b, const Point& p)
 	{
 		// performance note:
 		// linear find = not optimal, but fast enough for this task
@@ -47,11 +47,24 @@ namespace Day09_2021
 			b.push_back(p);
 	}
 
-	int part_two(t_basins& basins, const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		auto basins = load(input);
+		
+		int risk_level = 0;
+		for (const auto& b : basins)
+			for (const auto& p : b)
+				risk_level += ((input[p.y][p.x] - '0') + 1);
+
+		return risk_level;
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		int height = (int)input.size();
 		int width = (int)input[0].size();
 
+		auto basins = load(input);
 		for (auto& b : basins)
 		{
 			size_t i = 0;
@@ -82,19 +95,5 @@ namespace Day09_2021
 
 		sort(v.begin(), v.end());
 		return int(v[v.size() - 1] * v[v.size() - 2] * v[v.size() - 3]);
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_basins basins;
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(basins, input);
-		auto p2 = part_two(basins, input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

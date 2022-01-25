@@ -1,7 +1,7 @@
 #ifndef __2016_11__
 #define __2016_11__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day11_2016
 {
@@ -23,7 +23,20 @@ namespace Day11_2016
 	typedef pair<t_state, int> t_state_with_step;   // state with step count
 	typedef queue<t_state_with_step> t_queue;       // queue of configurations to explore
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static t_floors load(const vector<string>& input);
+		static bool safe(uint16_t& cfg);
+		static void do_move(uint16_t& src, uint16_t& dst, uint16_t move);
+		static bool is_valid(uint16_t src, uint16_t dst, uint16_t move);
+		static vector<uint16_t> find_moves(uint16_t src, uint16_t dst);
+		static int solve(const t_floors& floors);
+	};
 }
 
 #endif

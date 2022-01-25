@@ -1,7 +1,7 @@
 #ifndef __2015_09__
 #define __2015_09__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day09_2015
 {
@@ -36,10 +36,17 @@ namespace Day09_2015
 		int _longest;
 		int _length;
 
-		void addPlace(const string& p);
+		void add_place(const string& p);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+
+	private:
+		static t_vecDistance load(const vector<string>& input);
+	};
 }
 
 #endif

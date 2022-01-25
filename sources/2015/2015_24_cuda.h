@@ -1,7 +1,7 @@
 #ifndef __2015_24_CUDA__
 #define __2015_24_CUDA__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 // Algortihm highlights:
 //
@@ -51,11 +51,11 @@ namespace Day24_2015_CUDA
 	class QEEngine
 	{
 	public:
-		QEEngine(const t_input& input);
+		QEEngine(const vector<string>& input);
 		~QEEngine();
 
 		bool init();
-		intmax_t run(int split);
+		int64_t run(int split);
 
 	private:
 		t_vecint _input;
@@ -69,7 +69,12 @@ namespace Day24_2015_CUDA
 		long long* _host_minQE;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

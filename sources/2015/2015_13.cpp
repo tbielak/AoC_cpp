@@ -64,22 +64,8 @@ namespace Day13_2015
 		if (_persons.find(s) == _persons.end())
 			_persons[s] = i;
 	}
-	
-	int part_one(Happiness& h, const t_vecInput& input)
-	{
-		h.create_persons(input);
-		h.who_likes_who(input);
-		return h.max_happiness();
-	}
 
-	int part_two(Happiness& h, const t_vecInput& input)
-	{
-		h.add_me();
-		h.who_likes_who(input);
-		return h.max_happiness();
-	}
-
-	t_output main(const t_input& input)
+	int Main::solve(const vector<string>& input, bool with_me)
 	{
 		t_vecInput vinput;
 		regex regex("(.*)( would )(lose|gain)([ ])([0-9]*)( happiness units by sitting next to )(.*)([.])");
@@ -92,14 +78,21 @@ namespace Day13_2015
 		}
 
 		Happiness h;
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(h, vinput);
-		auto p2 = part_two(h, vinput);
-		auto t1 = chrono::steady_clock::now();
+		h.create_persons(vinput);
+		if (with_me)
+			h.add_me();
 
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		h.who_likes_who(vinput);
+		return h.max_happiness();
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		return solve(input, false);
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		return solve(input, true);
 	}
 }

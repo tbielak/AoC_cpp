@@ -42,7 +42,7 @@ namespace Day23_2020
 		return ((x + _count - 2) % _count) + 1;
 	}
 
-	void CrabCups::play(size_t round_count)
+	CrabCups& CrabCups::play(size_t round_count)
 	{
 		Cup* current = _cups[0];
 		for (size_t r = 0; r < round_count; r++)
@@ -58,6 +58,8 @@ namespace Day23_2020
 			_ordered[dest - 1]->next = pick;
 			current = current->next;
 		}
+
+		return *this;
 	}
 
 	string CrabCups::clockwise() const
@@ -70,35 +72,18 @@ namespace Day23_2020
 		return s;
 	}
 
-	uintmax_t CrabCups::mul() const
+	int64_t CrabCups::mul() const
 	{
-		return uintmax_t(_first->next->label) * uintmax_t(_first->next->next->label);
+		return int64_t(_first->next->label) * int64_t(_first->next->next->label);
 	}
 
-	string part_one(const string& input)
+	AoC::Output Main::part_one(const string& input)
 	{
-		CrabCups cc(input, 0);
-		cc.play(100);
-		return cc.clockwise();
+		return CrabCups(input, 0).play(100).clockwise();
 	}
 
-	uintmax_t part_two(const string& input)
+	AoC::Output Main::part_two(const string& input)
 	{
-		CrabCups cc(input, 1000000);
-		cc.play(10000000);
-		return cc.mul();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input[0]);
-		auto p2 = part_two(input[0]);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(p1);
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return CrabCups(input, 1000000).play(10000000).mul();
 	}
 }

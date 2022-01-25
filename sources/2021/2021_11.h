@@ -1,7 +1,7 @@
 #ifndef __2021_11__
 #define __2021_11__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day11_2021
 {
@@ -20,13 +20,13 @@ namespace Day11_2021
 	class Octopuses
 	{
 	public:
-		Octopuses(const t_input& input);
+		Octopuses(const vector<string>& input);
 
 		int flashes_after(int steps);
 		int all_flashed();
 
 	private:
-		t_input _grid;
+		vector<string> _grid;
 		int _size;
 
 		int step();
@@ -34,7 +34,12 @@ namespace Day11_2021
 		bool inside(int y, int x);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

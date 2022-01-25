@@ -7,8 +7,28 @@ namespace Day19_2015
 	{
 	}
 
-	size_t part_one(const string& molecule, const t_vecReplacement& replacements)
+	void Main::load(const vector<string>& input, string& molecule, t_vecReplacement& replacements)
 	{
+		size_t idx = 0;
+		for (; idx < input.size(); idx++)
+		{
+			const auto& line = input[idx];
+			if (line == "")
+				break;
+
+			size_t pos = line.find(" => ");
+			replacements.push_back(Replacement(line.substr(0, pos), line.substr(pos + 4)));
+		}
+
+		molecule = input[idx + 1];
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		string molecule;
+		t_vecReplacement replacements;
+		load(input, molecule, replacements);
+
 		set<string> distinct;
 		for (const auto& r : replacements)
 		{
@@ -25,11 +45,16 @@ namespace Day19_2015
 			}
 		}
 
-		return distinct.size();
+		return (int)distinct.size();
 	}
 
-	size_t part_two(const string& molecule, t_vecReplacement& replacements)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		// load
+		string molecule;
+		t_vecReplacement replacements;
+		load(input, molecule, replacements);
+
 		// initialize random engine
 		int seed = (int)chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now().time_since_epoch()).count();
 		default_random_engine engine(seed);
@@ -75,32 +100,5 @@ namespace Day19_2015
 		}
 
 		return steps;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_vecReplacement replacements;
-		size_t idx = 0;
-		for (; idx < input.size(); idx++)
-		{
-			const auto& line = input[idx];
-			if (line == "")
-				break;
-
-			size_t pos = line.find(" => ");
-			replacements.push_back(Replacement(line.substr(0, pos), line.substr(pos + 4)));
-		}
-		
-		string molecule = input[idx + 1];
-		
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(molecule, replacements);
-		auto p2 = part_two(molecule, replacements);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

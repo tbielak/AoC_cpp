@@ -9,10 +9,7 @@ namespace Day18_2019
 
 	bool Position::operator < (const Position& other) const
 	{
-		if (row == other.row)
-			return col < other.col;
-
-		return row < other.row;
+		return (row == other.row) ? col < other.col : row < other.row;
 	}
 
 	KeyRing::KeyRing(int count /* = 0 */)
@@ -195,29 +192,15 @@ namespace Day18_2019
 		}
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		Solver s(input);
-		return s.execute();
+		return Solver(input).execute();
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		Solver s(input);
 		s.four_robots();
 		return s.execute();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

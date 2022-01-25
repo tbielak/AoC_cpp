@@ -1,7 +1,7 @@
 #ifndef __2019_06__
 #define __2019_06__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day06_2019
 {
@@ -17,7 +17,18 @@ namespace Day06_2019
 
 	typedef vector<Item> t_vecItem;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static t_vecItem load(const vector<string>& input);
+		static int count_them(const string& s);
+		static void recursive_scan_part_one(int& cnt, t_vecItem& items, const string& src, const string& path);
+		static void recursive_scan_part_two(t_vecItem& items, const string& src, const string& path, string& san, string& you);
+	};
 }
 
 #endif

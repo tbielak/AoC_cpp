@@ -5,10 +5,6 @@ namespace Day21_2020
 	Food::Food(const vector<string>& input)
 	:	_input(input)
 	{
-	}
-
-	void Food::solve()
-	{
 		static const string key = " (contains ";
 		for (const auto& s : _input)
 		{
@@ -85,28 +81,13 @@ namespace Day21_2020
 		}
 	}
 
-	size_t part_one(const Food& food)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return food.safe_count();
+		return Food(input).safe_count();
 	}
 
-	string part_two(const Food& food)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return food.safe_chain();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		Food food(input);
-		food.solve();
-		auto p1 = part_one(food);
-		auto p2 = part_two(food);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(p2);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Food(input).safe_chain();
 	}
 }

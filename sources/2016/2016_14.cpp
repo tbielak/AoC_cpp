@@ -8,7 +8,7 @@
 
 namespace Day14_2016
 {
-	string md5(const string& hash)
+	string Main::md5(const string& hash)
 	{
 		// copy input to 64-byte buffer, required for single MD5 transform
 		vector<unsigned char> buffer(64, 0);
@@ -24,7 +24,7 @@ namespace Day14_2016
 		return MD5_SINGLE_TRANSFORM_FNAME((unsigned int*)(&buffer[0]));
 	}
 
-	string find_hash(t_hash_cache& cache, string input, int i, int additional_hashings)
+	string Main::find_hash(t_hash_cache& cache, string input, int i, int additional_hashings)
 	{
 		// input hash
 		input += to_string(i);
@@ -45,7 +45,7 @@ namespace Day14_2016
 	}
 
 	// the same character three times in a row -> return it
-	char triplet(const string& hash)
+	char Main::triplet(const string& hash)
 	{
 		for (int i = 0; i < 30; i++)
 			if (hash[i] == hash[i + 1] && hash[i + 1] == hash[i + 2])
@@ -55,14 +55,14 @@ namespace Day14_2016
 	}
 
 	// the same c character five times in a row?
-	bool funflet(char c, const string& hash)
+	bool Main::funflet(char c, const string& hash)
 	{
 		string k(5, c);
 		return hash.find(k) != string::npos;
 	}
 
 	// solution
-	int find_index(const string& input, int additional_hashings = 0)
+	int Main::find_index(const string& input, int additional_hashings /* = 0 */)
 	{
 		int index = 0;
 		int keys = 0;
@@ -91,26 +91,13 @@ namespace Day14_2016
 		return index - 1;
 	}
 
-	int part_one(const string& input)
+	AoC::Output Main::part_one(const string& input)
 	{
 		return find_index(input);
 	}
 
-	int part_two(const string& input)
+	AoC::Output Main::part_two(const string& input)
 	{
 		return find_index(input, 2016);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input[0]);
-		auto p2 = part_two(input[0]);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

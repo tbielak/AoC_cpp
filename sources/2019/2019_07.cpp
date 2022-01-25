@@ -176,14 +176,14 @@ namespace Day07_2019
 		_memory[_memory[_ip++]] = value;
 	}
 
-	int part_one(const t_Memory& program)
+	AoC::Output Main::part_one(const string& input)
 	{
 		vector<int> phase(5);
 		for (int i = 0; i < 5; i++)
 			phase[i] = i;
 
 		IntcodeVM vm;
-		vm.load(program);
+		vm.load(IntcodeVM::parse(input));
 		int max_thruster = 0;
 		do
 		{
@@ -204,8 +204,10 @@ namespace Day07_2019
 		return max_thruster;
 	}
 
-	int part_two(const t_Memory& program)
+	AoC::Output Main::part_two(const string& input)
 	{
+		auto program = IntcodeVM::parse(input);
+
 		vector<int> phase(5);
 		for (int i = 0; i < 5; i++)
 			phase[i] = i + 5;
@@ -253,20 +255,5 @@ namespace Day07_2019
 		} while (next_permutation(phase.begin(), phase.end()));
 
 		return max_thruster;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto program = IntcodeVM::parse(input[0]);
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(program);
-		auto p2 = part_two(program);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

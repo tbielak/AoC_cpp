@@ -2,10 +2,35 @@
 
 namespace Day08_2016
 {
-	vector<string> both_parts(const t_commands& cmds)
+	t_commands Main::load(const vector<string>& input)
 	{
-		vector<string> screen(6, string(50, ' '));
+		t_commands cmds;
+		smatch matches;
+		regex regex_rect("rect ([0-9]*)x([0-9]*)");
+		regex regex_rotate("rotate (row y|column x)=([0-9]*) by ([0-9]*)");
 
+		for (const auto& line : input)
+		{
+			if (line[1] == 'e')
+			{
+				regex_search(line, matches, regex_rect);
+				cmds.push_back({ 'f', stoi(matches[1]), stoi(matches[2]) });
+			}
+			else
+			{
+				regex_search(line, matches, regex_rotate);
+				cmds.push_back({ matches[1] == "row y" ? 'r' : 'c', stoi(matches[2]), stoi(matches[3]) });
+			}
+		}
+
+		return cmds;
+	}
+
+	AoC::Output Main::both_parts(const vector<string>& input)
+	{
+		t_commands cmds = load(input);
+
+		vector<string> screen(6, string(50, ' '));
 		for (const auto& c : cmds)
 		{
 			switch (c.id)
@@ -60,35 +85,5 @@ namespace Day08_2016
 		result.push_back(to_string(count));
 		result.insert(result.end(), screen.begin(), screen.end());
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_commands cmds;
-		smatch matches;
-		regex regex_rect("rect ([0-9]*)x([0-9]*)");
-		regex regex_rotate("rotate (row y|column x)=([0-9]*) by ([0-9]*)");
-
-		for (const auto& line : input)
-		{
-			if (line[1] == 'e')
-			{
-				regex_search(line, matches, regex_rect);
-				cmds.push_back({ 'f', stoi(matches[1]), stoi(matches[2]) });
-			}
-			else
-			{
-				regex_search(line, matches, regex_rotate);
-				cmds.push_back({ matches[1] == "row y" ? 'r' : 'c', stoi(matches[2]), stoi(matches[3])});
-			}
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto bp = both_parts(cmds);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.insert(solutions.end(), bp.begin(), bp.end());
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

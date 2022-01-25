@@ -2,7 +2,7 @@
 
 namespace Day06_2016
 {
-	pair<string, string> both_parts(const t_input& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
 		// message length
 		int length = (int)input[0].size();
@@ -23,17 +23,5 @@ namespace Day06_2016
 		}
 
 		return make_pair(most_common, least_common);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(px.first);
-		solutions.push_back(px.second);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

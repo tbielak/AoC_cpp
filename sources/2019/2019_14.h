@@ -1,7 +1,7 @@
 #ifndef __2019_14__
 #define __2019_14__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day14_2019
 {
@@ -35,22 +35,29 @@ namespace Day14_2019
 	class Reactions
 	{
 	public:
-		void add(const string& line);
-		void prepare();
+		Reactions(const vector<string>& input);
 
-		intmax_t produce_fuel(intmax_t amount) const;
-		intmax_t target_ore(intmax_t ore) const;
+		int64_t produce_fuel(int64_t amount) const;
+		int64_t target_ore(int64_t ore) const;
 
 	private:
 		t_chemicals _chemicals;
 		map<string, size_t> _names;
+
+		void add(const string& line);
+		void prepare();
 
 		static bool sort_proc(const Chemical& x1, const Chemical& x2);
 		void order_recursive(const string& name, int order);
 		void update_names_mapping();
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

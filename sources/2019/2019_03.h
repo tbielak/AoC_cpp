@@ -1,7 +1,7 @@
 #ifndef __2019_03__
 #define __2019_03__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day03_2019
 {
@@ -19,7 +19,11 @@ namespace Day03_2019
 		map<pair<int, int>, int> _points;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+	};
 }
 
 #endif

@@ -146,27 +146,13 @@ namespace Day16_2021
 		return _packets[0].value();
 	}
 
-	int part_one(const Transmission& t)
+	AoC::Output Main::part_one(const string& input)
 	{
-		return t.sum_version();
+		return Transmission(input).sum_version();
 	}
 
-	int64_t part_two(Transmission& t)
+	AoC::Output Main::part_two(const string& input)
 	{
-		return t.calc();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		Transmission t(input[0]);
-		auto p1 = part_one(t);
-		auto p2 = part_two(t);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Transmission(input).calc();
 	}
 }

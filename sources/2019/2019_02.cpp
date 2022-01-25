@@ -55,17 +55,19 @@ namespace Day02_2019
 		_memory[_memory[_ip++]] = v;
 	}
 
-	int part_one(const t_Memory& program)
+	AoC::Output Main::part_one(const string& input)
 	{
-		IntcodeVM vm(program);
+		IntcodeVM vm(IntcodeVM::parse(input));
 		vm.patch(1, 12);
 		vm.patch(2, 2);
 		vm.run();
 		return vm.mem(0);
 	}
 
-	int part_two(const t_Memory& program)
+	AoC::Output Main::part_two(const string& input)
 	{
+		auto program = IntcodeVM::parse(input);
+
 		for (int noun = 0; noun <= 100; noun++)
 			for (int verb = 0; verb <= 100; verb++)
 			{
@@ -78,20 +80,5 @@ namespace Day02_2019
 			}
 
 		return -1;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto program = IntcodeVM::parse(input[0]);
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(program);
-		auto p2 = part_two(program);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

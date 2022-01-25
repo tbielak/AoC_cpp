@@ -1,7 +1,7 @@
 #ifndef __2020_07__
 #define __2020_07__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day07_2020
 {
@@ -24,7 +24,12 @@ namespace Day07_2020
 		bool contains_shiny_gold(const string& color, const string& key) const;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

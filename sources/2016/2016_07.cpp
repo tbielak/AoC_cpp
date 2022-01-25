@@ -2,7 +2,7 @@
 
 namespace Day07_2016
 {
-	bool supports_TLS(const string& s)
+	bool Main::supports_TLS(const string& s)
 	{
 		bool abba = false;
 		bool bracket = false;
@@ -29,7 +29,7 @@ namespace Day07_2016
 		return abba;
 	}
 
-	bool supports_SSL(const string& s)
+	bool Main::supports_SSL(const string& s)
 	{
 		bool bracket = false;
 		set<pair<char, char>> aba, bab;
@@ -57,26 +57,13 @@ namespace Day07_2016
 		return false;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		return (int)count_if(input.begin(), input.end(), [](const auto& s) { return supports_TLS(s); });
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		return (int)count_if(input.begin(), input.end(), [](const auto& s) { return supports_SSL(s); });
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

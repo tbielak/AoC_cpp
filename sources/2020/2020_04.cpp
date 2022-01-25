@@ -127,27 +127,13 @@ namespace Day04_2020
 		return s.size() == 9 && is_number(s);
 	}
 
-	size_t part_one(const CheckEngine& engine)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return engine.complete_count();
+		return CheckEngine(input).complete_count();
 	}
 
-	size_t part_two(const CheckEngine& engine)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return engine.valid_count();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		CheckEngine engine(input);
-		auto p1 = part_one(engine);
-		auto p2 = part_two(engine);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return CheckEngine(input).valid_count();
 	}
 }

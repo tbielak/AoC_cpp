@@ -2,14 +2,14 @@
 
 namespace Day03_2021
 {
-	int part_one(const t_input& x)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		string gamma_bin = x[0];
-		string epsilon_bin = x[0];
-		for (int i = 0; i < (int)x[0].size(); i++)
+		string gamma_bin = input[0];
+		string epsilon_bin = input[0];
+		for (int i = 0; i < (int)input[0].size(); i++)
 		{
-			int zeros = (int)count_if(x.begin(), x.end(), [i](const auto& s) { return s[i] == '0'; });
-			int ones = (int)x.size() - zeros;
+			int zeros = (int)count_if(input.begin(), input.end(), [i](const auto& s) { return s[i] == '0'; });
+			int ones = (int)input.size() - zeros;
 			gamma_bin[i] = char(zeros <= ones) + '0';
 			epsilon_bin[i] = char(zeros > ones) + '0';
 		}
@@ -19,7 +19,7 @@ namespace Day03_2021
 		return gamma_rate * epsilon_rate;
 	}
 
-	int find_rating(const t_input& x, int xor_mask)
+	int Main::find_rating(const vector<string>& x, int xor_mask)
 	{
 		vector<int> consider = vector<int>(x.size(), true);
 
@@ -60,23 +60,10 @@ namespace Day03_2021
 		}
 	}
 
-	int part_two(const t_input& x)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		int oxygen_rate = find_rating(x, 0);
-		int co2_rate = find_rating(x, 1);
+		int oxygen_rate = find_rating(input, 0);
+		int co2_rate = find_rating(input, 1);
 		return oxygen_rate * co2_rate;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

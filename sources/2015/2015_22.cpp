@@ -14,9 +14,12 @@ namespace Day22_2015
 		spell_timers = vector<int>(spell_count);
 	}
 
-	Game::Game(bool hard_level, int boss_hitpoints, int boss_damage)
+	Game::Game(bool hard_level, const vector<string>& input)
 	:	_hard_level(hard_level), _least_mana_spent(INT_MAX)
 	{
+		int boss_hitpoints = stoi(input[0].substr(input[0].find(": ") + 2));
+		int boss_damage = stoi(input[1].substr(input[1].find(": ") + 2));
+
 		_init = State(50, 500, 0, boss_hitpoints, boss_damage);
 	}
 
@@ -124,31 +127,13 @@ namespace Day22_2015
 		return armor;
 	}
 
-	int part_one(int boss_hitpoints, int boss_damage)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		Game game(false, boss_hitpoints, boss_damage);
-		return game.run();
+		return Game(false, input).run();
 	}
 
-	int part_two(int boss_hitpoints, int boss_damage)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		Game game(true, boss_hitpoints, boss_damage);
-		return game.run();
-	}
-
-	t_output main(const t_input& input)
-	{
-		int boss_hitpoints = stoi(input[0].substr(input[0].find(": ") + 2));
-		int boss_damage = stoi(input[1].substr(input[1].find(": ") + 2));
-		
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(boss_hitpoints, boss_damage);
-		auto p2 = part_two(boss_hitpoints, boss_damage);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Game(true, input).run();
 	}
 }

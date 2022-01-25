@@ -1,7 +1,7 @@
 #ifndef __2016_05__
 #define __2016_05__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day05_2016
 {
@@ -33,7 +33,12 @@ namespace Day05_2016
 		void set_result_part_two(int step, unsigned int value);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

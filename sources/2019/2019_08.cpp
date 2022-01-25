@@ -2,7 +2,7 @@
 
 namespace Day08_2019
 {
-	t_layers load(const string& input)
+	t_layers Main::load(const string& input)
 	{
 		const int width = 25;
 		const int height = 6;
@@ -22,8 +22,10 @@ namespace Day08_2019
 		return layers;
 	}
 
-	size_t part_one(const t_layers& layers)
+	AoC::Output Main::part_one(const string& input)
 	{
+		t_layers layers = load(input);
+
 		size_t min_zeroes_layer = 0;
 		size_t min_zeroes = INT_MAX;
 		for (size_t i = 0; i < layers.size(); i++)
@@ -47,11 +49,13 @@ namespace Day08_2019
 			twos += count(line.begin(), line.end(), '2');
 		}
 
-		return ones * twos;
+		return int(ones * twos);
 	}
 
-	t_image part_two(const t_layers& layers)
+	AoC::Output Main::part_two(const string& input)
 	{
+		t_layers layers = load(input);
+
 		const int width = 25;
 		const int height = 6;
 		string s(width, '?');
@@ -75,20 +79,5 @@ namespace Day08_2019
 				}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_layers layers = load(input[0]);
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(layers);
-		auto p2 = part_two(layers);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.insert(solutions.end(), p2.begin(), p2.end());
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

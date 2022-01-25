@@ -1,7 +1,7 @@
 #ifndef __2021_19__
 #define __2021_19__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day19_2021
 {
@@ -33,7 +33,14 @@ namespace Day19_2021
 	typedef vector<Beacon> t_vecBeacon;
 	typedef vector<t_vecBeacon> t_scanners;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+
+	private:
+		static t_scanners load(const vector<string>& input);
+	};
 }
 
 #endif

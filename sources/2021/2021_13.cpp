@@ -2,18 +2,12 @@
 
 namespace Day13_2021
 {
-	typedef vector<pair<int, int>> t_points;
-	typedef vector<pair<char, int>> t_folds;
-
-	const char dot = -37;		// use -37 instead of '#'
-	const char empty = ' ';		// use ' ' instead of '.'
-
-	char fold(char a, char b)
+	char Main::fold(char a, char b)
 	{
 		return (a == dot || b == dot) ? dot : empty;
 	}
 
-	vector<string> both_parts(const t_input& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
 		// load points
 		t_points points;
@@ -99,16 +93,5 @@ namespace Day13_2021
 			result.push_back(paper[y].substr(0, width));
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.insert(solutions.end(), px.begin(), px.end());
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

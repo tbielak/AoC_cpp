@@ -25,8 +25,26 @@ namespace Day01_2016
 	// 0 = north; 1 = east; 2 = south; 3 = west
 	const vector<Point> Point::update_position = { {0, -1}, {1, 0}, {0, 1}, {-1, 0} };
 
-	int part_one(const t_route& route)
+	t_route Main::load(const string& input)
 	{
+		t_route route;
+		stringstream ss(input);
+		char dir;
+		while (ss >> dir)
+		{
+			int number;
+			ss >> number;
+			route.push_back(Command(dir == 'R' ? 1 : -1, number));
+			ss.ignore(2);
+		}
+
+		return route;
+	}
+
+	AoC::Output Main::part_one(const string& input)
+	{
+		t_route route = load(input);
+
 		int face = 0;	// 0 = north; 1 = east; 2 = south; 3 = west
 		Point pos = Point(0, 0);
 
@@ -40,8 +58,10 @@ namespace Day01_2016
 		return pos.distance();
 	}
 
-	int part_two(const t_route& route)
+	AoC::Output Main::part_two(const string& input)
 	{
+		t_route route = load(input);
+
 		int face = 0;	// 0 = north; 1 = east; 2 = south; 3 = west
 		Point pos = Point(0, 0);
 		t_visited visited;
@@ -65,29 +85,5 @@ namespace Day01_2016
 		}
 
 		return -1;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_route route;
-		stringstream ss(input[0]);
-		char dir;
-		while (ss >> dir)
-		{
-			int number;
-			ss >> number;
-			route.push_back(Command(dir == 'R' ? 1 : -1, number));
-			ss.ignore(2);
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(route);
-		auto p2 = part_two(route);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

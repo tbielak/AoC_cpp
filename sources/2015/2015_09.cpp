@@ -12,8 +12,8 @@ namespace Day09_2015
 	{
 		for (const auto& x : input)
 		{
-			addPlace(x.from);
-			addPlace(x.to);
+			add_place(x.from);
+			add_place(x.to);
 		}
 
 		vector<int> x(_places.size());
@@ -55,7 +55,7 @@ namespace Day09_2015
 			travel_to(i);
 	}
 
-	void World::addPlace(const string& p)
+	void World::add_place(const string& p)
 	{
 		if (_places.find(p) == _places.end())
 		{
@@ -64,14 +64,7 @@ namespace Day09_2015
 		}
 	}
 
-	pair<int, int> both_parts(const t_vecDistance& input)
-	{
-		World world(input);
-		world.tournee();
-		return make_pair(world.shortest(), world.longest());
-	}
-
-	t_output main(const t_input& input)
+	t_vecDistance Main::load(const vector<string>& input)
 	{
 		t_vecDistance vdist;
 		regex regex("([A-Za-z]*) to ([A-Za-z]*) = (.*)");
@@ -82,13 +75,13 @@ namespace Day09_2015
 			vdist.push_back(Distance(matches[1].str(), matches[2].str(), stoi(matches[3].str())));
 		}
 
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(vdist);
-		auto t1 = chrono::steady_clock::now();
+		return vdist;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::both_parts(const vector<string>& input)
+	{
+		World world(load(input));
+		world.tournee();
+		return make_pair(world.shortest(), world.longest());
 	}
 }

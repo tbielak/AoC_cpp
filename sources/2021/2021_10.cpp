@@ -2,7 +2,7 @@
 
 namespace Day10_2021
 {
-	pair<intmax_t, intmax_t> both_parts(const t_input& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
 		static string open = "([{<";
 		static string close = ")]}>";
@@ -58,17 +58,5 @@ namespace Day10_2021
 
 		sort(all_autocomplete_scores.begin(), all_autocomplete_scores.end());
 		return make_pair(corrupted_score, all_autocomplete_scores[all_autocomplete_scores.size() / 2]);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

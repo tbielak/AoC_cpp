@@ -1,7 +1,7 @@
 #ifndef __2021_18_Pairs__
 #define __2021_18_Pairs__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day18_2021_Pairs
 {
@@ -30,7 +30,12 @@ namespace Day18_2021_Pairs
 		void reduce();
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

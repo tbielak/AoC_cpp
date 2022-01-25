@@ -14,10 +14,7 @@ namespace Day10_2019
 
 	bool Position::operator < (const Position& other) const
 	{
-		if (y == other.y)
-			return x < other.x;
-
-		return y < other.y;
+		return (y == other.y) ? x < other.x : y < other.y;
 	}
 
 	bool Position::operator != (const Position& other) const
@@ -37,10 +34,7 @@ namespace Day10_2019
 
 	bool AngleDistance::operator < (const AngleDistance& other) const
 	{
-		if (angle == other.angle)
-			return distance < other.distance;
-
-		return angle < other.angle;
+		return (angle == other.angle) ? distance < other.distance : angle < other.angle;
 	}
 
 	Space::Space(const vector<string>& input)
@@ -53,7 +47,7 @@ namespace Day10_2019
 					_asteroids[Position(x, y)] = 0;
 	}
 
-	int Space::best_location_asteroids()
+	t_mapAsteroidsElement Space::best_location_asteroids()
 	{
 		// creating out map:
 		//   first: position of monitoring station
@@ -83,17 +77,16 @@ namespace Day10_2019
 			if (best_it->second < it->second)
 				best_it = it;
 
-		// save best place and return number of asteroids
-		_best = best_it->first;
-		return best_it->second;
+		// return best location and number of asteroids
+		return make_pair(best_it->first, best_it->second);
 	}
 
-	int Space::laser_vaporization(int steps)
+	int Space::laser_vaporization(const Position& best, int steps)
 	{
 		// use _asteroids.second as vaporized flag
 		// starting from best place
 		for (auto& ast : _asteroids)
-			ast.second = (ast.first == _best) ? 1 : 0;
+			ast.second = (ast.first == best) ? 1 : 0;
 
 		int result = -1;
 		double angle = -1;
@@ -103,7 +96,7 @@ namespace Day10_2019
 			t_mapAsteroidsAngleDistance map;
 			for (const auto& ast : _asteroids)
 				if (ast.second == 0)  // not vaporized yet?
-					map[find_angle_and_distance(_best, ast.first)] = ast.first;
+					map[find_angle_and_distance(best, ast.first)] = ast.first;
 
 			// find candidate to vaporize
 			auto vi = map.begin();
@@ -210,27 +203,14 @@ namespace Day10_2019
 		return AngleDistance(angle, distance);
 	}
 
-	int part_one(Space& space)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return space.best_location_asteroids();
+		return Space(input).best_location_asteroids().second;
 	}
 
-	int part_two(Space& space)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return space.laser_vaporization(200);
-	}
-
-	t_output main(const t_input& input)
-	{
-		Space space(input);
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(space);
-		auto p2 = part_two(space);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		Space space = Space(input);
+		return space.laser_vaporization(space.best_location_asteroids().first, 200);
 	}
 }

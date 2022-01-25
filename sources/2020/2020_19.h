@@ -1,7 +1,7 @@
 #ifndef __2020_19__
 #define __2020_19__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day19_2020
 {
@@ -26,7 +26,16 @@ namespace Day19_2020
 		string remove_spaces(string& s);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+
+	private:
+		static pair<t_rules, t_msgs> load(const vector<string>& input);
+		static void solve(t_rules& rules);
+		static bool infinite_matches(const std::string& input, size_t pos, vector<int> r, vector<int> c, const t_rules& rules);
+	};
 }
 
 #endif

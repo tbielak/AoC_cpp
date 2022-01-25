@@ -1,7 +1,7 @@
 #ifndef __2021_16__
 #define __2021_16__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day16_2021
 {
@@ -41,7 +41,12 @@ namespace Day16_2021
 		vector<Packet> _packets;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

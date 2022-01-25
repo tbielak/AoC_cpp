@@ -1,11 +1,15 @@
 #ifndef __2016_06__
 #define __2016_06__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day06_2016
 {
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+	};
 }
 
 #endif

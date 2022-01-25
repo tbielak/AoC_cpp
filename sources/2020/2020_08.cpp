@@ -2,7 +2,16 @@
 
 namespace Day08_2020
 {
-	bool run(const t_code& code, int& acc)
+	t_code Main::load(const vector<string>& input)
+	{
+		t_code code;
+		for (const auto& line : input)
+			code.push_back(make_pair(line[0], stoi(line.substr(4))));
+
+		return code;
+	}
+
+	bool Main::run(const t_code& code, int& acc)
 	{
 		size_t pc = 0;
 		vector<bool> visited(code.size());
@@ -23,7 +32,7 @@ namespace Day08_2020
 		return true;
 	}
 
-	pair<bool, int> fix_and_run(t_code& code, char from, char to)
+	pair<bool, int> Main::fix_and_run(t_code& code, char from, char to)
 	{
 		for (size_t i = 0; i < code.size(); i++)
 			if (code[i].first == from)
@@ -39,15 +48,17 @@ namespace Day08_2020
 		return make_pair(false, -1);
 	}
 
-	int part_one(const t_code& code)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		int acc = 0;
-		run(code, acc);
+		run(load(input), acc);
 		return acc;
 	}
 
-	int part_two(t_code& code)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		auto code = load(input);
+
 		auto x = fix_and_run(code, 'j', 'n');
 		if (x.first)
 			return x.second;
@@ -57,22 +68,5 @@ namespace Day08_2020
 			return x.second;
 
 		return -1;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_code code;
-		for (const auto& line : input)
-			code.push_back(make_pair(line[0], stoi(line.substr(4))));
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(code);
-		auto p2 = part_two(code);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

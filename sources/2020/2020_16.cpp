@@ -8,7 +8,7 @@ namespace Day16_2020
 		isDeparture = name.find("departure") != string::npos;
 	}
 
-	Ticket::Ticket(const string& input)
+	Ticket::Ticket(const string& input /* = "" */)
 	{
 		string s;
 		stringstream ss(input);
@@ -16,31 +16,46 @@ namespace Day16_2020
 			_data.push_back(stoi(s));
 	}
 
-	int part_one(const t_vecProperty& properties, const t_vecTicket& nearbyTickets)
+	tuple<t_vecProperty, Ticket, t_vecTicket> Main::load(const vector<string>& input)
 	{
-		int errorRate = 0;
-		size_t propertyCount = properties.size();
-		size_t columnCount = nearbyTickets[0].size();
-
-		for (const auto& ticket : nearbyTickets)
+		// loading properties
+		t_vecProperty properties;
+		regex regex("([ a-z]*): ([0-9]*)-([0-9]*) or ([0-9]*)-([0-9]*)");
+		smatch matches;
+		size_t idx = 0;
+		for (; idx < input.size(); idx++)
 		{
-			for (size_t c = 0; c < columnCount; c++)
-			{
-				int x = ticket[c];
-				bool valid = false;
-				for (size_t p = 0; p < propertyCount; p++)
-				{
-					if ((x >= properties[p].r1.first && x <= properties[p].r1.second) ||
-						(x >= properties[p].r2.first && x <= properties[p].r2.second))
-						valid = true;
-				}
+			if (input[idx].empty())
+				break;
 
-				if (!valid)
-					errorRate += x;
-			}
+			regex_search(input[idx], matches, regex);
+
+			properties.push_back(
+				Property(matches[1].str(),
+					make_pair(stoi(matches[2].str()), stoi(matches[3].str())),
+					make_pair(stoi(matches[4].str()), stoi(matches[5].str()))));
 		}
 
-		return errorRate;
+		// loading my ticket
+		for (; idx < input.size(); idx++)
+			if (input[idx] == "your ticket:")
+				break;
+
+		idx++;
+		Ticket myTicket(input[idx++]);
+
+		// loading nearby tickets
+		for (; idx < input.size(); idx++)
+			if (input[idx] == "nearby tickets:")
+				break;
+
+		idx++;
+		t_vecTicket nearbyTickets;
+		for (; idx < input.size(); idx++)
+			nearbyTickets.push_back(Ticket(input[idx]));
+
+		// return tuple
+		return make_tuple(properties, myTicket, nearbyTickets);
 	}
 
 	MatchMatrix::MatchMatrix(size_t columnCount, size_t propertyCount, int initValue)
@@ -98,8 +113,39 @@ namespace Day16_2020
 			_matrix[c][propertyIdx] = 0;
 	}
 
-	long long int part_two(const t_vecProperty& properties, const t_vecTicket& nearbyTickets, const Ticket& myTicket)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
+		const auto [properties, myTicket, nearbyTickets] = load(input);
+
+		int errorRate = 0;
+		size_t propertyCount = properties.size();
+		size_t columnCount = nearbyTickets[0].size();
+
+		for (const auto& ticket : nearbyTickets)
+		{
+			for (size_t c = 0; c < columnCount; c++)
+			{
+				int x = ticket[c];
+				bool valid = false;
+				for (size_t p = 0; p < propertyCount; p++)
+				{
+					if ((x >= properties[p].r1.first && x <= properties[p].r1.second) ||
+						(x >= properties[p].r2.first && x <= properties[p].r2.second))
+						valid = true;
+				}
+
+				if (!valid)
+					errorRate += x;
+			}
+		}
+
+		return errorRate;
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		const auto [properties, myTicket, nearbyTickets] = load(input);
+
 		size_t propertyCount = properties.size();
 		size_t columnCount = myTicket.size();
 
@@ -146,7 +192,7 @@ namespace Day16_2020
 		}
 
 		// find departures
-		long long int value = 1;
+		int64_t value = 1;
 		for (size_t c = 0; c < columnCount; c++)
 		{
 			if (properties[data2property[c]].isDeparture)
@@ -154,55 +200,5 @@ namespace Day16_2020
 		}
 
 		return value;
-	}
-
-	t_output main(const t_input& input)
-	{
-		// loading properties
-		regex regex("([ a-z]*): ([0-9]*)-([0-9]*) or ([0-9]*)-([0-9]*)");
-		smatch matches;
-		t_vecProperty properties;
-		size_t idx = 0;
-		for (; idx < input.size(); idx++)
-		{
-			if (input[idx].empty())
-				break;
-
-			regex_search(input[idx], matches, regex);
-
-			properties.push_back(
-				Property(matches[1].str(),
-					make_pair(stoi(matches[2].str()), stoi(matches[3].str())),
-					make_pair(stoi(matches[4].str()), stoi(matches[5].str()))));
-		}
-
-		// loading my ticket
-		for (; idx < input.size(); idx++)
-			if (input[idx] == "your ticket:")
-				break;
-
-		idx++;
-		Ticket myTicket(input[idx++]);
-
-		// loading nearby tickets
-		for (; idx < input.size(); idx++)
-			if (input[idx] == "nearby tickets:")
-				break;
-
-		idx++;
-		t_vecTicket nearbyTickets;
-		for (; idx < input.size(); idx++)
-			nearbyTickets.push_back(Ticket(input[idx]));
-
-		// solve
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(properties, nearbyTickets);
-		auto p2 = part_two(properties, nearbyTickets, myTicket);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

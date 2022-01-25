@@ -1,7 +1,7 @@
 #ifndef __2020_18_LALR__
 #define __2020_18_LALR__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day18_2020_LALR
 {
@@ -17,7 +17,7 @@ namespace Day18_2020_LALR
 	struct LexAtom
 	{
 		TerminalClass tclass;
-		uintmax_t value;
+		int64_t value;
 	};
 
 	class Lexer
@@ -44,7 +44,7 @@ namespace Day18_2020_LALR
 			const t_vec2int& reduce_array,
 			const vector<semantic_action_function>& semantic_actions);
 
-		uintmax_t execute(const string& input);
+		int64_t execute(const string& input) const;
 
 	private:
 		const t_vecint& _suffix_length_array;
@@ -55,7 +55,12 @@ namespace Day18_2020_LALR
 		const vector<semantic_action_function>& _semantic_actions;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

@@ -3,7 +3,7 @@
 namespace Day13_2016
 {
 	Point::Point(int x, int y)
-	:	x(x), y(y)
+		: x(x), y(y)
 	{
 	}
 
@@ -17,21 +17,21 @@ namespace Day13_2016
 		return x == rhs.x && y == rhs.y;
 	}
 
-	int parity(int x) // see https://books.google.pl/books?id=iBNKMspIlqEC&pg=PA76&redir_esc=y&hl=pl#v=onepage&q&f=false
+	vector<Point> Point::next_position = { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
+
+	int Main::parity(int x) // see https://books.google.pl/books?id=iBNKMspIlqEC&pg=PA76&redir_esc=y&hl=pl#v=onepage&q&f=false
 	{
 		x = x ^ (x >> 1);
 		x = (x ^ (x >> 2)) & 0x11111111;
 		return ((x * 0x11111111) >> 28) & 1;
 	}
 
-	bool can_go(const Point& p, int fav)
+	bool Main::can_go(const Point& p, int fav)
 	{
 		return !parity(p.x * p.x + 3 * p.x + 2 * p.x * p.y + p.y + p.y * p.y + fav);
 	}
 
-	static vector<Point> next_position = { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
-
-	void walk(Point me, const Point& dst, t_visited& visited, int fav, int length, int& min_length, t_distinct& distinct, int steps)
+	void Main::walk(Point me, const Point& dst, t_visited& visited, int fav, int length, int& min_length, t_distinct& distinct, int steps)
 	{
 		visited[me] = true;
 
@@ -43,7 +43,7 @@ namespace Day13_2016
 
 		for (int i = 0; i < 4; i++)
 		{
-			Point next(me.x + next_position[i].x, me.y + next_position[i].y);
+			Point next(me.x + Point::next_position[i].x, me.y + Point::next_position[i].y);
 			if (next.x < 0 || next.y < 0)
 				continue;
 
@@ -58,7 +58,7 @@ namespace Day13_2016
 		visited[me] = false;
 	}
 
-	pair<int, int> both_parts(int input)
+	AoC::Output Main::both_parts(const string& input)
 	{
 		Point me(1, 1);
 		Point dst(31, 39);
@@ -66,19 +66,7 @@ namespace Day13_2016
 		t_distinct distinct;
 		int min_length = INT_MAX;
 
-		walk(me, dst, visited, input, 0, min_length, distinct, 50);
+		walk(me, dst, visited, stoi(input), 0, min_length, distinct, 50);
 		return make_pair(min_length, (int)distinct.size());
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto bp = both_parts(stoi(input[0]));
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(bp.first));
-		solutions.push_back(to_string(bp.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

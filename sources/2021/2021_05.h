@@ -1,7 +1,7 @@
 #ifndef __2021_05__
 #define __2021_05__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day05_2021
 {
@@ -19,7 +19,7 @@ namespace Day05_2021
 	class Diagram
 	{
 	public:
-		Diagram(const t_input& input);
+		Diagram(const vector<string>& input);
 
 		int count_overlaps(bool with_diagonals) const;
 
@@ -32,7 +32,12 @@ namespace Day05_2021
 		void draw_diagonal_line(t_diagram& tab, Point p1, Point p2) const;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

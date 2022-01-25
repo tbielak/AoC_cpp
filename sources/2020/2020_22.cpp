@@ -2,7 +2,27 @@
 
 namespace Day22_2020
 {
-	size_t score(const t_deck& deck)
+	t_players_decks Main::load(const vector<string>& input)
+	{
+		t_players_decks deck(2);
+		size_t idx = 1;
+		for (int i = 0; i < 2; i++)
+		{
+			for (; idx < input.size(); idx++)
+			{
+				if (input[idx] == "")
+					break;
+
+				deck[i].push_back(stoi(input[idx]));
+			}
+
+			idx += 2;
+		}
+
+		return deck;
+	}
+
+	size_t Main::score(const t_deck& deck)
 	{
 		size_t v = 0;
 		size_t i = deck.size();
@@ -12,26 +32,7 @@ namespace Day22_2020
 		return v;
 	}
 
-	size_t part_one(t_players_decks deck)
-	{
-		size_t winner = 0;
-		vector<int> card(2);
-		while (!deck[winner ^ 1].empty())
-		{
-			card[0] = deck[0].front();
-			card[1] = deck[1].front();
-			deck[0].pop_front();
-			deck[1].pop_front();
-
-			winner = card[0] < card[1];
-			deck[winner].push_back(card[winner]);
-			deck[winner].push_back(card[winner ^ 1]);
-		}
-
-		return score(deck[winner]);
-	}
-
-	size_t recursive_play(bool main_game, size_t winner, t_players_decks deck)
+	size_t Main::recursive_play(bool main_game, size_t winner, t_players_decks deck)
 	{
 		vector<int> card(2);
 		set<pair<size_t, size_t>> state;
@@ -70,36 +71,29 @@ namespace Day22_2020
 		}
 	}
 
-	size_t part_two(const t_players_decks& deck)
+	AoC::Output Main::part_one(const vector<string>&input)
 	{
-		return recursive_play(true, 0, deck);
-	}
+		auto deck = load(input);
 
-	t_output main(const t_input& input)
-	{
-		t_players_decks deck(2);
-		size_t idx = 1;
-		for (int i = 0; i < 2; i++)
+		size_t winner = 0;
+		vector<int> card(2);
+		while (!deck[winner ^ 1].empty())
 		{
-			for (; idx < input.size(); idx++)
-			{
-				if (input[idx] == "")
-					break;
+			card[0] = deck[0].front();
+			card[1] = deck[1].front();
+			deck[0].pop_front();
+			deck[1].pop_front();
 
-				deck[i].push_back(stoi(input[idx]));
-			}
-
-			idx += 2;
+			winner = card[0] < card[1];
+			deck[winner].push_back(card[winner]);
+			deck[winner].push_back(card[winner ^ 1]);
 		}
 
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(deck);
-		auto p2 = part_two(deck);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return score(deck[winner]);
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		return recursive_play(true, 0, load(input));
 	}
 }

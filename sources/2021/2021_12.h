@@ -1,7 +1,7 @@
 #ifndef __2021_12__
 #define __2021_12__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day12_2021
 {
@@ -11,7 +11,17 @@ namespace Day12_2021
 	typedef map<string, t_visitedpair> t_visited;    // <node, visited information>
 	typedef set<string> t_allpaths;                  // all paths found
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static void add(t_graph& graph, const string& from, const string& to);
+		static pair<t_graph, t_visited> load(const vector<string>& input);
+		static void go(const t_graph& graph, t_visited visited, const string& here_I_am, string path, t_allpaths& all_paths);
+	};
 }
 
 #endif

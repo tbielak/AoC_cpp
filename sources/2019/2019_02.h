@@ -1,7 +1,7 @@
 #ifndef __2019_02__
 #define __2019_02__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day02_2019
 {
@@ -34,7 +34,12 @@ namespace Day02_2019
 		void store(int v);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

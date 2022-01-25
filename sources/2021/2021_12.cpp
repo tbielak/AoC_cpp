@@ -2,7 +2,7 @@
 
 namespace Day12_2021
 {
-	void add(t_graph& graph, const string& from, const string& to)
+	void Main::add(t_graph& graph, const string& from, const string& to)
 	{
 		auto it = graph.find(from);
 		if (it == graph.end())
@@ -11,8 +11,11 @@ namespace Day12_2021
 			it->second.push_back(to);
 	}
 
-	void load(const t_input& input, t_graph& graph, t_visited& visited)
+	pair<t_graph, t_visited> Main::load(const vector<string>& input)
 	{
+		t_graph graph;
+		t_visited visited;
+
 		for (const auto& s : input)
 		{
 			size_t pos = s.find_first_of('-');
@@ -24,9 +27,11 @@ namespace Day12_2021
 
 		for (const auto& node : graph)
 			visited[node.first] = make_pair(0, 1);
+
+		return make_pair(graph, visited);
 	}
 
-	void go(const t_graph& graph, t_visited visited, const string& here_I_am, string path, t_allpaths& all_paths)
+	void Main::go(const t_graph& graph, t_visited visited, const string& here_I_am, string path, t_allpaths& all_paths)
 	{
 		if (here_I_am == "end")
 		{
@@ -51,15 +56,19 @@ namespace Day12_2021
 		}
 	}
 
-	int part_one(const t_graph& graph, t_visited& vis)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
+		auto [graph, visited] = load(input);
+
 		t_allpaths all_paths;
-		go(graph, vis, "start", "", all_paths);
-		return (int)all_paths.size();
+		go(graph, visited, "start", "", all_paths);
+		return all_paths.size();
 	}
 
-	int part_two(const t_graph& graph, t_visited& visited)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		auto [graph, visited] = load(input);
+
 		t_allpaths all_paths;
 		for (const auto& v : visited)
 		{
@@ -72,23 +81,6 @@ namespace Day12_2021
 			go(graph, visited, "start", "", all_paths);
 		}
 
-		return (int)all_paths.size();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		t_graph graph;
-		t_visited visited;
-		load(input, graph, visited);
-		
-		auto p1 = part_one(graph, visited);
-		auto p2 = part_two(graph, visited);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return all_paths.size();
 	}
 }

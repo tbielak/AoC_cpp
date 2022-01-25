@@ -2,12 +2,12 @@
 
 namespace Day20_2021
 {
-	int is_hash(char c)
+	int Main::is_hash(char c)
 	{
 		return (c == '#') ? 1 : 0;
 	}
 
-	int get_idx(const t_image& image, int x, int y, int width, int height, char empty)
+	int Main::get_idx(const t_image& image, int x, int y, int width, int height, char empty)
 	{
 		int idx = 0;
 		int bit = 256;
@@ -27,7 +27,7 @@ namespace Day20_2021
 		return idx;
 	}
 
-	t_image enhance(const string& algorithm, const t_image& src, char& empty)
+	t_image Main::enhance(const string& algorithm, const t_image& src, char& empty)
 	{
 		// source and destination image sizes
 		int src_height = (int)src.size();
@@ -48,7 +48,7 @@ namespace Day20_2021
 		return dst;
 	}
 
-	int solve(int steps, const t_input& input)
+	int Main::solve(int steps, const vector<string>& input)
 	{
 		// load
 		string algorithm = input[0];
@@ -69,26 +69,13 @@ namespace Day20_2021
 		return count;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		return solve(2, input);
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		return solve(50, input);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

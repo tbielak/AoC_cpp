@@ -1,11 +1,17 @@
 #ifndef __2021_25__
 #define __2021_25__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day25_2021
 {
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		typedef vector<string> t_sea;
+
+		virtual AoC::Output part_one(const vector<string>& input);
+	};
 }
 
 #endif

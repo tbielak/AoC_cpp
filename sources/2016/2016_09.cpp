@@ -2,7 +2,7 @@
 
 namespace Day09_2016
 {
-	intmax_t decompressed_length(const string& input, size_t begin_index, size_t end_index, bool recursive)
+	intmax_t Main::decompressed_length(const string& input, size_t begin_index, size_t end_index, bool recursive)
 	{
 		intmax_t len = end_index - begin_index;
 		for (size_t i = begin_index; i < end_index; i++)
@@ -34,26 +34,13 @@ namespace Day09_2016
 		return len;
 	}
 
-	intmax_t part_one(const string& input)
+	AoC::Output Main::part_one(const string& input)
 	{
 		return decompressed_length(input, 0, input.size(), false);
 	}
 
-	intmax_t part_two(const string& input)
+	AoC::Output Main::part_two(const string& input)
 	{
 		return decompressed_length(input, 0, input.size(), true);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input[0]);
-		auto p2 = part_two(input[0]);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

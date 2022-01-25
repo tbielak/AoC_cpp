@@ -2,8 +2,19 @@
 
 namespace Day12_2020
 {
-	int part_one(const t_navigation& nav)
+	t_navigation Main::load(const vector<string>& input)
 	{
+		t_navigation nav;
+		for (const auto& line : input)
+			nav.push_back(make_pair(line[0], stoi(line.substr(1))));
+
+		return nav;
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		auto nav = load(input);
+
 		// d -> direction: 0 = north, 1 = west, 2 = south, 3 - east
 		int x = 0;
 		int y = 0;
@@ -36,8 +47,10 @@ namespace Day12_2020
 		return abs(x) + abs(y);
 	}
 
-	int part_two(const t_navigation& nav)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		auto nav = load(input);
+
 		int x = 0;
 		int y = 0;
 		int wpx = 10;
@@ -75,22 +88,5 @@ namespace Day12_2020
 		}
 
 		return abs(x) + abs(y);
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_navigation nav;
-		for (const auto& line : input)
-			nav.push_back(make_pair(line[0], stoi(line.substr(1))));
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(nav);
-		auto p2 = part_two(nav);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

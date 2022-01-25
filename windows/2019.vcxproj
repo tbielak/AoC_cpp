@@ -42,6 +42,8 @@
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
     <ClCompile Include="..\sources\shared\Options.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp" />
+    <ClCompile Include="..\sources\shared\Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\2019\2019_01.h" />
@@ -68,6 +70,8 @@
     <ClInclude Include="..\sources\shared\Engine.h" />
     <ClInclude Include="..\sources\shared\input_output.h" />
     <ClInclude Include="..\sources\shared\Options.h" />
+    <ClInclude Include="..\sources\shared\Output.h" />
+    <ClInclude Include="..\sources\shared\Solution.h" />
     <ClInclude Include="..\sources\shared\stl.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

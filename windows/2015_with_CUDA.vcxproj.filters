@@ -42,6 +42,12 @@
     <ClCompile Include="..\sources\2015\2015_24.cpp" />
     <ClCompile Include="..\sources\2015\2015_25.cpp" />
     <ClCompile Include="..\sources\2015\2015_24_cuda.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Solution.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -93,6 +99,12 @@
     <ClInclude Include="..\sources\2015\2015_24_cuda.h" />
     <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
       <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Solution.h">
+      <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

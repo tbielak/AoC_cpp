@@ -2,7 +2,7 @@
 
 namespace Day18_2021_Strings
 {
-	int read_number(const string& s, size_t& pos)
+	int Main::read_number(const string& s, size_t& pos)
 	{
 		int v = 0;
 		while (isdigit(s[pos]))
@@ -11,7 +11,7 @@ namespace Day18_2021_Strings
 		return v;
 	}
 
-	size_t number_on_left(const string& s, size_t pos)
+	size_t Main::number_on_left(const string& s, size_t pos)
 	{
 		while (1)
 		{
@@ -32,7 +32,7 @@ namespace Day18_2021_Strings
 		return string::npos;
 	}
 
-	size_t number_on_right(const string& s, size_t pos)
+	size_t Main::number_on_right(const string& s, size_t pos)
 	{
 		while (1)
 		{
@@ -48,7 +48,7 @@ namespace Day18_2021_Strings
 		return string::npos;
 	}
 
-	size_t can_explode(const string& s)
+	size_t Main::can_explode(const string& s)
 	{
 		int level = 0;
 		for (size_t i = 0; i < s.size(); i++)
@@ -61,7 +61,7 @@ namespace Day18_2021_Strings
 		return string::npos;
 	}
 
-	bool explode(string& s)
+	bool Main::explode(string& s)
 	{
 		size_t lpos = can_explode(s);
 		if (lpos == string::npos)
@@ -100,7 +100,7 @@ namespace Day18_2021_Strings
 		return true;
 	}
 
-	bool split(string& s)
+	bool Main::split(string& s)
 	{
 		for (size_t ldig = 0; ldig < s.size() - 1; ldig++)
 			if (isdigit(s[ldig]) && isdigit(s[ldig + 1]))
@@ -116,21 +116,21 @@ namespace Day18_2021_Strings
 		return false;
 	}
 
-	void reduce(string& s)
+	void Main::reduce(string& s)
 	{
 		while (1)
 			if (!explode(s) && !split(s))
 				return;
 	}
 
-	string add(const string& a, const string& b)
+	string Main::add(const string& a, const string& b)
 	{
 		string s = "[" + a + "," + b + "]";
 		reduce(s);
 		return s;
 	}
 
-	int magnitude(string s)
+	int Main::magnitude(string s)
 	{
 		while (s[0] == '[')
 		{
@@ -156,7 +156,7 @@ namespace Day18_2021_Strings
 		return stoi(s);
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		string s = input[0];
 		for (size_t i = 1; i < input.size(); i++)
@@ -165,7 +165,7 @@ namespace Day18_2021_Strings
 		return magnitude(s);
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		int largest = 0;
 
@@ -179,18 +179,5 @@ namespace Day18_2021_Strings
 				}
 
 		return largest;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

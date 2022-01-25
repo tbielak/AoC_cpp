@@ -124,29 +124,14 @@ namespace Day05_2016
 			_result = candidate;
 	}
 
-	string part_one(const string& line)
+	AoC::Output Main::part_one(const string& input)
 	{
-		MD5_Computing_Engine engine(line, false);
-		return engine.run();
+		return MD5_Computing_Engine(input, false).run();
 	}
 
-	string part_two(const string& line)
+	AoC::Output Main::part_two(const string& input)
 	{
-		MD5_Computing_Engine engine(line, true);
-		return engine.run();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input[0]);
-		auto p2 = part_two(input[0]);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(p1);
-		solutions.push_back(p2);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return MD5_Computing_Engine(input, true).run();
 	}
 }
 

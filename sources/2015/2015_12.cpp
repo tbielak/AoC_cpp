@@ -94,7 +94,7 @@ namespace Day12_2015
 		return pos + 1;
 	}
 
-	int recursive_add_numbers(const JSONEntity& json, bool ignore_red)
+	int Main::recursive_add_numbers(const JSONEntity& json, bool ignore_red)
 	{
 		int sum = 0;
 		switch (json.kind())
@@ -135,28 +135,17 @@ namespace Day12_2015
 		return sum;
 	}
 
-	int part_one(const JSONEntity& json)
+	AoC::Output Main::part_one(const string& input)
 	{
+		JSONEntity json;
+		json.load(input);
 		return recursive_add_numbers(json, false);
 	}
 
-	int part_two(const JSONEntity& json)
+	AoC::Output Main::part_two(const string& input)
 	{
-		return recursive_add_numbers(json, true);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
 		JSONEntity json;
-		json.load(input[0]);
-		auto p1 = part_one(json);
-		auto p2 = part_two(json);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		json.load(input);
+		return recursive_add_numbers(json, true);
 	}
 }

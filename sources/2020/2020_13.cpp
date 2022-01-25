@@ -2,8 +2,27 @@
 
 namespace Day13_2020
 {
-	int part_one(int timestamp, const t_buses& buses)
+	t_buses Main::load(const vector<string>& input)
 	{
+		t_buses buses;
+		int i = -1;
+		string line;
+		stringstream ss(input[1]);
+		while (getline(ss, line, ','))
+		{
+			i++;
+			if (line != "x")
+				buses.push_back(make_pair(stoi(line), i));
+		}
+
+		return buses;
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		int timestamp = stoi(input[0]);
+		auto buses = load(input);
+
 		vector<int> dep(buses.size() - 1);
 		for (size_t i = 0; i < buses.size() - 1; i++)
 		{
@@ -26,12 +45,14 @@ namespace Day13_2020
 		return r;
 	}
 
-	uintmax_t part_two(const t_buses& buses)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		// note: second part solution strongly relies on primary numbers as buses IDs
+		
+		auto buses = load(input);
 
-		uintmax_t t = 0;
-		uintmax_t s = 1;
+		int64_t t = 0;
+		int64_t s = 1;
 		for (const auto& b : buses)
 		{
 			while ((t + b.second) % b.first > 0)
@@ -41,31 +62,5 @@ namespace Day13_2020
 		}
 
 		return t;
-	}
-
-	t_output main(const t_input& input)
-	{
-		int timestamp = stoi(input[0]);
-
-		t_buses buses;
-		int i = -1;
-		string line;
-		stringstream ss(input[1]);
-		while (getline(ss, line, ','))
-		{
-			i++;
-			if (line != "x")
-				buses.push_back(make_pair(stoi(line), i));
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(timestamp, buses);
-		auto p2 = part_two(buses);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

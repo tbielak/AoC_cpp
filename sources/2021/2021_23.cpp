@@ -2,27 +2,27 @@
 
 namespace Day23_2021
 {
-	// inliner: check if place in diagram is hallway
-	inline bool is_hallway(const t_diagram& diagram, int place)
+	// check if place in diagram is hallway
+	bool Main::is_hallway(const t_diagram& diagram, int place)
 	{
 		return diagram[place].size() == 1;
 	}
 
-	// inliner: get target place for selected amphipod
-	inline int target(char amphipod)
+	// get target place for selected amphipod
+	int Main::target(char amphipod)
 	{
 		return (int(amphipod - '@') * 2);
 	}
 
-	// inliner: get cost of selected amphipod move
-	inline int cost(char amphipod)
+	// get cost of selected amphipod move
+	int Main::cost(char amphipod)
 	{
 		return (int)pow(10, int(amphipod - 'A'));
 	}
 
 	// check if there is a free way to move amphipod from src to dst place
 	// assumption: room has empty place, checking hallway only
-	bool can_reach(const t_diagram& diagram, int src, int dst)
+	bool Main::can_reach(const t_diagram& diagram, int src, int dst)
 	{
 		int from = (src < dst) ? src + 1 : dst;
 		int to = (src < dst) ? dst : src - 1;
@@ -37,7 +37,7 @@ namespace Day23_2021
 	// check if in selected room there are only empty places or taken by
 	// amphipods of specified target type (in such case we don't want to
 	// move anything from this room)
-	bool target_only(const string& room, char target)
+	bool Main::target_only(const string& room, char target)
 	{
 		int count = 0;
 		for (auto c : room)
@@ -49,7 +49,7 @@ namespace Day23_2021
 
 	// finding possible destinations from src place
 	// assumption: there is amphipod at src place (place cannot be empty)
-	vector<int> find_destinations(const t_diagram& diagram, int src)
+	vector<int> Main::find_destinations(const t_diagram& diagram, int src)
 	{
 		// vector of possible destinations found
 		vector<int> result;
@@ -96,7 +96,7 @@ namespace Day23_2021
 		return result;
 	}
 
-	int do_move(const t_diagram& src_diagram, t_diagram& dst_diagram, int src, int dst)
+	int Main::do_move(const t_diagram& src_diagram, t_diagram& dst_diagram, int src, int dst)
 	{
 		// moving out (see i + 1 distance in case of moving out from room)
 		int i = (int)src_diagram[src].find_first_not_of('.');
@@ -119,7 +119,7 @@ namespace Day23_2021
 		return distance * cost(amphipod);
 	}
 
-	int solve(const t_diagram& input, const t_diagram& target)
+	int Main::solve(const t_diagram& input, const t_diagram& target)
 	{
 		// known costs cache, cost is 0 for input diagram
 		t_costs_cache cache;
@@ -173,7 +173,7 @@ namespace Day23_2021
 	}
 	
 	// load diagram from input
-	t_diagram load(const t_input& input)
+	t_diagram Main::load(const vector<string>& input)
 	{
 		// eleven places (hallway + rooms)
 		t_diagram diagram(11);
@@ -191,7 +191,7 @@ namespace Day23_2021
 		return diagram;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		// load diagram from input
 		t_diagram diagram = load(input);
@@ -201,7 +201,7 @@ namespace Day23_2021
 		return solve(diagram, target);
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		// load diagram from input, insert extra part to the diagram
 		t_diagram diagram = load(input);
@@ -213,18 +213,5 @@ namespace Day23_2021
 		// request target configuration and solve
 		t_diagram target = { ".", ".", "AAAA", ".", "BBBB", ".", "CCCC", ".", "DDDD", ".", "." };
 		return solve(diagram, target);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

@@ -352,34 +352,67 @@ namespace Day20_2020
 		return -1;
 	}
 
-	uintmax_t part_one(t_tiles& tiles, size_t& top_left)
+	pair<t_tiles, size_t> Main::load(const vector<string>& input)
 	{
+		// load from input
+		t_tiles tiles;
+		size_t idx = 0;
+		for (; idx < input.size(); idx++)
+		{
+			const auto& header = input[idx];
+			if (header == "")
+				break;
+
+			idx++;
+			vector<string> image;
+			for (; idx < input.size(); idx++)
+			{
+				const auto& line = input[idx];
+				if (line == "")
+					break;
+
+				image.push_back(line);
+			}
+
+			tiles.push_back(new Tile(header, image));
+		}
+		
+		// prepare edges
 		for (auto& t : tiles)
 			t->prepare_edges();
 
+		// match neighbours
 		for (size_t i = 0; i < tiles.size(); i++)
 			for (size_t j = 0; j < tiles.size(); j++)
 				if (i != j)
 					tiles[i]->match_neighbours((int)j, tiles);
 
-		std::vector<size_t> corners;
+		// find top left corner
+		size_t top_left = 0;
 		for (size_t i = 0; i < tiles.size(); i++)
-		{
-			if (tiles[i]->is_corner())
-				corners.push_back(i);
-
 			if (tiles[i]->is_top_left_corner())
 				top_left = i;
-		}
 
-		uintmax_t result = 1;
-		for (const auto& x : corners)
-			result *= tiles[x]->id();
+		// return data
+		return make_pair(tiles, top_left);
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		const auto [tiles, top_left] = load(input);
+
+		int64_t result = 1;
+		for (const auto& t : tiles)
+			if (t->is_corner())
+				result *= t->id();
+
 		return result;
 	}
 
-	int part_two(const t_tiles& tiles, size_t top_left)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		const auto [tiles, top_left] = load(input);
+
 		// tiles ordered
 		t_tiles ordered(tiles.size());
 		ordered[0] = tiles[top_left];
@@ -425,41 +458,5 @@ namespace Day20_2020
 		}
 
 		return hashes;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_tiles tiles;
-		size_t idx = 0;
-		for (; idx < input.size(); idx++)
-		{
-			const auto& header = input[idx];
-			if (header == "")
-				break;
-
-			idx++;
-			vector<string> image;
-			for (; idx < input.size(); idx++)
-			{
-				const auto& line = input[idx];
-				if (line == "")
-					break;
-
-				image.push_back(line);
-			}
-
-			tiles.push_back(new Tile(header, image));
-		}
-
-		size_t top_left = 0;
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(tiles, top_left);
-		auto p2 = part_two(tiles, top_left);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

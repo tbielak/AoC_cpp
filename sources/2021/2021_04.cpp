@@ -2,13 +2,13 @@
 
 namespace Day04_2021
 {
-	Bingo::Bingo(const t_input& input)
+	Bingo::Bingo(const vector<string>& input)
 	{
 		read_random(input);
 		read_boards(input);
 	}
 
-	void Bingo::read_random(const t_input& input)
+	void Bingo::read_random(const vector<string>& input)
 	{
 		int number;
 		stringstream ss(input[0]);
@@ -19,7 +19,7 @@ namespace Day04_2021
 		}
 	}
 
-	void Bingo::read_boards(const t_input& input)
+	void Bingo::read_boards(const vector<string>& input)
 	{
 		size_t idx = 1;
 		while (idx < input.size())
@@ -104,27 +104,13 @@ namespace Day04_2021
 		return sum;
 	}
 	
-	int part_one(Bingo bingo)	// make board copy
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return bingo.play(true);
+		return Bingo(input).play(true);
 	}
 
-	int part_two(Bingo& bingo)	// use existing board (by reference)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return bingo.play(false);
-	}
-
-	t_output main(const t_input& input)
-	{
-		Bingo bingo(input);
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(bingo);
-		auto p2 = part_two(bingo);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Bingo(input).play(false);
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace Day15_2015
 {
-	t_vecint both_parts(const t_vec2int& input)
+	t_vecint solve(const t_vec2int& input)
 	{
 		const int total_amount = 100;
 		const int req_calories = 500;
@@ -68,7 +68,7 @@ namespace Day15_2015
 		return result;
 	}
 
-	t_output main(const t_input& input)
+	t_vec2int Main::load(const vector<string>& input)
 	{
 		t_vec2int vinput;
 		regex regex("(.*): capacity ([-]?[0-9]*), durability ([-]?[0-9]*), flavor ([-]?[0-9]*), texture ([-]?[0-9])*, calories ([-]?[0-9]*)");
@@ -83,13 +83,11 @@ namespace Day15_2015
 			vinput.push_back(move(v));
 		}
 
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(vinput);
-		auto t1 = chrono::steady_clock::now();
+		return vinput;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::both_parts(const vector<string>& input)
+	{
+		return solve(load(input));
 	}
 }

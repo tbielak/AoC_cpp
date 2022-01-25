@@ -4,7 +4,7 @@
 
 namespace Day24_2015_CUDA
 {
-	QEEngine::QEEngine(const t_input& input)
+	QEEngine::QEEngine(const vector<string>& input)
 	:	_threadsPerBlock(0), _blocksPerGrid(0), _groupsPerThread(0),
 		_cuda_results(0), _cuda_aggregated(0), _host_aggregated(0), _cuda_minQE(0), _host_minQE(0)
 	{
@@ -99,7 +99,7 @@ namespace Day24_2015_CUDA
 		return true;
 	}
 
-	intmax_t QEEngine::run(int split)
+	int64_t QEEngine::run(int split)
 	{
 		// find requested packages weight
 		int packages_weight = accumulate(_input.begin(), _input.end(), 0) / split;
@@ -155,22 +155,15 @@ namespace Day24_2015_CUDA
 		return minQE;
 	}
 
-	t_output main(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		auto t0 = chrono::steady_clock::now();
 		QEEngine engine(input);
-		intmax_t p1 = -1;
-		intmax_t p2 = -1;
-		if (engine.init())
-		{
-			p1 = engine.run(3);
-			p2 = engine.run(4);
-		}
-		auto t1 = chrono::steady_clock::now();
+		return engine.init() ? engine.run(3) : -1;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		QEEngine engine(input);
+		return engine.init() ? engine.run(4) : -1;
 	}
 }

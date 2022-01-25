@@ -41,45 +41,26 @@ namespace Day17_2020
 		return *this;
 	}
 
-	Slice PocketDimension::load(const vector<string>& input)
+	PocketDimension::PocketDimension(bool go4d, const vector<string>& input)
+	:	_go4d(go4d)
 	{
-		Slice slice;
-		slice.max_x = int(input[0].size() - 1);
-		slice.max_y = int(input.size() - 1);
+		// init
+		_min_x = 0;
+		_max_x = int(input[0].size() - 1);
+		_min_y = 0;
+		_max_y = int(input.size() - 1);
+		_max_z = 0;
+		_max_w = 0;
+
+		// load
 		for (int y = 0; y < (int)input.size(); y++)
 		{
 			const string& s = input[y];
 			for (int x = 0; x < (int)s.size(); x++)
-				slice.cubes[Point4D(x, y, 0, 0)] = (s[x] == '#');
+				_cubes[Point4D(x, y, 0, 0)] = (s[x] == '#');
 		}
 
-		return slice;
-	}
-
-	PocketDimension::PocketDimension(bool go4d, const Slice& slice)
-	:	_go4d(go4d)
-	{
-		_cubes = slice.cubes;
-		_min_x = 0;
-		_max_x = slice.max_x;
-		_min_y = 0;
-		_max_y = slice.max_y;
-		_max_z = 0;
-		_max_w = 0;
-
-		generate_neighbours();
-	}
-
-	int PocketDimension::run()
-	{
-		for (int i = 0; i < 6; i++)
-			cycle();
-
-		return count();
-	}
-
-	void PocketDimension::generate_neighbours()
-	{
+		// generate neighbours
 		int wmax = _go4d;
 		int wmin = -wmax;
 		for (int w = wmin; w <= wmax; w++)
@@ -88,6 +69,14 @@ namespace Day17_2020
 					for (int x = -1; x <= 1; x++)
 						if (!(x == 0 && y == 0 && z == 0 && w == 0))
 							_neighbours.push_back(Point4D(x, y, z, w));
+	}
+
+	int PocketDimension::run()
+	{
+		for (int i = 0; i < 6; i++)
+			cycle();
+
+		return count();
 	}
 
 	void PocketDimension::cycle()
@@ -139,23 +128,13 @@ namespace Day17_2020
 		return c;
 	}
 
-	pair<int, int> both_parts(const Slice& slice)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		PocketDimension p1dim(false, slice);
-		PocketDimension p2dim(true, slice);
-		return make_pair(p1dim.run(), p2dim.run());
+		return PocketDimension(false, input).run();
 	}
 
-	t_output main(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		Slice slice = PocketDimension::load(input);
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(slice);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return PocketDimension(true, input).run();
 	}
 }

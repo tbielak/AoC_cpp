@@ -3,7 +3,7 @@
 namespace AoC
 {
     Options::Options()
-    :   colors(true), help(false), available(false), speed(false), day(-1), solution(-1)
+    :   colors(true), help(false), available(false), speed(0), day(-1), solution(-1)
     {
     }
 
@@ -19,11 +19,28 @@ namespace AoC
             if (x == "-a")
                 available = true;
             if (x == "-s")
-                speed = true;
+            {
+                if (argc > i + 1)
+                    get_speed(argv[++i]);
+                else
+                    speed = 10;
+            }
             if (x == "-p" && argc > i + 1)
                 which_puzzle(argv[++i]);
             if (x == "-i" && argc > i + 1)
                 input_filename = argv[++i];
+        }
+    }
+
+    void Options::get_speed(const string& s)
+    {
+        try
+        {
+            speed = stoi(s);
+        }
+        catch (exception&)
+        {
+            speed = 0;
         }
     }
 

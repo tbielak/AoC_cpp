@@ -1,7 +1,7 @@
 #ifndef __2015_12__
 #define __2015_12__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day12_2015
 {
@@ -46,7 +46,15 @@ namespace Day12_2015
 		size_t load_array(const string& input, size_t pos);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+
+	private:
+		static int recursive_add_numbers(const JSONEntity& json, bool ignore_red);
+	};
 }
 
 #endif

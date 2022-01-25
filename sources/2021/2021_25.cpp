@@ -2,9 +2,10 @@
 
 namespace Day25_2021
 {
-	int part_one(t_input sea)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		// sea size
+		// sea
+		t_sea sea = input;
 		int height = (int)sea.size();
 		int width = (int)sea[0].size();
 
@@ -15,10 +16,10 @@ namespace Day25_2021
 			step++;
 			
 			// remember current sea to check later if it changed
-			t_input before = sea;
+			t_sea before = sea;
 
 			// create new empty sea (with '.' everywhere)
-			t_input new_sea(height, string(width, '.'));
+			t_sea new_sea(height, string(width, '.'));
 			
 			// set '>' in new sea in their new positions
 			for (int y = 0; y < height; y++)
@@ -70,16 +71,5 @@ namespace Day25_2021
 		}
 
 		return -1;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

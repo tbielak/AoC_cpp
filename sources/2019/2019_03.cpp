@@ -55,25 +55,13 @@ namespace Day03_2019
 		return steps;
 	}
 
-	pair<int, int> both_parts(Wire& w1, Wire& w2)
-	{
-		w1.twists_and_turns();
-		w2.twists_and_turns();
-		return make_pair(w1.distance_to_closest(w2), w1.fewest_steps(w2));
-	}
-
-	t_output main(const t_input& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
 		Wire w1(input[0]);
 		Wire w2(input[1]);
 
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(w1, w2);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		w1.twists_and_turns();
+		w2.twists_and_turns();
+		return make_pair(w1.distance_to_closest(w2), w1.fewest_steps(w2));
 	}
 }

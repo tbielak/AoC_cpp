@@ -1,7 +1,7 @@
 #ifndef __2016_08__
 #define __2016_08__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day08_2016
 {
@@ -14,7 +14,14 @@ namespace Day08_2016
 
 	typedef vector<Command> t_commands;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+
+	private:
+		static t_commands load(const vector<string>& input);
+	};
 }
 
 #endif

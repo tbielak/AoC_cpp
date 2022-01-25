@@ -2,19 +2,18 @@
 
 namespace Day24_2015
 {
-	int bit_count(int group, int count)
+	int Main::fast_bit_count(int x)
 	{
-		int v = 0;
-		for (int i = 0; i < count; i++)
-		{
-			if (group & 1) v++;
-			group >>= 1;
-		}
-
-		return v;
+		// see https://books.google.pl/books?id=iBNKMspIlqEC&pg=PA66&redir_esc=y&hl=pl#v=onepage&q&f=false
+		x = x - ((x >> 1) & 0x55555555);
+		x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
+		x = (x + (x >> 4)) & 0x0f0f0f0f;
+		x = x + (x >> 8);
+		x = x + (x >> 16);
+		return x & 0x3f;
 	}
 
-	int sum_group(const t_vecint& input, int group, int count)
+	int Main::sum_group(const t_vecint& input, int group, int count)
 	{
 		int v = 0;
 		for (int i = count - 1; i >= 0; i--)
@@ -26,9 +25,9 @@ namespace Day24_2015
 		return v;
 	}
 
-	uintmax_t QE(const t_vecint& input, int group, int count)
+	int64_t Main::QE(const t_vecint& input, int group, int count)
 	{
-		uintmax_t v = 1;
+		int64_t v = 1;
 		for (int i = count - 1; i >= 0; i--)
 		{
 			if (group & 1) v *= input[i];
@@ -38,22 +37,26 @@ namespace Day24_2015
 		return v;
 	}
 
-	vector<uintmax_t> both_parts(const t_vecint& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
-		vector<uintmax_t> result;
-		int count = (int)input.size();
+		t_vecint ints;
+		for (const auto& line : input)
+			ints.push_back(stoi(line));
+
+		vector<int64_t> result;
+		int count = (int)ints.size();
 
 		for (int part = 1; part <= 2; part++)
 		{
-			int total = accumulate(input.begin(), input.end(), 0) / (part + 2);
+			int total = accumulate(ints.begin(), ints.end(), 0) / (part + 2);
 
 			t_vecint valid_groups;
 			int group_count = 1 << count;
 			int min_bc = count;
 			for (int group = 1; group < group_count; group++)
 			{
-				int bc = bit_count(group, count);
-				if (bc <= min_bc && sum_group(input, group, count) == total)
+				int bc = fast_bit_count(group);
+				if (bc <= min_bc && sum_group(ints, group, count) == total)
 				{
 					if (bc < min_bc)
 					{
@@ -65,29 +68,13 @@ namespace Day24_2015
 				}
 			}
 
-			uintmax_t minQE = ULLONG_MAX;
+			int64_t minQE = LLONG_MAX;
 			for (const auto& v : valid_groups)
-				minQE = min(minQE, QE(input, v, count));
+				minQE = min(minQE, QE(ints, v, count));
 
 			result.push_back(minQE);
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_vecint vinput;
-		for (const auto& line : input)
-			vinput.push_back(stoi(line));
-		
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(vinput);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

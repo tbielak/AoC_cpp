@@ -2,7 +2,7 @@
 
 namespace Day11_2020
 {
-	int adj(const t_input& grid, int y, int x)
+	int Main::adj(const vector<string>& grid, int y, int x)
 	{
 		int c = 0;
 		if (y > 0)
@@ -25,7 +25,7 @@ namespace Day11_2020
 		return c;
 	}
 
-	bool go(const t_input& grid, int y, int x, int ya, int xa)
+	bool Main::go(const vector<string>& grid, int y, int x, int ya, int xa)
 	{
 		while (1)
 		{
@@ -44,7 +44,7 @@ namespace Day11_2020
 		return false;
 	}
 
-	int see(const t_input& grid, int y, int x)
+	int Main::see(const vector<string>& grid, int y, int x)
 	{
 		int c = 0;
 		const vector<pair<int, int>> displ = { {-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1} };
@@ -55,7 +55,7 @@ namespace Day11_2020
 		return c;
 	}
 
-	int count(const t_input& grid)
+	int Main::count_them(const vector<string>& grid)
 	{
 		int c = 0;
 		for (const auto& s : grid)
@@ -64,9 +64,9 @@ namespace Day11_2020
 		return c;
 	}
 
-	int simulate(t_input s, int seats_count, int (*func)(const t_input&, int, int))
+	int Main::simulate(vector<string> s, int seats_count, int (*func)(const vector<string>&, int, int))
 	{
-		t_input t = s;
+		vector<string> t = s;
 		while (1)
 		{
 			for (int x = 0; x < (int)s[0].size(); x++)
@@ -77,7 +77,7 @@ namespace Day11_2020
 				}
 
 			if (s == t)
-				return count(s);
+				return count_them(s);
 
 			s = t;
 		}
@@ -85,26 +85,13 @@ namespace Day11_2020
 		return -1;
 	}
 
-	int part_one(const t_input& grid)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return simulate(grid, 4, adj);
+		return simulate(input, 4, adj);
 	}
 
-	int part_two(const t_input& grid)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return simulate(grid, 5, see);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return simulate(input, 5, see);
 	}
 }

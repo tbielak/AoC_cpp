@@ -1,7 +1,7 @@
 #ifndef __2021_17__
 #define __2021_17__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day17_2021
 {
@@ -19,7 +19,11 @@ namespace Day17_2021
 		int x, y;             // current position
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const string& input);
+	};
 }
 
 #endif

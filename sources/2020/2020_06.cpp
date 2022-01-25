@@ -2,8 +2,12 @@
 
 namespace Day06_2020
 {
-	vector<size_t> both_parts(const vector<string>& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
+		vector<string> sinput = input;
+		sinput.push_back("");
+		sinput.push_back("");
+
 		vector<size_t> result(2);
 		for (size_t part = 1; part <= 2; part++)
 		{
@@ -13,7 +17,7 @@ namespace Day06_2020
 
 			size_t char_count = 'z' - 'a' + 1;
 			vector<int> x(char_count, 0);
-			for (const auto& s : input)
+			for (const auto& s : sinput)
 			{
 				if (next_group)
 				{
@@ -41,21 +45,5 @@ namespace Day06_2020
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		vector<string> sinput = input;
-		sinput.push_back("");
-		sinput.push_back("");
-
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(sinput);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

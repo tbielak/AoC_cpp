@@ -1,7 +1,7 @@
 #ifndef __2015_18__
 #define __2015_18__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day18_2015
 {
@@ -11,7 +11,7 @@ namespace Day18_2015
 		Lights(const vector<string>& lt);
 
 		void animate(int part, int steps);
-		size_t count_on();
+		int count_on();
 
 	private:
 		vector<string> _lt;
@@ -21,7 +21,11 @@ namespace Day18_2015
 		int neighbours(const vector<string>& ref, int x, int y);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+	};
 }
 
 #endif

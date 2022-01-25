@@ -1,7 +1,7 @@
 #ifndef __2015_19__
 #define __2015_19__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day19_2015
 {
@@ -16,7 +16,15 @@ namespace Day19_2015
 
 	typedef vector<Replacement> t_vecReplacement;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static void load(const vector<string>& input, string& molecule, t_vecReplacement& replacements);
+	};
 }
 
 #endif

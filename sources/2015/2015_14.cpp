@@ -31,7 +31,7 @@ namespace Day14_2015
 			awards++;
 	}
 
-	int part_one(int finish, const t_vecReindeer& reindeers)
+	int Main::first_fly(int finish, const t_vecReindeer& reindeers)
 	{
 		vector<int> distance(reindeers.size());
 		for (size_t i = 0; i < reindeers.size(); i++)
@@ -56,7 +56,7 @@ namespace Day14_2015
 		return *max_element(distance.begin(), distance.end());
 	}
 
-	int part_two(int finish, const t_vecReindeer& input)
+	int Main::second_fly(int finish, const t_vecReindeer& input)
 	{
 		t_vecRace reindeers;
 		for (const auto& i : input)
@@ -82,25 +82,27 @@ namespace Day14_2015
 		return amax;
 	}
 
-	t_output main(const t_input& input)
+	t_vecReindeer Main::load(const vector<string>& input)
 	{
-		t_vecReindeer vinput;
+		t_vecReindeer reindeers;
 		regex regex("(.*)( can fly )([0-9]*)( km/s for )([0-9]*)( second| seconds)(, but then must rest for )([0-9]*)( second| seconds)([.])");
 		smatch matches;
 		for (const auto& line : input)
 		{
 			regex_search(line, matches, regex);
-			vinput.push_back(Reindeer(stoi(matches[3].str()), stoi(matches[5].str()), stoi(matches[8].str())));
+			reindeers.push_back(Reindeer(stoi(matches[3].str()), stoi(matches[5].str()), stoi(matches[8].str())));
 		}
 
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(2503, vinput);
-		auto p2 = part_two(2503, vinput);
-		auto t1 = chrono::steady_clock::now();
+		return reindeers;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		return first_fly(2503, load(input));
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		return second_fly(2503, load(input));
 	}
 }

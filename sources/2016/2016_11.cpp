@@ -3,7 +3,7 @@
 namespace Day11_2016
 {
 	// load input
-	t_floors load(const t_input& input)
+	t_floors Main::load(const vector<string>& input)
 	{
 		// collect all element names
 		// they are not important during solving, needed here to match name with bit index
@@ -46,7 +46,7 @@ namespace Day11_2016
 	}
 
 	// is floor configuration safe?
-	bool safe(uint16_t& cfg)
+	bool Main::safe(uint16_t& cfg)
 	{
 		// generator and microchip parts
 		uint8_t g = uint8_t(cfg >> 8);
@@ -61,7 +61,7 @@ namespace Day11_2016
 	}
 
 	// move elements from src to dst
-	void do_move(uint16_t& src, uint16_t& dst, uint16_t move)
+	void Main::do_move(uint16_t& src, uint16_t& dst, uint16_t move)
 	{
 		src &= (move ^ 0xffff);
 		dst |= move;
@@ -69,14 +69,14 @@ namespace Day11_2016
 
 	// is the move valid?
 	// do the move and check floor safety
-	bool is_valid(uint16_t src, uint16_t dst, uint16_t move)
+	bool Main::is_valid(uint16_t src, uint16_t dst, uint16_t move)
 	{
 		do_move(src, dst, move);
 		return safe(src) && safe(dst);
 	}
 
 	// find all valid moves from src do dst floor
-	vector<uint16_t> find_moves(uint16_t src, uint16_t dst)
+	vector<uint16_t> Main::find_moves(uint16_t src, uint16_t dst)
 	{
 		// valid moves
 		vector<uint16_t> moves;
@@ -108,7 +108,7 @@ namespace Day11_2016
 		return moves;
 	}
 
-	int solve(const t_floors& floors)
+	int Main::solve(const t_floors& floors)
 	{
 		// what is top floor target configuration?
 		int top = (int)floors.size() - 1;
@@ -176,13 +176,13 @@ namespace Day11_2016
 		return -1;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		// load from input and solve
 		return solve(load(input));
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		// load from input...
 		t_floors floors = load(input);
@@ -193,18 +193,5 @@ namespace Day11_2016
 
 		// solve
 		return solve(floors);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

@@ -1,7 +1,7 @@
 #ifndef __2015_04_MT__
 #define __2015_04_MT__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day04_2015_MT
 {
@@ -29,7 +29,12 @@ namespace Day04_2015_MT
 		void set_result(int value);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

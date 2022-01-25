@@ -54,27 +54,13 @@ namespace Day05_2020
 		return left;
 	}
 
-	int part_one(const Boarding& brd)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return brd.max_sid();
+		return Boarding(input).max_sid();
 	}
 
-	int part_two(const Boarding& brd)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return brd.my_seat_sid();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		Boarding brd(input);
-		auto p1 = part_one(brd);
-		auto p2 = part_two(brd);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Boarding(input).my_seat_sid();
 	}
 }

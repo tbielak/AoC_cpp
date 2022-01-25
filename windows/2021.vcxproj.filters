@@ -17,6 +17,12 @@
     </ClCompile>
     <ClCompile Include="..\sources\2021\2021_01.cpp" />
     <ClCompile Include="..\sources\2021\2021_main.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Solution.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
     <ClCompile Include="..\sources\2021\2021_02.cpp" />
     <ClCompile Include="..\sources\2021\2021_03.cpp" />
     <ClCompile Include="..\sources\2021\2021_04.cpp" />
@@ -60,6 +66,12 @@
     </ClInclude>
     <ClInclude Include="..\sources\2021\2021_01.h" />
     <ClInclude Include="..\sources\2021\2021_puzzles.h" />
+    <ClInclude Include="..\sources\shared\Output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Solution.h">
+      <Filter>shared</Filter>
+    </ClInclude>
     <ClInclude Include="..\sources\2021\2021_02.h" />
     <ClInclude Include="..\sources\2021\2021_03.h" />
     <ClInclude Include="..\sources\2021\2021_04.h" />

@@ -33,11 +33,11 @@ namespace Day18_2015
 		}
 	}
 
-	size_t Lights::count_on()
+	int Lights::count_on()
 	{
-		size_t c = 0;
+		int c = 0;
 		for (const auto& s : _lt)
-			c += count(s.begin(), s.end(), '#');
+			c += (int)count(s.begin(), s.end(), '#');
 
 		return c;
 	}
@@ -71,9 +71,9 @@ namespace Day18_2015
 		return c;
 	}
 
-	vector<size_t> both_parts(const vector<string>& input)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
-		vector<size_t> result(2);
+		vector<int> result(2);
 		for (int part = 1; part <= 2; part++)
 		{
 			Lights lights(input);
@@ -82,17 +82,5 @@ namespace Day18_2015
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

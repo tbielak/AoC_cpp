@@ -1,7 +1,7 @@
 #ifndef __2016_12__
 #define __2016_12_
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day12_2016
 {
@@ -30,7 +30,7 @@ namespace Day12_2016
 	class VM
 	{
 	public:
-		VM(const t_input& program);
+		VM(const vector<string>& program);
 
 		VM& init(char r, int value);
 		VM& run();
@@ -44,7 +44,12 @@ namespace Day12_2016
 		int value(const Argument& a) const;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

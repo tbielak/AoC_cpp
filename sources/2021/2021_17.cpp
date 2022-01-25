@@ -36,8 +36,13 @@ namespace Day17_2021
 		}
 	}
 
-	pair<int, int> both_parts(Simulation& sim)
+	AoC::Output Main::both_parts(const string& input)
 	{
+		smatch matches;
+		regex regex("target area: x=([-|0-9]*)..([-|0-9]*), y=([-|0-9]*)..([-|0-9]*)");
+		regex_search(input, matches, regex);
+		Simulation sim(stoi(matches[1]), stoi(matches[2]), stoi(matches[3]), stoi(matches[4]));
+
 		int y_max_found = INT_MIN;
 		int count = 0;
 
@@ -55,22 +60,5 @@ namespace Day17_2021
 			}
 
 		return make_pair(y_max_found, count);
-	}
-
-	t_output main(const t_input& input)
-	{
-		smatch matches;
-		regex regex("target area: x=([-|0-9]*)..([-|0-9]*), y=([-|0-9]*)..([-|0-9]*)");
-		regex_search(input[0], matches, regex);
-		Simulation sim(stoi(matches[1]), stoi(matches[2]), stoi(matches[3]), stoi(matches[4]));
-
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(sim);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

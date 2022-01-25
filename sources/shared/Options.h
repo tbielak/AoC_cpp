@@ -14,12 +14,13 @@ namespace AoC
         bool colors;
         bool help;
         bool available;
-        bool speed;
+        int speed;
         int day;
         int solution;
         string input_filename;
 
     private:
+        void get_speed(const string& s);
         void which_puzzle(const string& s);
     };
 }

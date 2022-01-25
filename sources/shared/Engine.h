@@ -9,14 +9,13 @@
 
 #include "Console.h"
 #include "Options.h"
-#include "input_output.h"
+#include "Solution.h"
 
 namespace AoC
 {
     typedef map<int, string> t_names;
 
-    typedef t_output(*solution_main_function)(const t_input&);
-    typedef pair<string, solution_main_function> t_solution;
+    typedef pair<string, Solution *> t_solution;
     typedef vector<t_solution> t_solutions;
     typedef map<int, pair<int, t_solutions>> t_repository;
 
@@ -36,12 +35,12 @@ namespace AoC
         void intro();
         void help();
         void available_solutions();
-        bool load_input(const string& input_filename, size_t i, t_input& input);
+        bool load_input(const string& input_filename, size_t i, vector<string>& input);
         void print_output(const t_output& output, size_t count = 0);
         bool execute(bool print_info, t_output& output, const string& input_filename, int day, size_t solution);
-        void execute_solution(bool speed, const string& input_filename, int day, size_t solution);
-        void execute_day(bool speed, const string& input_filename, int day);
-        void execute_all(bool speed);
+        void execute_solution(int speed, const string& input_filename, int day, size_t solution);
+        void execute_day(int speed, const string& input_filename, int day);
+        void execute_all(int speed);
     };
 }
 

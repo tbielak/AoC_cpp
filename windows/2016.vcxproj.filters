@@ -17,6 +17,12 @@
     </ClCompile>
     <ClCompile Include="..\sources\2016\2016_01.cpp" />
     <ClCompile Include="..\sources\2016\2016_main.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Solution.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
     <ClCompile Include="..\sources\2016\2016_02.cpp" />
     <ClCompile Include="..\sources\2016\2016_03.cpp" />
     <ClCompile Include="..\sources\2016\2016_04.cpp" />
@@ -51,6 +57,12 @@
     </ClInclude>
     <ClInclude Include="..\sources\2016\2016_01.h" />
     <ClInclude Include="..\sources\2016\2016_puzzles.h" />
+    <ClInclude Include="..\sources\shared\Output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Solution.h">
+      <Filter>shared</Filter>
+    </ClInclude>
     <ClInclude Include="..\sources\2016\2016_02.h" />
     <ClInclude Include="..\sources\2016\2016_03.h" />
     <ClInclude Include="..\sources\2016\2016_04.h" />

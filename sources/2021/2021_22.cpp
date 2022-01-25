@@ -7,6 +7,21 @@ namespace Day22_2021
 	{
 	}
 
+	t_cubes Main::load(const vector<string>& input)
+	{
+		t_cubes cubes;
+		for (const auto& s : input)
+		{
+			smatch matches;
+			regex regex("(on|off) x=([-|0-9]*)..([-|0-9]*),y=([-|0-9]*)..([-|0-9]*),z=([-|0-9]*)..([-|0-9]*)");
+			regex_search(s, matches, regex);
+			cubes.push_back(make_pair(Cuboid(stoi(matches[2]), stoi(matches[3]),
+				stoi(matches[4]), stoi(matches[5]), stoi(matches[6]), stoi(matches[7])), matches[1] == "on" ? 1 : 0));
+		}
+
+		return cubes;
+	}
+
 	// Solution => simple idea:
 	// 1. Partition each axis for the ranges defined by all points from input
 	// 2. Treat each range as discrete index in large grid, with one-byte on/off flags
@@ -15,7 +30,7 @@ namespace Day22_2021
 	// (c is the number of input cubes = 420) + a lot of time to iterate it (1-2 seconds).
 
 	template<typename Functor>
-	int64_t solve(const t_cubes& cubes, Functor include)
+	int64_t Main::solve(const t_cubes& cubes, Functor include) const
 	{
 		// gather points on axes
 		vector<int> axis_x, axis_y, axis_z;
@@ -78,36 +93,13 @@ namespace Day22_2021
 		return volume;
 	}
 
-	int64_t part_one(const t_cubes& cubes)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return solve(cubes, [](const auto& c) -> bool { return c.x1 >= -50 && c.x2 <= 50 && c.y1 >= -50 && c.y2 <= 50 && c.z1 >= -50 && c.z2 <= 50; });
+		return solve(load(input), [](const auto& c) -> bool { return c.x1 >= -50 && c.x2 <= 50 && c.y1 >= -50 && c.y2 <= 50 && c.z1 >= -50 && c.z2 <= 50; });
 	}
 
-	int64_t part_two(const t_cubes& cubes)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return solve(cubes, [](const auto& c) -> bool { (void)(c); return true; });
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_cubes cubes;
-		for (const auto& s : input)
-		{
-			smatch matches;
-			regex regex("(on|off) x=([-|0-9]*)..([-|0-9]*),y=([-|0-9]*)..([-|0-9]*),z=([-|0-9]*)..([-|0-9]*)");
-			regex_search(s, matches, regex);
-			cubes.push_back(make_pair(Cuboid(stoi(matches[2]), stoi(matches[3]),
-				stoi(matches[4]), stoi(matches[5]), stoi(matches[6]), stoi(matches[7])), matches[1] == "on" ? 1 : 0));
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(cubes);
-		auto p2 = part_two(cubes);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return solve(load(input), [](const auto& c) -> bool { (void)(c); return true; });
 	}
 }

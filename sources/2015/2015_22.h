@@ -1,7 +1,7 @@
 #ifndef __2015_22__
 #define __2015_22__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day22_2015
 {
@@ -30,7 +30,7 @@ namespace Day22_2015
 	class Game
 	{
 	public:
-		Game(bool hard_level, int boss_hitpoints, int boss_damage);
+		Game(bool hard_level, const vector<string>& input);
 
 		int run();
 
@@ -44,7 +44,12 @@ namespace Day22_2015
 		int apply_effects(State& state);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

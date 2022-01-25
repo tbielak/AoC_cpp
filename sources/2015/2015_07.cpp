@@ -55,12 +55,12 @@ namespace Day07_2015
 
 		switch (_op)
 		{
-		case Operation::op_not: { values[_dst.identifier] = get(_src[0], values) ^ 0xFFFF; break; }
-		case Operation::op_and: { values[_dst.identifier] = get(_src[0], values) & get(_src[1], values); break; }
-		case Operation::op_or: { values[_dst.identifier] = get(_src[0], values) | get(_src[1], values); break; }
-		case Operation::op_lshift: { values[_dst.identifier] = (word)(get(_src[0], values) << get(_src[1], values)); break; }
-		case Operation::op_rshift: { values[_dst.identifier] = (word)(get(_src[0], values) >> get(_src[1], values)); break; }
-		default: /* op_mov */ { values[_dst.identifier] = get(_src[0], values); break; }
+			case Operation::op_not: { values[_dst.identifier] = get(_src[0], values) ^ 0xFFFF; break; }
+			case Operation::op_and: { values[_dst.identifier] = get(_src[0], values) & get(_src[1], values); break; }
+			case Operation::op_or: { values[_dst.identifier] = get(_src[0], values) | get(_src[1], values); break; }
+			case Operation::op_lshift: { values[_dst.identifier] = (word)(get(_src[0], values) << get(_src[1], values)); break; }
+			case Operation::op_rshift: { values[_dst.identifier] = (word)(get(_src[0], values) >> get(_src[1], values)); break; }
+			default: /* op_mov */ { values[_dst.identifier] = get(_src[0], values); break; }
 		}
 
 		return true;
@@ -105,33 +105,33 @@ namespace Day07_2015
 		return values.find("a")->second;
 	}
 
-	int part_one(const t_vecInstruction& instructions)
+	Main::Main()
+	:	_wire_a(0)
 	{
-		return CPU::execute(instructions);
 	}
 
-	int part_two(t_vecInstruction& instructions, word a_wire)
-	{
-		for (auto& i : instructions)
-			i.replace("b", a_wire);
-
-		return CPU::execute(instructions);
-	}
-
-	t_output main(const t_input& input)
+	t_vecInstruction Main::load(const vector<string>& input)
 	{
 		t_vecInstruction instructions;
 		for (const auto& line : input)
 			instructions.push_back(Instruction(line));
 
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(instructions);
-		auto p2 = part_two(instructions, (word)p1);
-		auto t1 = chrono::steady_clock::now();
+		return instructions;
+	}
 
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		t_vecInstruction instructions = load(input);
+		_wire_a = CPU::execute(instructions);
+		return _wire_a;
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		t_vecInstruction instructions = load(input);
+		for (auto& i : instructions)
+			i.replace("b", _wire_a);
+
+		return CPU::execute(instructions);
 	}
 }

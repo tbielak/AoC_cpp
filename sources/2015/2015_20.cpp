@@ -2,7 +2,7 @@
 
 namespace Day20_2015
 {
-	int lowest_house_number(int input, int presents, int houses_limit)
+	int Main::lowest_house_number(int input, int presents, int houses_limit)
 	{
 		for (int reduce = 30; reduce > 0; reduce -= 5)		// 30 should be ok :-)
 		{
@@ -28,28 +28,13 @@ namespace Day20_2015
 		return -1;
 	}
 
-	int part_one(int input)
+	AoC::Output Main::part_one(const string& input)
 	{
-		return lowest_house_number(input, 10, INT_MAX);
+		return lowest_house_number(stoi(input), 10, INT_MAX);
 	}
 
-	int part_two(int input)
+	AoC::Output Main::part_two(const string& input)
 	{
-		return lowest_house_number(input, 11, 50);
-	}
-
-	t_output main(const t_input& input)
-	{
-		int presents = stoi(input[0]);
-		
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(presents);
-		auto p2 = part_two(presents);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return lowest_house_number(stoi(input), 11, 50);
 	}
 }

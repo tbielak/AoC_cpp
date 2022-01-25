@@ -16,8 +16,14 @@
       <Filter>shared</Filter>
     </ClCompile>
     <ClCompile Include="..\sources\2020\2020_01.cpp" />
-    <ClCompile Include="..\sources\2020\2020_02.cpp" />
     <ClCompile Include="..\sources\2020\2020_main.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Solution.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\2020\2020_02.cpp" />
     <ClCompile Include="..\sources\2020\2020_03.cpp" />
     <ClCompile Include="..\sources\2020\2020_04.cpp" />
     <ClCompile Include="..\sources\2020\2020_05.cpp" />
@@ -60,8 +66,14 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="..\sources\2020\2020_01.h" />
-    <ClInclude Include="..\sources\2020\2020_02.h" />
     <ClInclude Include="..\sources\2020\2020_puzzles.h" />
+    <ClInclude Include="..\sources\shared\Output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Solution.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\2020\2020_02.h" />
     <ClInclude Include="..\sources\2020\2020_03.h" />
     <ClInclude Include="..\sources\2020\2020_04.h" />
     <ClInclude Include="..\sources\2020\2020_05.h" />

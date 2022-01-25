@@ -12,7 +12,7 @@ namespace Day11_2021
 		return (y == rhs.y) ? x < rhs.x : y < rhs.y;
 	}
 
-	Octopuses::Octopuses(const t_input& input)
+	Octopuses::Octopuses(const vector<string>& input)
 	:	_grid(input)
 	{
 		_size = (int)_grid.size();
@@ -76,26 +76,13 @@ namespace Day11_2021
 		return y >= 0 && y < _size && x >= 0 && x < _size;
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		return Octopuses(input).flashes_after(100);
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		return Octopuses(input).all_flashed();
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

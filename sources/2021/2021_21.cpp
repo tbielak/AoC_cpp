@@ -23,8 +23,19 @@ namespace Day21_2021
 		return (_v[0] == rhs._v[0]) ? _v[1] < rhs._v[1] : _v[0] < rhs._v[0];
 	}
 
-	int64_t part_one(Pair position)
+	Pair Main::load(const vector<string>& input)
 	{
+		// note: subtracting 1 from player position to ease modulo 10 operations
+		return Pair(
+			stoi(input[0].substr(input[0].find_first_of(':') + 1)) - 1,
+			stoi(input[1].substr(input[1].find_first_of(':') + 1)) - 1
+		);
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		Pair position = load(input);
+
 		// regular game, nothing fancy here :)
 		Pair score;
 		int current_player = 0;    // opponent = current_player ^ 1
@@ -57,7 +68,7 @@ namespace Day21_2021
 	static const vector<Result> results = { {3, 1}, {4, 3}, {5, 6}, {6, 7}, {7, 6}, {8, 3}, {9, 1} };
 
 	// recursive universe split 
-	Pair split(t_cache& cache, int current_player, Pair position, Pair score = Pair())
+	Pair Main::split(t_cache& cache, int current_player, Pair position, Pair score /* = Pair() */)
 	{
 		// before making the move check if the other player won
 		// return pair:
@@ -102,29 +113,12 @@ namespace Day21_2021
 		return wins;
 	}
 
-	int64_t part_two(Pair position)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
+		Pair position = load(input);
+
 		t_cache cache;
 		Pair wins = split(cache, 0, position);
 		return max(wins[0], wins[1]);
-	}
-
-	t_output main(const t_input& input)
-	{
-		// note: subtracting 1 from player position to ease modulo 10 operations
-		Pair position(
-			stoi(input[0].substr(input[0].find_first_of(':') + 1)) - 1,
-			stoi(input[1].substr(input[1].find_first_of(':') + 1)) - 1
-		);
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(position);
-		auto p2 = part_two(position);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

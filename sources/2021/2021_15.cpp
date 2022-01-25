@@ -3,7 +3,7 @@
 namespace Day15_2021
 {
 	// Dijkstra's shortest path with priority queue
-	int find_lowest_risk(const t_graph& graph, int gsize)
+	int Main::find_lowest_risk(const t_graph& graph, int gsize)
 	{
 		// priority queue from lowest to highest risk
 		priority_queue< t_intpair, vector<t_intpair>, greater<t_intpair> > pq;
@@ -47,13 +47,13 @@ namespace Day15_2021
 	}
 
 	// next risk
-	int succ(int r)
+	int Main::succ(int r)
 	{
 		return r == 9 ? 1 : r + 1;
 	}
 
 	// solve input enlarging cavern
-	int solve(const t_input& input, int enlarge)
+	int Main::solve(const vector<string>& input, int enlarge /* = 1 */)
 	{
 		// enlarged risk table
 		int isize = (int)input.size();
@@ -109,26 +109,13 @@ namespace Day15_2021
 		return find_lowest_risk(graph, gsize);
 	}
 
-	int part_one(const t_input& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return solve(input, 1);
+		return solve(input);
 	}
 
-	int part_two(const t_input& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		return solve(input, 5);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

@@ -57,27 +57,13 @@ namespace Day07_2020
 		return result;
 	}
 
-	size_t part_one(const Luggage& luggage)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return luggage.at_least_one("shiny gold");
+		return Luggage(input).at_least_one("shiny gold");
 	}
 
-	size_t part_two(const Luggage& luggage)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return luggage.count_bags("shiny gold");
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		Luggage luggage(input);
-		auto p1 = part_one(luggage);
-		auto p2 = part_two(luggage);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Luggage(input).count_bags("shiny gold");
 	}
 }

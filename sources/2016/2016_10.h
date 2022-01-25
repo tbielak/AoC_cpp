@@ -1,7 +1,7 @@
 #ifndef __2016_10__
 #define __2016_10__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day10_2016
 {
@@ -48,7 +48,14 @@ namespace Day10_2016
 
 	typedef map<int, MoveIns> t_moveins;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const vector<string>& input);
+
+	private:
+		static void set_value(t_bots& bots, const SetIns& ins, const LowHigh& cmp, int& cmp_bot);
+	};
 }
 
 #endif

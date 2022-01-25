@@ -99,7 +99,30 @@ namespace Day19_2020
 		return w;
 	}
 
-	void solve(t_rules& rules)
+	pair<t_rules, t_msgs> Main::load(const vector<string>& input)
+	{
+		t_rules rules;
+		size_t idx = 0;
+		for (; idx < input.size(); idx++)
+		{
+			const auto& line = input[idx];
+			if (line == "")
+				break;
+
+			size_t pos = line.find(':');
+			int number = stoi(line.substr(0, pos));
+			rules[number] = Rule(line.substr(pos + 2));
+		}
+
+		idx++;
+		t_msgs msgs;
+		for (; idx < input.size(); idx++)
+			msgs.push_back(input[idx]);
+
+		return make_pair(rules, msgs);
+	}
+
+	void Main::solve(t_rules& rules)
 	{
 		size_t solved_count = 0;
 		t_solved solved(rules.size());
@@ -131,22 +154,7 @@ namespace Day19_2020
 		}
 	}
 
-	int part_one(const t_rules& rules, const t_msgs& msgs)
-	{
-		set<string> accepted;
-		const auto& zero_rules = rules.find(0)->second.rules;
-		for (const auto& x : zero_rules)
-			accepted.insert(x);
-
-		int count = 0;
-		for (const auto& m : msgs)
-			if (accepted.find(m) != accepted.end())
-				count++;
-
-		return count;
-	}
-
-	bool infinite_matches(const std::string& input, size_t pos, vector<int> r, vector<int> c, const t_rules& rules)
+	bool Main::infinite_matches(const std::string& input, size_t pos, vector<int> r, vector<int> c, const t_rules& rules)
 	{
 		if (c[1] >= c[0] && c[1] != 0)
 			return false;
@@ -176,9 +184,24 @@ namespace Day19_2020
 		return false;
 	}
 
-	int part_two(const t_rules& rules, const t_msgs& msgs)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
-		// assuming:
+		// load and solve rules
+		auto [rules, msgs] = load(input);
+		solve(rules);
+
+		// part one
+		set<string> accepted;
+		const auto& zero_rules = rules.find(0)->second.rules;
+		for (const auto& x : zero_rules)
+			accepted.insert(x);
+
+		int count_p1 = 0;
+		for (const auto& m : msgs)
+			if (accepted.find(m) != accepted.end())
+				count_p1++;
+
+		// part two - assuming:
 		// 0: x y
 		// x: r0		(one element for x)
 		// y: r0 r1		(two elements for y, first elements of x and y match)
@@ -186,43 +209,11 @@ namespace Day19_2020
 		vector<int> r = { 42, 31 };		// { r0, r1 }
 		vector<int> c = { 0, 0 };		// counting substrings recursively
 
-		int count = 0;
+		int count_p2 = 0;
 		for (const auto& s : msgs)
 			if (infinite_matches(s, 0, r, c, rules))
-				count++;
+				count_p2++;
 
-		return count;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_rules rules;
-		size_t idx = 0;
-		for (; idx < input.size(); idx++)
-		{
-			const auto& line = input[idx];
-			if (line == "")
-				break;
-
-			size_t pos = line.find(':');
-			int number = stoi(line.substr(0, pos));
-			rules[number] = Rule(line.substr(pos + 2));
-		}
-
-		idx++;
-		t_msgs msgs;
-		for (; idx < input.size(); idx++)
-			msgs.push_back(input[idx]);
-
-		auto t0 = chrono::steady_clock::now();
-		solve(rules);
-		auto p1 = part_one(rules, msgs);
-		auto p2 = part_two(rules, msgs);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return make_pair(count_p1, count_p2);
 	}
 }

@@ -1,25 +1,23 @@
 #ifndef __2021_04__
 #define __2021_04__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day04_2021
 {
-	t_output main(const t_input& input);
-
 	typedef vector<pair<int, bool>> t_row;	// 5 pairs: (number, marked)
 	typedef vector<t_row> t_board;			// 5 rows of the board
 
 	class Bingo
 	{
 	public:
-		Bingo(const t_input& input);
+		Bingo(const vector<string>& input);
 
 		int play(bool first_board);
 
 	private:
-		void read_random(const t_input& input);
-		void read_boards(const t_input& input);
+		void read_random(const vector<string>& input);
+		void read_boards(const vector<string>& input);
 
 		bool mark(t_board& board, int number);
 		bool check_win(t_board& board, int row, int col);
@@ -27,6 +25,13 @@ namespace Day04_2021
 
 		vector<int> _random;
 		vector<t_board> _boards;
+	};
+
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
 	};
 }
 

@@ -1,7 +1,7 @@
 #ifndef __2020_16__
 #define __2020_16__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day16_2020
 {
@@ -23,7 +23,7 @@ namespace Day16_2020
 	class Ticket
 	{
 	public:
-		Ticket(const string& input);
+		Ticket(const string& input = "");
 
 		auto size() const { return _data.size(); }
 		auto& operator [] (size_t idx) const { return _data[idx]; }
@@ -52,7 +52,15 @@ namespace Day16_2020
 		t_vecMatrix _matrix;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static tuple<t_vecProperty, Ticket, t_vecTicket> load(const vector<string>& input);
+	};
 }
 
 #endif

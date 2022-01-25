@@ -23,8 +23,12 @@ namespace Day23_2015
 			offs = stoi(input.substr(position));
 	}
 
-	vector<int> both_parts(const t_vecInstruction& code)
+	AoC::Output Main::both_parts(const vector<string>& input)
 	{
+		t_vecInstruction code;
+		for (const auto& line : input)
+			code.push_back(Instruction(line));
+
 		vector<int> result;
 		for (int part = 1; part <= 2; part++)
 		{
@@ -49,21 +53,5 @@ namespace Day23_2015
 		}
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_vecInstruction instructions;
-		for (const auto& line : input)
-			instructions.push_back(Instruction(line));
-		
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(instructions);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px[0]));
-		solutions.push_back(to_string(px[1]));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

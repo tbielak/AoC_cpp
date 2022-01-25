@@ -1,7 +1,7 @@
 #ifndef __2021_23__
 #define __2021_23__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day23_2021
 {
@@ -37,7 +37,23 @@ namespace Day23_2021
 	typedef queue<t_diagram> t_queue;
 	typedef map<t_diagram, int> t_costs_cache;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static bool is_hallway(const t_diagram& diagram, int place);
+		static int target(char amphipod);
+		static int cost(char amphipod);
+		static bool can_reach(const t_diagram& diagram, int src, int dst);
+		static bool target_only(const string& room, char target);
+		static vector<int> find_destinations(const t_diagram& diagram, int src);
+		static int do_move(const t_diagram& src_diagram, t_diagram& dst_diagram, int src, int dst);
+		static int solve(const t_diagram& input, const t_diagram& target);
+		static t_diagram load(const vector<string>& input);
+	};
 }
 
 #endif

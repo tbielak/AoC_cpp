@@ -1,7 +1,7 @@
 #ifndef __2016_01__
 #define __2016_01__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day01_2016
 {
@@ -29,7 +29,15 @@ namespace Day01_2016
 
 	typedef set<Point> t_visited;
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+
+	private:
+		static t_route load(const string& input);
+	};
 }
 
 #endif

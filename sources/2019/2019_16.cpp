@@ -2,12 +2,12 @@
 
 namespace Day16_2019
 {
-	int iabs(int x)
+	int Main::iabs(int x)
 	{
 		return (x < 0) ? -x : x;
 	}
 
-	string part_one(const string& input)
+	AoC::Output Main::part_one(const string& input)
 	{
 		size_t size = input.size();
 		t_vecInt2 pattern = t_vecInt2(size, t_vecInt());
@@ -58,7 +58,7 @@ namespace Day16_2019
 		return result;
 	}
 
-	string part_two(const string& input)
+	AoC::Output Main::part_two(const string& input)
 	{
 		size_t size = input.size();
 		size_t repeat = 10000;
@@ -93,18 +93,5 @@ namespace Day16_2019
 			result += char(v[i] + '0');
 
 		return result;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input[0]);
-		auto p2 = part_two(input[0]);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(p1);
-		solutions.push_back(p2);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

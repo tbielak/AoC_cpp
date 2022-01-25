@@ -29,6 +29,19 @@ namespace Day14_2019
 		return (pos == string::npos) ? "" : s.substr(pos);
 	}
 
+	Reactions::Reactions(const vector<string>& input)
+	{
+		for (auto line : input)
+		{
+			if (line == "")
+				break;
+
+			add(line);
+		}
+
+		prepare();
+	}
+
 	void Reactions::add(const string& line)
 	{
 		size_t pos = line.find(" => ");
@@ -45,9 +58,9 @@ namespace Day14_2019
 		update_names_mapping();
 	}
 
-	intmax_t Reactions::produce_fuel(intmax_t amount) const
+	int64_t Reactions::produce_fuel(int64_t amount) const
 	{
-		vector<intmax_t> taken = vector<intmax_t>(_chemicals.size(), 0);
+		vector<int64_t> taken = vector<int64_t>(_chemicals.size(), 0);
 		taken[0] = amount;
 
 		for (size_t i = 0; i < _chemicals.size(); i++)
@@ -55,7 +68,7 @@ namespace Day14_2019
 			if (taken[i] == 0)
 				continue;
 
-			intmax_t x = (taken[i] + _chemicals[i].target.count - 1) / _chemicals[i].target.count;
+			int64_t x = (taken[i] + _chemicals[i].target.count - 1) / _chemicals[i].target.count;
 
 			for (auto const& ing : _chemicals[i].ingredients)
 				taken[_names.find(ing.name)->second] += x * ing.count;
@@ -64,12 +77,12 @@ namespace Day14_2019
 		return taken.back();
 	}
 
-	intmax_t Reactions::target_ore(intmax_t ore) const
+	int64_t Reactions::target_ore(int64_t ore) const
 	{
-		intmax_t left = ore / produce_fuel(1);
-		intmax_t right = left * 2;
-		intmax_t x = -1;
-		intmax_t prod = -1;
+		int64_t left = ore / produce_fuel(1);
+		int64_t right = left * 2;
+		int64_t x = -1;
+		int64_t prod = -1;
 
 		while (left < right)
 		{
@@ -125,37 +138,13 @@ namespace Day14_2019
 			_names[_chemicals[idx].target.name] = idx;
 	}
 
-	intmax_t part_one(const Reactions& reactions)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return reactions.produce_fuel(1);
+		return Reactions(input).produce_fuel(1);
 	}
 
-	intmax_t part_two(const Reactions& reactions)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return reactions.target_ore(1000000000000);
-	}
-
-	t_output main(const t_input& input)
-	{
-		Reactions reactions;
-		for (auto line : input)
-		{
-			if (line == "")
-				break;
-
-			reactions.add(line);
-		}
-
-		reactions.prepare();
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(reactions);
-		auto p2 = part_two(reactions);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return Reactions(input).target_ore(1000000000000);
 	}
 }

@@ -47,8 +47,22 @@ namespace Day12_2019
 		return Point3D(isgn(v.x), isgn(v.y), isgn(v.z));
 	}
 
+	t_points Main::load(const vector<string>& input)
+	{
+		t_points points;
+		regex regex("<x=([-]?[0-9]*), y=([-]?[0-9]*), z=([-]?[0-9]*)>");
+		smatch matches;
+		for (const auto& line : input)
+		{
+			regex_search(line, matches, regex);
+			points.push_back(Point3D(stoi(matches[1].str()), stoi(matches[2].str()), stoi(matches[3].str())));
+		}
+
+		return points;
+	}
+
 	template<typename Type, typename Functor>
-	void one_step(vector<Type>& positions, vector<Type>& velocity, Functor signum)
+	void Main::one_step(vector<Type>& positions, vector<Type>& velocity, Functor signum) const
 	{
 		for (size_t i = 0; i < positions.size(); i++)
 			for (size_t j = 0; j < positions.size(); j++)
@@ -59,20 +73,7 @@ namespace Day12_2019
 			positions[i] += velocity[i];
 	}
 
-	int part_one(vector<Point3D> positions)
-	{
-		vector<Point3D> velocity(positions.size());
-		for (int t = 0; t < 1000; t++)
-			one_step(positions, velocity, [](const Point3D& v) -> Point3D { return sgn3d(v); });
-
-		int total_energy = 0;
-		for (size_t i = 0; i < positions.size(); i++)
-			total_energy += positions[i].energy() * velocity[i].energy();
-
-		return total_energy;
-	}
-
-	int full_cycle(const vector<int>& input)
+	int Main::full_cycle(const vector<int>& input) const
 	{
 		int step = 0;
 		vector<int> positions(input.size());
@@ -91,9 +92,9 @@ namespace Day12_2019
 		return step;
 	}
 
-	uintmax_t gcd(uintmax_t a, uintmax_t b)
+	int64_t Main::gcd(int64_t a, int64_t b) const
 	{
-		uintmax_t tmp;
+		int64_t tmp;
 		while (b != 0)
 		{
 			tmp = b;
@@ -103,16 +104,33 @@ namespace Day12_2019
 		return a;
 	}
 
-	uintmax_t gcm(uintmax_t a, uintmax_t b)
+	int64_t Main::gcm(int64_t a, int64_t b) const
 	{
 		return a / gcd(a, b) * b;
 	}
 
-	uintmax_t part_two(const vector<Point3D>& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
+		t_points positions = load(input);
+
+		vector<Point3D> velocity(positions.size());
+		for (int t = 0; t < 1000; t++)
+			one_step(positions, velocity, [](const Point3D& v) -> Point3D { return sgn3d(v); });
+
+		int total_energy = 0;
+		for (size_t i = 0; i < positions.size(); i++)
+			total_energy += positions[i].energy() * velocity[i].energy();
+
+		return total_energy;
+	}
+
+	AoC::Output Main::part_two(const vector<string>& input)
+	{
+		t_points positions = load(input);
+
 		// pivot input
 		vector<vector<int>> x(3);
-		for (const auto& p : input)
+		for (const auto& p : positions)
 		{
 			x[0].push_back(p.x);
 			x[1].push_back(p.y);
@@ -124,27 +142,5 @@ namespace Day12_2019
 		auto c2 = full_cycle(x[1]);
 		auto c3 = full_cycle(x[2]);
 		return gcm(gcm(c1, c2), c3);
-	}
-
-	t_output main(const t_input& input)
-	{
-		vector<Point3D> points;
-		regex regex("<x=([-]?[0-9]*), y=([-]?[0-9]*), z=([-]?[0-9]*)>");
-		smatch matches;
-		for (const auto& line : input)
-		{
-			regex_search(line, matches, regex);
-			points.push_back(Point3D(stoi(matches[1].str()), stoi(matches[2].str()), stoi(matches[3].str())));
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(points);
-		auto p2 = part_two(points);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

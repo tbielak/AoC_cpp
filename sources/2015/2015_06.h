@@ -1,7 +1,7 @@
 #ifndef __2015_06__
 #define __2015_06__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day06_2015
 {
@@ -35,7 +35,15 @@ namespace Day06_2015
 		vector<vector<int>> _lights;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static t_vecInstruction load(const vector<string>& input);
+	};
 }
 
 #endif

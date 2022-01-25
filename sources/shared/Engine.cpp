@@ -13,7 +13,7 @@ namespace AoC
         #ifdef INCLUDE_CUDA
         _cc << " (powered by CUDA)";
         #endif
-        _cc << "{d}, copyright(c) 2021 by {y}TomB{d}" << endl;
+        _cc << "{d}, copyright(c) 2022 by {y}TomB{d}" << endl;
     }
 
     void Engine::help()
@@ -25,7 +25,7 @@ namespace AoC
         _cc << "{g}-p <day>{d} : run solution(s) of selected <day> only (by default all available puzzle solutions are executed)" << endl;
         _cc << "{g}-p <day>:<n>{d} : run n-th solution of puzzle from day <day> (if it is not available, first one is executed)" << endl;
         _cc << "{g}-i <filename>{d} : run with <filename> as input (if not specified inputs are loaded from 'input' directory)" << endl;
-        _cc << "{g}-s{d} : execution speed testing (run solutions several times to measure reliable execution time)" << endl;
+        _cc << "{g}-s <x>{d} : execution speed testing (at least 10 times, at least <x> seconds to measure reliable execution time)" << endl;
         _cc << endl;
         _cc << "{y}Warning:{d} Not all combinations of options are supported. See valid ones in examples below:" << endl;
         _cc << "{g}<no options provided>{d} => run everything once, using as input the appropriate files read from 'input' directory" << endl;
@@ -33,8 +33,8 @@ namespace AoC
         _cc << "{g}-p 2{d} => run only the solution(s) of 2nd day puzzle" << endl;
         _cc << "{g}-p 4:2{d} => run 2nd solution of 4th day puzzle" << endl;
         _cc << "{g}-p 5 -i my_input.txt{d} => run 5th day puzzle solution with the input read from my_input.txt file" << endl;
-        _cc << "{g}-s{d} => execution speed testing of all puzzles (it may take a while, be patient)" << endl;
-        _cc << "{g}-p 7 -s{d} => execution speed testing 7th puzzle solution(s)" << endl;
+        _cc << "{g}-s 10{d} => execution speed testing of all puzzles, at least 10 times for 10 seconds (it may take a while!)" << endl;
+        _cc << "{g}-p 7 -s 5{d} => execution speed testing 7th puzzle solution(s), at least 10 times for 5 seconds" << endl;
         _cc << endl;
         _cc << "Enjoy!" << endl;
     }
@@ -58,7 +58,7 @@ namespace AoC
         _cc << solutions << "  <== number of solutions available" << endl;
     }
 
-    bool Engine::load_input(const string& input_filename, size_t i, t_input& input)
+    bool Engine::load_input(const string& input_filename, size_t i, vector<string>& input)
     {
         string filename = input_filename;
         if (filename.empty())
@@ -89,13 +89,38 @@ namespace AoC
 
     void Engine::print_output(const t_output& output, size_t count /* = 0 */)
     {
-        for (const auto& x : output.first)
+        for (const auto& x : output.first._lines)
             _cc << x << endl;
 
         if (count == 0)
-            _cc << "Execution time = {y}" << output.second << " ms{d}" << endl;
+            _cc << "Execution time = {y}";
         else
-            _cc << "Average execution time = {y}" << output.second << " ms{d} (executed " << count << " times)" << endl;
+            _cc << "Average execution time = {y}";
+
+        const auto& ts = output.second;
+        double total = 0.;
+        for (auto t : ts)
+            total += t;
+
+        _cc << total << " ms{d}";
+
+        if (ts.size() > 1)
+        {
+            _cc << " (";
+            for (int i = 0; i < (int)ts.size(); i++)
+            {
+                _cc << "{y}" << ts[i] << " ms{d}";
+                if (i < (int)ts.size() - 1)
+                    _cc << " / ";
+            }
+
+            _cc << ")";
+        }
+
+        if (count > 0)
+            _cc << " (results of " << count << " executions)";
+
+        _cc << endl;
     }
 
     bool Engine::execute(bool print_info, t_output& output, const string& input_filename, int day, size_t solution)
@@ -149,7 +174,12 @@ namespace AoC
             #endif
 
             if (print_info)
-                _cc << "{g}--- Solution #" << int(solution + 1) << s << "{d}" << endl;
+            {
+                if (solutions.size() > 1)
+                    _cc << "{g}--- Solution #" << int(solution + 1) << s << "{d}" << endl;
+                else
+                    _cc << "{g}--- " << s.substr(2) << "{d}" << endl;
+            }
         }
 
         #ifdef INCLUDE_CUDA
@@ -162,55 +192,81 @@ namespace AoC
         }
         #endif
 
-        t_input input;
+        vector<string> input;
         if (!load_input(input_filename, day, input))
             return false;
 
-        output = solutions[solution].second(input);
+        output = solutions[solution].second->run(input);
         return true;
     }
 
-    void Engine::execute_solution(bool speed, const string& input_filename, int day, size_t solution)
+    void Engine::execute_solution(int speed, const string& input_filename, int day, size_t solution)
     {
-        if (speed)
+        if (speed > 0)
         {
             bool first = true;
             bool ok = false;
 
-            vector<double> time_ms;
-            auto t0 = chrono::steady_clock::now();
+            vector<pair<double, int>> total_time;
+            vector<t_exectimes> exec_times;
+            Output ref;
+            t_output output;
+            int count = 0;
+            double max_time = speed * 1000.;
 
-            t_output ref, output;
+            auto t0 = chrono::steady_clock::now();
             while (1)
             {
                 output = t_output();
                 ok = execute(first, output, input_filename, day, solution);
                 if (!ok)
                     break;
-
+                
                 if (first)
-                    ref = output;
+                    ref = output.first;
                 else
                 {
-                    if (ref.first != output.first)
+                    if (ref != output.first)
                     {
                         _cc << "{r}ERROR: Different results obtained in {d}" << endl;
                         break;
                     }
                 }
 
-                time_ms.push_back(output.second);
+                const auto& ts = output.second;
+                exec_times.push_back(t_exectimes(ts.size()));
+
+                double total = 0.;
+                for (int i = 0; i < (int)ts.size(); i++)
+                {
+                    total += ts[i];
+                    exec_times.back()[i] = ts[i];
+                }
+                total_time.push_back(make_pair(total, count++));
+
                 auto t1 = chrono::steady_clock::now();
                 double time_elapsed = chrono::duration<double>((t1 - t0) * 1000).count();
 
-                if (time_elapsed >= 5000. && time_ms.size() >= 5)
+                if (time_elapsed >= max_time && total_time.size() >= 10)
                 {
-                    sort(time_ms.begin(), time_ms.end());
-                    double v = 0.;
-                    for (size_t i = 1; i < time_ms.size() - 1; i++)
-                        v += time_ms[i];
+                    sort(total_time.begin(), total_time.end());
+                    int min_i = (int)total_time.size() / 10;
+                    int max_i = (int)total_time.size() - min_i;
 
-                    output.second = v / double(time_ms.size() - 2);
+                    set<int> indices;
+                    for (int i = min_i; i < max_i; i++)
+                        indices.insert(total_time[i].second);
+                    
+                    auto& ts = output.second;
+                    ts = t_exectimes(ts.size());
+                    for (auto idx : indices)
+                        for (int j = 0; j < (int)ts.size(); j++)
+                            ts[j] += exec_times[idx][j];
+                    
+                    count = (int)indices.size();
+                    for (int j = 0; j < (int)ts.size(); j++)
+                        ts[j] /= count;
+
                     break;
                 }
 
@@ -218,7 +274,7 @@ namespace AoC
             }
 
             if (ok)
-                print_output(output, time_ms.size());
+                print_output(output, count);
 
             if (!ok && !first)
                 _cc << "{r}ERROR: Unable to run speed test{d}" << endl;
@@ -231,7 +287,7 @@ namespace AoC
         }
     }
 
-    void Engine::execute_day(bool speed, const string& input_filename, int day)
+    void Engine::execute_day(int speed, const string& input_filename, int day)
     {
         auto rit = _repo.find(day);
         if (rit == _repo.end())
@@ -245,7 +301,7 @@ namespace AoC
             execute_solution(speed, input_filename, day, sol);
     }
 
-    void Engine::execute_all(bool speed)
+    void Engine::execute_all(int speed)
     {
         for (const auto& puzzle : _repo)
         {
@@ -281,10 +337,21 @@ namespace AoC
             return 0;
         }
 
-        if (opt.speed)
+        if (opt.speed > 0)
         {
-            _cc << "{y}Warning:{d} In this mode ({g}-s{d}) each puzzle solution is run at least five times and at least for five seconds." << endl;
-            _cc << "It may take some time to obtain all results, please be patient. The highest and the lowest time measurements" << endl;
+            const vector<string> rep = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" };
+            string s;
+            if (opt.speed > 0 && opt.speed < 11)
+                s = rep[opt.speed - 1];
+            else
+                s = to_string(opt.speed);
+
+            s += " second";
+            if (opt.speed > 1)
+                s += "s";
+
+            _cc << "{y}Warning:{d} In this mode ({g}-s{d}) each puzzle solution is run at least ten times and at least for " << s << "." << endl;
+            _cc << "It may take some time to obtain all results, please be patient. 10% of the highest and the lowest time measurements" << endl;
             _cc << "are dropped, the average time of all remaining is printed. Repeatability of results is checked after each execution." << endl;
         }
 

@@ -1,7 +1,7 @@
 #ifndef __2015_04_CUDA__
 #define __2015_04_CUDA__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 // routines delivered by NVidia CUDA compiler
 extern bool Day_04_2015_CUDA_input(const char* input, int input_length);
@@ -23,7 +23,12 @@ namespace Day04_2015_CUDA
 		unsigned char* _cuda_results;
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

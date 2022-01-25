@@ -1,11 +1,15 @@
 #ifndef __2015_25__
 #define __2015_25__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day25_2015
 {
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+	};
 }
 
 #endif

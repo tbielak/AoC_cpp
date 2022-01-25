@@ -2,12 +2,26 @@
 
 namespace Day06_2021
 {
-	intmax_t number_of_elements(int x, int days)
+	t_data Main::load(const string& input)
 	{
-		vector<intmax_t> count = vector<intmax_t>(9, 0);
+		t_data x;
+		int number;
+		stringstream ss(input);
+		while (ss >> number)
+		{
+			x.push_back(number);
+			ss.ignore(1);
+		}
+
+		return x;
+	}
+
+	int64_t Main::number_of_elements(int x, int days)
+	{
+		vector<int64_t> count = vector<int64_t>(9, 0);
 		count[x]++;
 
-		intmax_t v = 0;
+		int64_t v = 0;
 		for (int d = 0; d < days; d++)
 		{
 			v = count[0];
@@ -18,56 +32,34 @@ namespace Day06_2021
 			count[8] = v;
 		}
 
-		intmax_t sum = 0;
+		int64_t sum = 0;
 		for (auto n : count)
 			sum += n;
 
 		return sum;
 	}
 
-	intmax_t lanternfish_count(const vector<int>& x, int days)
+	int64_t Main::lanternfish_count(const t_data& x, int days)
 	{
 		int m = *max_element(x.begin(), x.end()) + 1;
-		vector<intmax_t> counts = vector<intmax_t>(m);
+		vector<int64_t> counts = vector<int64_t>(m);
 		for (int i = 0; i < m; i++)
 			counts[i] = number_of_elements(i, days);
 
-		intmax_t sum = 0;
+		int64_t sum = 0;
 		for (auto n : x)
 			sum += counts[n];
 
 		return sum;
 	}
 
-	intmax_t part_one(const vector<int>& x)
+	AoC::Output Main::part_one(const string& input)
 	{
-		return lanternfish_count(x, 80);
+		return lanternfish_count(load(input), 80);
 	}
 
-	intmax_t part_two(const vector<int>& x)
+	AoC::Output Main::part_two(const string& input)
 	{
-		return lanternfish_count(x, 256);
-	}
-
-	t_output main(const t_input& input)
-	{
-		vector<int> x;
-		int number;
-		stringstream ss(input[0]);
-		while (ss >> number)
-		{
-			x.push_back(number);
-			ss.ignore(1);
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(x);
-		auto p2 = part_two(x);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return lanternfish_count(load(input), 256);
 	}
 }

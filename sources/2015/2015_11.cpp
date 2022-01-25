@@ -2,7 +2,7 @@
 
 namespace Day11_2015
 {
-	void inc(string& password)
+	void Main::inc(string& password)
 	{
 		size_t i = password.size() - 1;
 		while (1)
@@ -19,7 +19,7 @@ namespace Day11_2015
 		}
 	}
 
-	bool valid(const string& password)
+	bool Main::valid(const string& password)
 	{
 		bool ok = false;
 		for (size_t i = 0; i < password.size() - 2; i++)
@@ -48,14 +48,15 @@ namespace Day11_2015
 		return c >= 2;
 	}
 
-	bool next(string& password)
+	bool Main::next(string& password)
 	{
 		inc(password);
 		return valid(password);
 	}
 
-	vector<string> both_parts(string password)
+	AoC::Output Main::both_parts(const string& input)
 	{
+		string password = input;
 		vector<string> solution;
 		for (int i = 0; i < 2; i++)
 		{
@@ -64,17 +65,5 @@ namespace Day11_2015
 		}
 
 		return solution;
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(input[0]);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(px[0]);
-		solutions.push_back(px[1]);
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

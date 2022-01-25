@@ -47,6 +47,8 @@
     <ClCompile Include="..\sources\shared\CUDA_misc.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
     <ClCompile Include="..\sources\shared\Options.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp" />
+    <ClCompile Include="..\sources\shared\Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\2015\2015_01.h" />
@@ -84,6 +86,8 @@
     <ClInclude Include="..\sources\shared\Engine.h" />
     <ClInclude Include="..\sources\shared\input_output.h" />
     <ClInclude Include="..\sources\shared\Options.h" />
+    <ClInclude Include="..\sources\shared\Output.h" />
+    <ClInclude Include="..\sources\shared\Solution.h" />
     <ClInclude Include="..\sources\shared\stl.h" />
   </ItemGroup>
   <ItemGroup>

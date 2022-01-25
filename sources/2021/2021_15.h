@@ -1,7 +1,7 @@
 #ifndef __2021_15_
 #define __2021_15__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day15_2021
 {
@@ -14,7 +14,17 @@ namespace Day15_2021
 	typedef vector<t_intpair> t_vecintpair;      // vector of destination nodes
 	typedef vector<t_vecintpair> t_graph;        // vector of source nodes
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static int find_lowest_risk(const t_graph& graph, int gsize);
+		static int succ(int r);
+		static int solve(const vector<string>& input, int enlarge = 1);
+	};
 }
 
 #endif

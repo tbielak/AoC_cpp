@@ -1,7 +1,7 @@
 #ifndef __2019_10__
 #define __2019_10__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day10_2019
 {
@@ -40,14 +40,13 @@ namespace Day10_2019
 	public:
 		Space(const vector<string>& input);
 
-		int best_location_asteroids();
-		int laser_vaporization(int steps);
+		t_mapAsteroidsElement best_location_asteroids();
+		int laser_vaporization(const Position& best, int steps);
 
 	private:
 		int _width;
 		int _height;
 		t_mapAsteroids _asteroids;
-		Position _best;
 
 		int isgn(int x);
 		int gcd(int a, int b);
@@ -56,7 +55,12 @@ namespace Day10_2019
 		AngleDistance find_angle_and_distance(const Position& laser, const Position& asteroid);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+	};
 }
 
 #endif

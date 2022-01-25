@@ -141,7 +141,7 @@ namespace Day18_2020_LALR
 		char ch = _input[_position++];
 		if (ch == '*') return LexAtom{ TerminalClass::trm_mult, 0 };
 		if (ch == '+') return LexAtom{ TerminalClass::trm_add, 0 };
-		if (ch >= '0' && ch <= '9') return LexAtom{ TerminalClass::trm_number, uintmax_t(ch - '0') };
+		if (ch >= '0' && ch <= '9') return LexAtom{ TerminalClass::trm_number, int64_t(ch - '0') };
 		if (ch == '(') return LexAtom{ TerminalClass::trm_lpar, 0 };
 		if (ch == ')') return LexAtom{ TerminalClass::trm_rpar, 0 };
 		return LexAtom{ TerminalClass::trm_terminator, 0 };
@@ -229,7 +229,7 @@ namespace Day18_2020_LALR
 	{
 	}
 
-	uintmax_t Parser::execute(const string& input)
+	int64_t Parser::execute(const string& input) const
 	{
 		Lexer lexer(input);
 		t_semantic_stack semantic_stack;
@@ -284,7 +284,7 @@ namespace Day18_2020_LALR
 	// -------------------------------------------------------
 	// use parser to calculate all expressions and sum results
 
-	uintmax_t calculate_all(const vector<string>& input,
+	int64_t calculate_all(const vector<string>& input,
 		const t_vecint& suffix_length_array,
 		const t_vecint& prefix_symbol_array,
 		const t_vec2int& non_terminal_shift_array,
@@ -293,39 +293,22 @@ namespace Day18_2020_LALR
 		const vector<semantic_action_function>& semantic_actions)
 	{
 		Parser parser(suffix_length_array, prefix_symbol_array, non_terminal_shift_array, terminal_shift_array, reduce_array, semantic_actions);
-
-		uintmax_t sum = 0;
-		for (const auto& s : input)
-			sum += parser.execute(s);
-
-		return sum;
+		return accumulate(input.begin(), input.end(), int64_t(0),
+			[parser](int64_t sum, const string& s) { return sum + parser.execute(s); });
 	}
 
 	// ------------------------------------------
 	// use appropriate arrays to configure parser
 
-	uintmax_t part_one(const vector<string>& input)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
 		return calculate_all(input, P1_suffix_length_array, P1_prefix_symbol_array,
 			P1_non_terminal_shift_array, P1_terminal_shift_array, P1_reduce_array, P1_semantic_actions);
 	}
 
-	uintmax_t part_two(const vector<string>& input)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		return calculate_all(input, P2_suffix_length_array, P2_prefix_symbol_array,
 			P2_non_terminal_shift_array, P2_terminal_shift_array, P2_reduce_array, P2_semantic_actions);
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

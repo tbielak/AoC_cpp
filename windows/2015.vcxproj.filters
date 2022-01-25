@@ -19,6 +19,13 @@
       <Filter>shared</Filter>
     </ClCompile>
     <ClCompile Include="..\sources\2015\2015_01.cpp" />
+    <ClCompile Include="..\sources\2015\2015_main.cpp" />
+    <ClCompile Include="..\sources\shared\Solution.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\shared\Output.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
     <ClCompile Include="..\sources\2015\2015_02.cpp" />
     <ClCompile Include="..\sources\2015\2015_03.cpp" />
     <ClCompile Include="..\sources\2015\2015_04.cpp" />
@@ -26,7 +33,6 @@
     <ClCompile Include="..\sources\2015\2015_05.cpp" />
     <ClCompile Include="..\sources\2015\2015_06.cpp" />
     <ClCompile Include="..\sources\2015\2015_07.cpp" />
-    <ClCompile Include="..\sources\2015\2015_main.cpp" />
     <ClCompile Include="..\sources\2015\2015_08.cpp" />
     <ClCompile Include="..\sources\2015\2015_09.cpp" />
     <ClCompile Include="..\sources\2015\2015_10.cpp" />
@@ -53,9 +59,6 @@
     <ClInclude Include="..\sources\shared\Engine.h">
       <Filter>shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\sources\shared\input_output.h">
-      <Filter>shared</Filter>
-    </ClInclude>
     <ClInclude Include="..\sources\shared\Options.h">
       <Filter>shared</Filter>
     </ClInclude>
@@ -63,6 +66,16 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="..\sources\2015\2015_01.h" />
+    <ClInclude Include="..\sources\2015\2015_puzzles.h" />
+    <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Solution.h">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\shared\Output.h">
+      <Filter>shared</Filter>
+    </ClInclude>
     <ClInclude Include="..\sources\2015\2015_02.h" />
     <ClInclude Include="..\sources\2015\2015_03.h" />
     <ClInclude Include="..\sources\2015\2015_04.h" />
@@ -70,7 +83,6 @@
     <ClInclude Include="..\sources\2015\2015_05.h" />
     <ClInclude Include="..\sources\2015\2015_06.h" />
     <ClInclude Include="..\sources\2015\2015_07.h" />
-    <ClInclude Include="..\sources\2015\2015_puzzles.h" />
     <ClInclude Include="..\sources\2015\2015_08.h" />
     <ClInclude Include="..\sources\2015\2015_09.h" />
     <ClInclude Include="..\sources\2015\2015_10.h" />
@@ -89,8 +101,5 @@
     <ClInclude Include="..\sources\2015\2015_23.h" />
     <ClInclude Include="..\sources\2015\2015_24.h" />
     <ClInclude Include="..\sources\2015\2015_25.h" />
-    <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
-      <Filter>MD5</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

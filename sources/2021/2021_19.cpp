@@ -98,8 +98,32 @@ namespace Day19_2021
 		return result;
 	}
 
-	pair<int, int> both_parts(t_scanners& scanners)
+	t_scanners Main::load(const vector<string>& input)
 	{
+		// load data from input
+		t_scanners scanners;
+		scanners.push_back(t_vecBeacon());
+		for (size_t i = 0; i < input.size(); i++)
+		{
+			if (input[i] == "")
+				scanners.push_back(t_vecBeacon());
+			else
+				if (input[i].substr(0, 3) != "---")
+				{
+					smatch matches;
+					regex regex("([-|0-9]*),([-|0-9]*),([-|0-9]*)");
+					regex_search(input[i], matches, regex);
+					scanners.back().push_back(Beacon(stoi(matches[1]), stoi(matches[2]), stoi(matches[3])));
+				}
+		}
+
+		return scanners;
+	}
+
+	AoC::Output Main::both_parts(const vector<string>& input)
+	{
+		auto scanners = load(input);
+
 		// create set of reference points
 		// get all beacon points from reference scanner (0th)
 		t_setBeacon reference(scanners[0].begin(), scanners[0].end());
@@ -203,33 +227,5 @@ namespace Day19_2021
 
 		// return result
 		return make_pair((int)reference.size(), distance);
-	}
-
-	t_output main(const t_input& input)
-	{
-		t_scanners scanners;
-		scanners.push_back(t_vecBeacon());
-		for (size_t i = 0; i < input.size(); i++)
-		{
-			if (input[i] == "")
-				scanners.push_back(t_vecBeacon());
-			else
-				if (input[i].substr(0, 3) != "---")
-				{
-					smatch matches;
-					regex regex("([-|0-9]*),([-|0-9]*),([-|0-9]*)");
-					regex_search(input[i], matches, regex);
-					scanners.back().push_back(Beacon(stoi(matches[1]), stoi(matches[2]), stoi(matches[3])));
-				}
-		}
-
-		auto t0 = chrono::steady_clock::now();
-		auto px = both_parts(scanners);
-		auto t1 = chrono::steady_clock::now();
-
-		vector<string> solutions;
-		solutions.push_back(to_string(px.first));
-		solutions.push_back(to_string(px.second));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
 	}
 }

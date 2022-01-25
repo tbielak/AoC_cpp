@@ -2,7 +2,7 @@
 
 namespace Day05_2015
 {
-	bool nice_part_one(const string& s)
+	bool Main::nice_part_one(const string& s)
 	{
 		// [1]
 		int c = 0;
@@ -34,7 +34,7 @@ namespace Day05_2015
 		return true;
 	}
 
-	bool nice_part_two(const string& s)
+	bool Main::nice_part_two(const string& s)
 	{
 		// [1]
 		bool nice = false;
@@ -61,26 +61,13 @@ namespace Day05_2015
 		return nice;
 	}
 
-	int part_one(const vector<string>& x)
+	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return (int)count_if(x.begin(), x.end(), [](auto s) { return nice_part_one(s); });
+		return (int)count_if(input.begin(), input.end(), [this](const string& s) { return nice_part_one(s); });
 	}
 
-	int part_two(const vector<string>& x)
+	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return (int)count_if(x.begin(), x.end(), [](auto s) { return nice_part_two(s); });
-	}
-
-	t_output main(const t_input& input)
-	{
-		auto t0 = chrono::steady_clock::now();
-		auto p1 = part_one(input);
-		auto p2 = part_two(input);
-		auto t1 = chrono::steady_clock::now();
-		
-		vector<string> solutions;
-		solutions.push_back(to_string(p1));
-		solutions.push_back(to_string(p2));
-		return make_pair(solutions, chrono::duration<double>((t1 - t0) * 1000).count());
+		return (int)count_if(input.begin(), input.end(), [this](const string& s) { return nice_part_two(s); });
 	}
 }

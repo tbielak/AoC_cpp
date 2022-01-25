@@ -1,7 +1,7 @@
 #ifndef __2015_13__
 #define __2015_13__
 
-#include "../shared/input_output.h"
+#include "../shared/Solution.h"
 
 namespace Day13_2015
 {
@@ -37,7 +37,15 @@ namespace Day13_2015
 		void add_person(const string& s);
 	};
 
-	t_output main(const t_input& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const vector<string>& input);
+		virtual AoC::Output part_two(const vector<string>& input);
+
+	private:
+		static int solve(const vector<string>& input, bool with_me);
+	};
 }
 
 #endif
