@@ -41,6 +41,7 @@
     <ClCompile Include="..\sources\2019\2019_17.cpp" />
     <ClCompile Include="..\sources\2019\2019_18.cpp" />
     <ClCompile Include="..\sources\2019\2019_19.cpp" />
+    <ClCompile Include="..\sources\2019\2019_20.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -84,5 +85,6 @@
     <ClInclude Include="..\sources\2019\2019_17.h" />
     <ClInclude Include="..\sources\2019\2019_18.h" />
     <ClInclude Include="..\sources\2019\2019_19.h" />
+    <ClInclude Include="..\sources\2019\2019_20.h" />
   </ItemGroup>
 </Project>
