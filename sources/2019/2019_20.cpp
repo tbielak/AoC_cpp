@@ -35,7 +35,7 @@ namespace Day20_2019
 	}
 
 	Route::Route(int length, const Position& target, int level_change)
-	: length(length), target(target), level_change(level_change)
+	:	length(length), target(target), level_change(level_change)
 	{
 	}
 
@@ -45,7 +45,7 @@ namespace Day20_2019
 		_labyrinth = input;
 
 		// scan labyrinth, find positions of teleports, replace letters 'A'..'Z' in labyrinth
-		// by walls ('#') and spaces (' '); mark teleports as '@' (see add_teleport method)
+		// by walls ('#') and spaces (' '); mark teleports as '@' (see add_teleport method below)
 		string id = "??";
 		int height = (int)_labyrinth.size();
 		int width = (int)_labyrinth[0].size();
@@ -104,7 +104,7 @@ namespace Day20_2019
 			_finish = p;
 	}
 
-	// BFS: find all routes from source position to any teleport reachable on the same
+	// BFS: find all routes from source position to any teleport reachable on the same level
 	t_routes Labyrinth::bfs_find_routes(const Position& source)
 	{
 		// result
@@ -152,9 +152,11 @@ namespace Day20_2019
 		return routes;
 	}
 
-	// recursive find route from _start to _finish, using teleports, on the same level (when level_coeff = 0) or on different levels (when level_coeff = 1)
-	// not using more than max_teleports teleports, finding min_steps - minium number of steps
-	// position and level = current position and current level on recursive re-entry
+	// recursively find route (using teleports) from _start to _finish:
+	// - on the same level (when level_coeff = 0), or:
+	// - on recursive spaces = different levels (when level_coeff = 1)
+	// while exploring: do not use more than max_teleports teleports (to avoid infinite loops) and find shortest path (min_steps)
+	// position and level -> current position and current level on recursive re-entry of the method
 	void Labyrinth::recursive_find(const t_paths& paths, Position position, int teleports_used, int max_teleports, int level, int level_coeff, int steps, int& min_steps)
 	{
 		// go through all possible routes from current position
@@ -186,7 +188,7 @@ namespace Day20_2019
 		}
 	}
 	
-	// walking from _start to _finish (on the same level or on different levels = recursive spaces)
+	// walking from _start to _finish (on the same level or on different levels, depending on recursive_spaces value)
 	int Labyrinth::walk_through_levels(bool recursive_spaces)
 	{
 		// find all paths from every teleport to every other one, on the same level
@@ -201,10 +203,11 @@ namespace Day20_2019
 		// set big min_steps
 		int min_steps = INT_MAX;
 
-		// set maximum number of teleports used (to avoid going in the loop)
-		// WARNING: this is crucial parameter!
-		// - when obtaining -1 (meaning: no solution) or wrong result -> increase it a bit
+		// set maximum number of teleports used (to avoid infinite loops)
+		// WARNING! this is crucial parameter and the weakest point of the algorith used:
+		// - when obtaining -1 (meaning: no solution) or incorrect result -> increase it a bit
 		// - do not increase it a lot, 'cause you really have no time to wait for it :)
+		// anyway: it should work with the value provided below ;)
 		int max_teleports = int(_teleports.size() + _labyrinth.size());
 
 		// recursively find solution
