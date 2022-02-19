@@ -56,9 +56,6 @@
     <ClInclude Include="..\sources\shared\Engine.h">
       <Filter>shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\sources\shared\input_output.h">
-      <Filter>shared</Filter>
-    </ClInclude>
     <ClInclude Include="..\sources\shared\Options.h">
       <Filter>shared</Filter>
     </ClInclude>

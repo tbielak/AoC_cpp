@@ -70,7 +70,6 @@
     <ClInclude Include="..\sources\2019\2019_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
-    <ClInclude Include="..\sources\shared\input_output.h" />
     <ClInclude Include="..\sources\shared\Options.h" />
     <ClInclude Include="..\sources\shared\Output.h" />
     <ClInclude Include="..\sources\shared\Solution.h" />
