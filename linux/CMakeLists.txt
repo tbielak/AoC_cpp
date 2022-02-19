@@ -18,6 +18,12 @@ list(FILTER src2016 EXCLUDE REGEX ".*CUDA_misc.cpp$")
 add_executable(2016 ${src2016})
 target_link_libraries(2016 pthread)
 
+# 2017 Solutions
+project(2017)
+file(GLOB src2017 "../sources/2017/*.cpp" "../sources/shared/*.cpp")
+list(FILTER src2017 EXCLUDE REGEX ".*CUDA_misc.cpp$")
+add_executable(2017 ${src2017})
+
 # 2019 Solutions
 project(2019)
 file(GLOB src2019 "../sources/2019/*.cpp" "../sources/shared/*.cpp")

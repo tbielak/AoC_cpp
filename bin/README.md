@@ -11,6 +11,7 @@ File | Description
 2015_x64_Release.exe | 2015 puzzles solutions
 2015_with_CUDA_x64_Release.exe | 2015 puzzles solutions, including solutions running on CUDA device
 2016_x64_Release.exe | 2016 puzzles solutions
+2017_x64_Release.exe | 2017 puzzles solutions
 2019_x64_Release.exe | 2019 puzzles solutions
 2020_x64_Release.exe | 2020 puzzles solutions
 2021_x64_Release.exe | 2021 puzzles solutions
@@ -30,6 +31,7 @@ File | Description
 ------------ | -------------
 2015 | 2015 puzzles solutions (x64 code, O3 optimization)
 2016 | 2016 puzzles solutions (x64 code, O3 optimization)
+2017 | 2017 puzzles solutions (x64 code, O3 optimization)
 2019 | 2019 puzzles solutions (x64 code, O3 optimization)
 2020 | 2020 puzzles solutions (x64 code, O3 optimization)
 2021 | 2021 puzzles solutions (x64 code, O3 optimization)
