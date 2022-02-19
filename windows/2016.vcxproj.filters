@@ -4,6 +4,9 @@
     <Filter Include="shared">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{1a3eb805-8ca7-46b4-bbc9-2cc3dd12c82d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\sources\shared\Console.cpp">
@@ -38,6 +41,11 @@
     <ClCompile Include="..\sources\2016\2016_14.cpp" />
     <ClCompile Include="..\sources\2016\2016_15.cpp" />
     <ClCompile Include="..\sources\2016\2016_16.cpp" />
+    <ClCompile Include="..\sources\2016\2016_17.cpp" />
+    <ClCompile Include="..\sources\2016\2016_18.cpp" />
+    <ClCompile Include="..\sources\MD5\MD5.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -75,5 +83,13 @@
     <ClInclude Include="..\sources\2016\2016_14.h" />
     <ClInclude Include="..\sources\2016\2016_15.h" />
     <ClInclude Include="..\sources\2016\2016_16.h" />
+    <ClInclude Include="..\sources\2016\2016_17.h" />
+    <ClInclude Include="..\sources\2016\2016_18.h" />
+    <ClInclude Include="..\sources\MD5\MD5.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
