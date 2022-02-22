@@ -28,6 +28,9 @@
     <ClCompile Include="..\sources\shared\Solution.cpp">
       <Filter>shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\sources\2017\2017_07.cpp" />
+    <ClCompile Include="..\sources\2017\2017_08.cpp" />
+    <ClCompile Include="..\sources\2017\2017_09.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -55,5 +58,8 @@
     <ClInclude Include="..\sources\shared\Solution.h">
       <Filter>shared</Filter>
     </ClInclude>
+    <ClInclude Include="..\sources\2017\2017_07.h" />
+    <ClInclude Include="..\sources\2017\2017_08.h" />
+    <ClInclude Include="..\sources\2017\2017_09.h" />
   </ItemGroup>
 </Project>

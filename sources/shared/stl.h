@@ -20,6 +20,7 @@
 #include <random>
 #include <climits>
 #include <chrono>
+#include <functional>
 
 using namespace std;
 
