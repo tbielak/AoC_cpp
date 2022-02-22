@@ -67,6 +67,12 @@ namespace Day07_2017
 				_bottom = it;
 	}
 
+	Tower::~Tower()
+	{
+		for (auto p : _programs)
+			delete p.second;
+	}
+
 	Program* Tower::add(const string& name)
 	{
 		t_mapptrProgram::iterator it = _programs.find(name);

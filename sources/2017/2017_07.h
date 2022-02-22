@@ -29,6 +29,7 @@ namespace Day07_2017
     {
     public:
         Tower(const vector<string>& input);
+        virtual ~Tower();
 
         string bottom_name() const;
         int weight_correction() const;
