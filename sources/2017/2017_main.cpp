@@ -10,7 +10,8 @@ const AoC::t_names names = {
     { 6, "--- Day 6: Memory Reallocation ---" },
     { 7, "--- Day 7: Recursive Circus ---" },
     { 8, "--- Day 8: I Heard You Like Registers ---" },
-    { 9, "--- Day 9: Stream Processing ---" }
+    { 9, "--- Day 9: Stream Processing ---" },
+    { 10, "--- Day 10: Knot Hash ---" }
 };
 
 const AoC::t_repository repo = {
@@ -22,7 +23,8 @@ const AoC::t_repository repo = {
     { 6, {2, { { "", new Day06_2017::Main() } } } },
     { 7, {2, { { "", new Day07_2017::Main() } } } },
     { 8, {2, { { "", new Day08_2017::Main() } } } },
-    { 9, {2, { { "", new Day09_2017::Main() } } } }
+    { 9, {2, { { "", new Day09_2017::Main() } } } },
+    { 10, {2, { { "", new Day10_2017::Main() } } } }
 };
 
 int main(int argc, char* argv[])
