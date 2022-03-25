@@ -15,7 +15,8 @@ const AoC::t_names names = {
     { 11, "--- Day 11: Hex Ed ---" },
     { 12, "--- Day 12: Digital Plumber ---" },
     { 13, "--- Day 13: Packet Scanners ---" },
-    { 14, "--- Day 14: Disk Defragmentation ---" }
+    { 14, "--- Day 14: Disk Defragmentation ---" },
+    { 15, "--- Day 15: Dueling Generators ---" }
 };
 
 const AoC::t_repository repo = {
@@ -32,7 +33,8 @@ const AoC::t_repository repo = {
     { 11, {2, { { "", new Day11_2017::Main() } } } },
     { 12, {2, { { "", new Day12_2017::Main() } } } },
     { 13, {2, { { "", new Day13_2017::Main() } } } },
-    { 14, {2, { { "", new Day14_2017::Main() } } } }
+    { 14, {2, { { "", new Day14_2017::Main() } } } },
+    { 15, {2, { { "", new Day15_2017::Main() } } } }
 };
 
 int main(int argc, char* argv[])
