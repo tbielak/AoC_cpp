@@ -12,7 +12,7 @@ namespace Day15_2017
         virtual AoC::Output part_two(const vector<string>& input);
 
     private:
-        static pair<int64_t, int64_t> load(const vector<string>& input);
+        static int solve(const vector<string>& input, int loops, int mod_a, int mod_b);
     };
 }
 
