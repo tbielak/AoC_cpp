@@ -35,6 +35,8 @@
     <ClCompile Include="..\sources\2017\2017_11.cpp" />
     <ClCompile Include="..\sources\2017\2017_12.cpp" />
     <ClCompile Include="..\sources\2017\2017_13.cpp" />
+    <ClCompile Include="..\sources\2017\KnotHash.cpp" />
+    <ClCompile Include="..\sources\2017\2017_14.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -69,5 +71,7 @@
     <ClInclude Include="..\sources\2017\2017_11.h" />
     <ClInclude Include="..\sources\2017\2017_12.h" />
     <ClInclude Include="..\sources\2017\2017_13.h" />
+    <ClInclude Include="..\sources\2017\KnotHash.h" />
+    <ClInclude Include="..\sources\2017\2017_14.h" />
   </ItemGroup>
 </Project>
