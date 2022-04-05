@@ -15,16 +15,16 @@ namespace Day16_2017
 
 	typedef vector<DanceMove> t_dance;
 
-    class Main : public AoC::Solution
-    {
-    public:
-        virtual AoC::Output part_one(const string& input);
-        virtual AoC::Output part_two(const string& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
 
 	private:
 		static t_dance load(const string& input);
 		static void do_the_dance(string& progs, const t_dance& dance);
-    };
+	};
 }
 
 #endif
