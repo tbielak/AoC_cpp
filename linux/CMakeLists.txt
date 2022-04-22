@@ -24,6 +24,12 @@ file(GLOB src2017 "../sources/2017/*.cpp" "../sources/shared/*.cpp")
 list(FILTER src2017 EXCLUDE REGEX ".*CUDA_misc.cpp$")
 add_executable(2017 ${src2017})
 
+# 2018 Solutions
+project(2018)
+file(GLOB src2018 "../sources/2018/*.cpp" "../sources/shared/*.cpp")
+list(FILTER src2018 EXCLUDE REGEX ".*CUDA_misc.cpp$")
+add_executable(2018 ${src2018})
+
 # 2019 Solutions
 project(2019)
 file(GLOB src2019 "../sources/2019/*.cpp" "../sources/shared/*.cpp")
