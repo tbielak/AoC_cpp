@@ -17,6 +17,8 @@
 - [2016](https://adventofcode.com/2016): days 1-18
 - [2015](https://adventofcode.com/2015): ALL + bonuses: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
 
+Current status: 268 AoC stars covered (out of 350★)
+
 ## Repository contents
 Repository contains the following directories:
 
