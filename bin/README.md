@@ -82,4 +82,4 @@ Output is printed on console using colored text. Selecting the colors is achieve
 
 ## Debugging the solution
 
-Use Microsoft Visual Studio Community 2019 in Windows to debug the solution. Build the executables in Debug configuration, and choose the puzzle solution providing *Command Arguments* (*-p* switch) + optionally: your input file (*-i* switch). Place the breakpoint in the appropriate *cpp* file in *main* routine and run it. Enjoy!
+Use Microsoft Visual Studio Community 2019 in Windows to debug the solution. Build the executables in Debug configuration, and choose the puzzle solution providing *Command Arguments* (*-p* switch) + optionally: your input file (*-i* switch). Place the breakpoint in the appropriate *cpp* file in *Main::part_one* or *Main::part_two* method and run it. Enjoy!
