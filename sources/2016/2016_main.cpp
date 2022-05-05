@@ -19,7 +19,10 @@ const AoC::t_names names = {
     { 15, "--- Day 15: Timing is Everything ---" },
     { 16, "--- Day 16: Dragon Checksum ---" },
     { 17, "--- Day 17: Two Steps Forward ---" },
-    { 18, "--- Day 18: Like a Rogue ---" }
+    { 18, "--- Day 18: Like a Rogue ---" },
+    { 19, "--- Day 19: An Elephant Named Joseph ---" },
+    { 20, "--- Day 20: Firewall Rules ---" },
+    { 21, "--- Day 21: Scrambled Letters and Hash ---" }
 };
 
 const AoC::t_repository repo = {
@@ -40,7 +43,10 @@ const AoC::t_repository repo = {
     { 15, {2, { { "", new Day15_2016::Main() } } } },
     { 16, {2, { { "", new Day16_2016::Main() } } } },
     { 17, {2, { { "", new Day17_2016::Main() } } } },
-    { 18, {2, { { "", new Day18_2016::Main() } } } }
+    { 18, {2, { { "", new Day18_2016::Main() } } } },
+    { 19, {2, { { "regular", new Day19_2016::Main() } , { "magic", new Day19_2016_Magic::Main() } } } },
+    { 20, {2, { { "", new Day20_2016::Main() } } } },
+    { 21, {2, { { "", new Day21_2016::Main() } } } }
 };
 
 int main(int argc, char* argv[])

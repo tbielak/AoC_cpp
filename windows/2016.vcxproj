@@ -37,6 +37,10 @@
     <ClCompile Include="..\sources\2016\2016_16.cpp" />
     <ClCompile Include="..\sources\2016\2016_17.cpp" />
     <ClCompile Include="..\sources\2016\2016_18.cpp" />
+    <ClCompile Include="..\sources\2016\2016_19.cpp" />
+    <ClCompile Include="..\sources\2016\2016_19_magic.cpp" />
+    <ClCompile Include="..\sources\2016\2016_20.cpp" />
+    <ClCompile Include="..\sources\2016\2016_21.cpp" />
     <ClCompile Include="..\sources\2016\2016_main.cpp" />
     <ClCompile Include="..\sources\MD5\MD5.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
@@ -64,6 +68,10 @@
     <ClInclude Include="..\sources\2016\2016_16.h" />
     <ClInclude Include="..\sources\2016\2016_17.h" />
     <ClInclude Include="..\sources\2016\2016_18.h" />
+    <ClInclude Include="..\sources\2016\2016_19.h" />
+    <ClInclude Include="..\sources\2016\2016_19_magic.h" />
+    <ClInclude Include="..\sources\2016\2016_20.h" />
+    <ClInclude Include="..\sources\2016\2016_21.h" />
     <ClInclude Include="..\sources\2016\2016_puzzles.h" />
     <ClInclude Include="..\sources\MD5\MD5.h" />
     <ClInclude Include="..\sources\MD5\MD5_single_transform.h" />

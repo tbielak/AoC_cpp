@@ -19,5 +19,9 @@
 #include "2016_16.h"
 #include "2016_17.h"
 #include "2016_18.h"
+#include "2016_19.h"
+#include "2016_19_magic.h"
+#include "2016_20.h"
+#include "2016_21.h"
 
 #endif

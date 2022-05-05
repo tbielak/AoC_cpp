@@ -21,6 +21,7 @@
 #include <climits>
 #include <chrono>
 #include <functional>
+#include <bitset>
 
 using namespace std;
 

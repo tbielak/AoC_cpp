@@ -46,6 +46,10 @@
     <ClCompile Include="..\sources\MD5\MD5.cpp">
       <Filter>MD5</Filter>
     </ClCompile>
+    <ClCompile Include="..\sources\2016\2016_19.cpp" />
+    <ClCompile Include="..\sources\2016\2016_19_magic.cpp" />
+    <ClCompile Include="..\sources\2016\2016_20.cpp" />
+    <ClCompile Include="..\sources\2016\2016_21.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -91,5 +95,9 @@
     <ClInclude Include="..\sources\MD5\MD5_single_transform.h">
       <Filter>MD5</Filter>
     </ClInclude>
+    <ClInclude Include="..\sources\2016\2016_19.h" />
+    <ClInclude Include="..\sources\2016\2016_19_magic.h" />
+    <ClInclude Include="..\sources\2016\2016_20.h" />
+    <ClInclude Include="..\sources\2016\2016_21.h" />
   </ItemGroup>
 </Project>

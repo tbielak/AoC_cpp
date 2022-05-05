@@ -14,10 +14,10 @@
 - [2019](https://adventofcode.com/2019): days 1-20
 - [2018](https://adventofcode.com/2018): days 1-5
 - [2017](https://adventofcode.com/2017): days 1-17
-- [2016](https://adventofcode.com/2016): days 1-18
+- [2016](https://adventofcode.com/2016): days 1-21 + bonus: two different solutions of day 19
 - [2015](https://adventofcode.com/2015): ALL + bonuses: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
 
-Current status: 268 AoC stars covered (out of 350★)
+Current status: 274 AoC stars covered (out of 350★)
 
 ## Repository contents
 Repository contains the following directories:
