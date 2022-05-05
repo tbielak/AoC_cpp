@@ -65,9 +65,7 @@ namespace Day20_2016
 	AoC::Output Main::part_two(const vector<string>& input)
 	{
 		auto white_list = load(input);
-
 		return accumulate(white_list.begin(), white_list.end(), 0,
 			[](uint32_t sum, const t_range& range) { return sum + range.second - range.first + 1; });
-
 	}
 }
