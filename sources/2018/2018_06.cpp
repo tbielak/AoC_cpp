@@ -3,12 +3,12 @@
 namespace Day06_2018
 {
 	MinMax::MinMax()
-		: min(INT_MAX), max(-1)
+	:	min(INT_MAX), max(-1)
 	{
 	}
 
 	Point::Point(int x, int y)
-		: x(x), y(y)
+	:	x(x), y(y)
 	{
 	}
 
