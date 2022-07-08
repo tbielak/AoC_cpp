@@ -7,5 +7,7 @@
 #include "2018_04.h"
 #include "2018_05.h"
 #include "2018_06.h"
+#include "2018_07.h"
+#include "2018_08.h"
 
 #endif
