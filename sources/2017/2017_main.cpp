@@ -18,7 +18,8 @@ const AoC::t_names names = {
     { 14, "--- Day 14: Disk Defragmentation ---" },
     { 15, "--- Day 15: Dueling Generators ---" },
     { 16, "--- Day 16: Permutation Promenade ---" },
-    { 17, "--- Day 17: Spinlock ---" }
+    { 17, "--- Day 17: Spinlock ---" },
+    { 18, "--- Day 18: Duet ---" }
 };
 
 const AoC::t_repository repo = {
@@ -38,7 +39,8 @@ const AoC::t_repository repo = {
     { 14, {2, { { "", new Day14_2017::Main() } } } },
     { 15, {2, { { "", new Day15_2017::Main() } } } },
     { 16, {2, { { "", new Day16_2017::Main() } } } },
-    { 17, {2, { { "", new Day17_2017::Main() } } } }
+    { 17, {2, { { "", new Day17_2017::Main() } } } },
+    { 18, {2, { { "", new Day18_2017::Main() } } } }
 };
 
 int main(int argc, char* argv[])
