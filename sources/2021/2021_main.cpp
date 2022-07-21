@@ -25,6 +25,7 @@ const AoC::t_names names = {
     { 21, "--- Day 21: Dirac Dice ---" },
     { 22, "--- Day 22: Reactor Reboot ---" },
     { 23, "--- Day 23: Amphipod ---" },
+    { 24, "--- Day 24: Arithmetic Logic Unit ---" },
     { 25, "--- Day 25: Sea Cucumber ---" }
 };
 
@@ -52,6 +53,7 @@ const AoC::t_repository repo = {
     { 21, {2, { { "", new Day21_2021::Main() } } } },
     { 22, {2, { { "", new Day22_2021::Main() } } } },
     { 23, {2, { { "", new Day23_2021::Main() } } } },
+    { 24, {2, { { "", new Day24_2021::Main() } } } },
     { 25, {2, { { "", new Day25_2021::Main() } } } }
 };
 
