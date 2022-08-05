@@ -238,7 +238,7 @@ int64_t Solver::execute_block(int64_t z, size_t i)
 At: <br />
 [1] `x` becomes a number in 0..25 range. <br />
 [2] Then `z` is divided by 26. <br />
-[3] `x` is updates and now there is a chance it will match digit on input (`w[i]`) <br />
+[3] `x` is updated and now there is a chance it will match digit on input (`w[i]`) <br />
 [4] if so: `z` is returned (divided previously by 26 at [2]). <br />
 [5] otherwise: `z` is multiplied by 26 (which "cancels" division at [2]) and some number less than 26 is added.
 
@@ -273,17 +273,17 @@ B = {  12,  10,  10,  -6,  11, -12,  11,  12,  12,  -2,  -5,  -4,  -4, -12 }
 C = {   6,   2,  13,   8,  13,   8,   3,  11,  10,   8,  14,   6    8,   2 }
 ```
 
-`A[0] = 1`, so the `max_z == 26` after first digit.
+`A[0] = 1`, so the `max_z == 26` after first digit. <br />
 After calling `Solver::execute_block` with first digit `z == 15`. So far so good.
 
-`A[1] = 1`, multiply `max_z` by `26`, now `max_z == 676` after 2<sup>nd</sup> digit.
-After calling `Solver::execute_block` with second digit `z == 401`. So far so good.
+`A[1] = 1`, multiply `max_z` by `26`, now `max_z == 676` after 2<sup>nd</sup> digit. <br />
+After calling `Solver::execute_block` with 2<sup>nd</sup> digit `z == 401`. So far so good.
 
-`A[2] = 1`, multiply `max_z` by `26`, now `max_z == 17576` after 3<sup>rd</sup> digit.
-After calling `Solver::execute_block` with third digit `z == 10448`. Still good.
+`A[2] = 1`, multiply `max_z` by `26`, now `max_z == 17576` after 3<sup>rd</sup> digit. <br />
+After calling `Solver::execute_block` with 3<sup>rd</sup> digit `z == 10448`. Still good.
 
-`A[3] = 26`, divide `max_z` by `26`, now `max_z == 676` after 4<sup>th</sup> digit.
-After calling `Solver::execute_block` with 4th digit `z == 10443`. Too much!
+`A[3] = 26`, divide `max_z` by `26`, now `max_z == 676` after 4<sup>th</sup> digit. <br />
+After calling `Solver::execute_block` with 4<sup>th</sup> digit `z == 10443`. Too much!
 
 It means that all numbers starting with four nines cannot reach `z == 0`. We can skip all these numbers and check 99989999999999 next.
 
@@ -386,7 +386,7 @@ string Solver::execute()
 	return result;
 ```
 
-When `z` is too big then the appropriate digit of `w` number is fixed by adding `_step` to it (which equals -1 for part one and 1 for part two - see `Solver` class constructor) and then - the other digits are corrected in `while` and `for` loops to skip bunch of numbers. `break` starts validating a new serial number:
+When `z` is too big then the appropriate digit of `w` number is fixed by adding `step` to it (which equals -1 for part one and 1 for part two - see `Solver` class constructor) and then - the other digits are corrected in `while` and `for` loops to skip bunch of numbers. `break` starts validating a new serial number:
 
 ```C++
 			if (z > _max_z[i])
@@ -405,4 +405,4 @@ When `z` is too big then the appropriate digit of `w` number is fixed by adding 
 			}
 ```
 
-And... that's all folks! :)
+And... that's all folks! :-)
