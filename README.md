@@ -22,31 +22,31 @@ Current status: 296 AoC stars covered (out of 350★)
 ## Solutions matrix
 Year | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021
  ---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
-Day 1|[`S`](sources/2015/2015_01.cpp)| | | | | |
-Day 2|[`S`](sources/2015/2015_02.cpp)| | | | | |
-Day 3|[`S`](sources/2015/2015_03.cpp)| | | | | |
-Day 4|[`S`](sources/2015/2015_04.cpp)| | | | | |
-Day 5|[`S`](sources/2015/2015_05.cpp)| | | | | |
-Day 6|[`S`](sources/2015/2015_06.cpp)| | | | | |
-Day 7|[`S`](sources/2015/2015_07.cpp)| | | | | |
-Day 8|[`S`](sources/2015/2015_08.cpp)| | | | | |
-Day 9|[`S`](sources/2015/2015_09.cpp)| | | | | |
-Day 10|[`S`](sources/2015/2015_10.cpp)| | | | | |
-Day 11|[`S`](sources/2015/2015_11.cpp)| | | | | |
-Day 12|[`S`](sources/2015/2015_12.cpp)| | | | | |
-Day 13|[`S`](sources/2015/2015_13.cpp)| | | | | |
-Day 14|[`S`](sources/2015/2015_14.cpp)| | | | | |
-Day 15|[`S`](sources/2015/2015_15.cpp)| | | | | |
-Day 16|[`S`](sources/2015/2015_16.cpp)| | | | | |
-Day 17|[`S`](sources/2015/2015_17.cpp)| | | | | |
-Day 18|[`S`](sources/2015/2015_18.cpp)| | | | | |
-Day 19|[`S`](sources/2015/2015_19.cpp)| | | | | |
-Day 20|[`S`](sources/2015/2015_20.cpp)| | | | | |
-Day 21|[`S`](sources/2015/2015_21.cpp)| | | | | |
-Day 22|[`S`](sources/2015/2015_22.cpp)| | | | | |
-Day 23|[`S`](sources/2015/2015_23.cpp)| | | | | |
-Day 24|[`S`](sources/2015/2015_24.cpp)| | | | | |
-Day 25|[`S`](sources/2015/2015_25.cpp)| | | | | |
+Day 1|[`.cpp`](sources/2015/2015_01.cpp)[`.h`](sources/2015/2015_01.h)| | | | | |
+Day 2|[`.cpp`](sources/2015/2015_02.cpp)[`.h`](sources/2015/2015_02.h)| | | | | |
+Day 3|[`.cpp`](sources/2015/2015_03.cpp)[`.h`](sources/2015/2015_03.h)| | | | | |
+Day 4|[`.cpp`](sources/2015/2015_04.cpp)[`.h`](sources/2015/2015_04.h)| | | | | |
+Day 5|[`.cpp`](sources/2015/2015_05.cpp)[`.h`](sources/2015/2015_05.h)| | | | | |
+Day 6|[`.cpp`](sources/2015/2015_06.cpp)[`.h`](sources/2015/2015_06.h)| | | | | |
+Day 7|[`.cpp`](sources/2015/2015_07.cpp)[`.h`](sources/2015/2015_07.h)| | | | | |
+Day 8|[`.cpp`](sources/2015/2015_08.cpp)[`.h`](sources/2015/2015_08.h)| | | | | |
+Day 9|[`.cpp`](sources/2015/2015_09.cpp)[`.h`](sources/2015/2015_09.h)| | | | | |
+Day 10|[`.cpp`](sources/2015/2015_10.cpp)[`.h`](sources/2015/2015_10.h)| | | | | |
+Day 11|[`.cpp`](sources/2015/2015_11.cpp)[`.h`](sources/2015/2015_11.h)| | | | | |
+Day 12|[`.cpp`](sources/2015/2015_12.cpp)[`.h`](sources/2015/2015_12.h)| | | | | |
+Day 13|[`.cpp`](sources/2015/2015_13.cpp)[`.h`](sources/2015/2015_13.h)| | | | | |
+Day 14|[`.cpp`](sources/2015/2015_14.cpp)[`.h`](sources/2015/2015_14.h)| | | | | |
+Day 15|[`.cpp`](sources/2015/2015_15.cpp)[`.h`](sources/2015/2015_15.h)| | | | | |
+Day 16|[`.cpp`](sources/2015/2015_16.cpp)[`.h`](sources/2015/2015_16.h)| | | | | |
+Day 17|[`.cpp`](sources/2015/2015_17.cpp)[`.h`](sources/2015/2015_17.h)| | | | | |
+Day 18|[`.cpp`](sources/2015/2015_18.cpp)[`.h`](sources/2015/2015_18.h)| | | | | |
+Day 19|[`.cpp`](sources/2015/2015_19.cpp)[`.h`](sources/2015/2015_19.h)| | | | | |
+Day 20|[`.cpp`](sources/2015/2015_20.cpp)[`.h`](sources/2015/2015_20.h)| | | | | |
+Day 21|[`.cpp`](sources/2015/2015_21.cpp)[`.h`](sources/2015/2015_21.h)| | | | | |
+Day 22|[`.cpp`](sources/2015/2015_22.cpp)[`.h`](sources/2015/2015_22.h)| | | | | |
+Day 23|[`.cpp`](sources/2015/2015_23.cpp)[`.h`](sources/2015/2015_23.h)| | | | | |
+Day 24|[`.cpp`](sources/2015/2015_24.cpp)[`.h`](sources/2015/2015_24.h)| | | | | |
+Day 25|[`.cpp`](sources/2015/2015_25.cpp)[`.h`](sources/2015/2015_25.h)| | | | | |
 
 ## Repository contents
 Repository contains the following directories:
