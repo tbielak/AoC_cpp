@@ -2,9 +2,9 @@
 
 Implementing virtual CPU to execute ALU program provided on input is a bad idea. It would be far too slow. Much better approach is to analyze the input and process it somehow...
 
-ALU program (puzzle input) has 252 instructions. The program can be divided into 14 blocks of 18 instructions. Each block starts with `inp w` instruction, which reads an input value (n^th^ digit of the submarine's model number, `n=1..14`) and stores it in `w` register.
+ALU program (puzzle input) has 252 instructions. The program can be divided into 14 blocks of 18 instructions. Each block starts with `inp w` instruction, which reads an input value (n<sup>th</sup> digit of the submarine's model number, `n=1..14`) and stores it in `w` register.
 
-All blocks are almost the same, they differ only in three places: numeric arguments of 5^th^, 6^th^ and 16^th^ instruction of the block. Let's name these arguments `A`, `B` and `C`. Now each block looks like shown below:
+All blocks are almost the same, they differ only in three places: numeric arguments of 5<sup>th</sup>, 6<sup>th</sup> and 16<sup>th</sup> instruction of the block. Let's name these arguments `A`, `B` and `C`. Now each block looks like shown below:
 
 ```C++
 ins#   -code---    C/C++ equivalent
@@ -34,7 +34,7 @@ __Note:__ Input shall follow this pattern. The solution strongly relies on it, b
 Quote from puzzle description:
 >The ALU is a four-dimensional processing unit: it has integer variables `w`, `x`, `y`, and `z`. These variables all start with the value `0`.
 
-The block shown above uses variable `w` to transport digit from input, variables `x` and `y` are zeroed when processing each digit (see 2^nd^ and 9^th^ instruction), only `z` value is preserved and modified during subsequent execution of the code (subsequent digits).
+The block shown above uses variable `w` to transport digit from input, variables `x` and `y` are zeroed when processing each digit (see 2<sup>nd</sup> and 9<sup>th</sup> instruction), only `z` value is preserved and modified during subsequent execution of the code (subsequent digits).
 
 >Then, after MONAD has finished running all of its instructions, it will indicate that the model number was __valid__ by leaving a `0` in variable `z` - this is the goal.
 
@@ -63,13 +63,13 @@ ins#   -code---           C/C++ equivalent
 18.    add z y   -------> z += y;
 ```
 
-Let's assume that `A`, `B` and `C` are arrays containing numbers for each i^th^ block from input (`i=0..13`), and that `w` is 14-element array containing digits of submarine's model number being validated - see `Solver` class private members:
+Let's assume that `A`, `B` and `C` are arrays containing numbers for each i<sup>th</sup> block from input (`i=0..13`), and that `w` is 14-element array containing digits of submarine's model number being validated - see `Solver` class private members:
 
 ```C++
 vector<int> _A, _B, _C, _w;
 ```
 
-Now we can take the code above and write `Solver::execute_block` method which updates `z` variable executing i^th^ block of input:
+Now we can take the code above and write `Solver::execute_block` method which updates `z` variable executing i<sup>th</sup> block of input:
 
 ```C++
 int64_t Solver::execute_block(int64_t z, size_t i)
@@ -148,7 +148,7 @@ Now, let's consider a trivial, brute-force solution:
 - for part one (finding highest valid number): start from 99999999999999, check if it's valid, if not - decrease the number and check again; repeat until you succeed;
 - for part two (finding lowest valid number): start from 11111111111111, check if it's valid, if not - increase the number and check again; repeat until you succeed.
 
-Unfortunatelly, in the worst case scenario (when both numbers are near the middle of 11111111111111..99999999999999 range) we need to check almost 9^14^ numbers... Not possible in our __lifespan__!
+Unfortunatelly, in the worst case scenario (when both numbers are near the middle of 11111111111111..99999999999999 range) we need to check almost 9<sup>14</sup> numbers... Not possible in our __lifespan__!
 
 Assuming we are not so clever to find O(1)-class algorithm to solve it, we need to find anything which allows to safely skip bunches of numbers in brute-force solution.
 
@@ -253,14 +253,14 @@ Looking at `z` as a number in numeral system with 26 as its base you can say tha
 --------
 
 Summarizing the most important observations made so far:
-- on validating submarine's model number variable `z` starts with zero value, then its value is increased or decreased during 14 executions of `Solver::execute_block` method (14 digits of submarine's model number) and we're looking for `z == 0` after 14^th^ execution;
-- when `A[i]` is `1` there is a chance of increasing by one order of magnitude of `z~26~` number;
-- when `A[i]` is `26` there is a chance of decreasing by one order of magnitude of `z~26~` number;
+- on validating submarine's model number variable `z` starts with zero value, then its value is increased or decreased during 14 executions of `Solver::execute_block` method (14 digits of submarine's model number) and we're looking for `z == 0` after 14<sup>th</sup> execution;
+- when `A[i]` is `1` there is a chance of increasing by one order of magnitude of `z<sub>26</sub>` number;
+- when `A[i]` is `26` there is a chance of decreasing by one order of magnitude of `z<sub>26</sub>` number;
 - in `A` array there are exactly seven elements = `1` and seven elements = `26`.
 
 
 __Conclusion:__
-Increasing/decreasing the order of magnitude of `z~26~` number has to be correlated to `1`/`26` numbers in `A` array. This is the only chance to finish 14-digit validation with `z` in 0..25 range, and - finally - find `z == 0` numbers. In other words: we can calculate the maximum `z` value after checking i^th^ digit of submarine's model number; when `z` value exceeds this number - there is no need to check the whole set of numbers starting with the same i^th^ digits as the number being validated, because they all cannot lead to `z == 0`.
+Increasing/decreasing the order of magnitude of `z<sub>26</sub>` number has to be correlated to `1`/`26` numbers in `A` array. This is the only chance to finish 14-digit validation with `z` in 0..25 range, and - finally - find `z == 0` numbers. In other words: we can calculate the maximum `z` value after checking i<sup>th</sup> digit of submarine's model number; when `z` value exceeds this number - there is no need to check the whole set of numbers starting with the same i<sup>th</sup> digits as the number being validated, because they all cannot lead to `z == 0`.
 
 
 __Example:__
@@ -273,16 +273,16 @@ B = {  12,  10,  10,  -6,  11, -12,  11,  12,  12,  -2,  -5,  -4,  -4, -12 }
 C = {   6,   2,  13,   8,  13,   8,   3,  11,  10,   8,  14,   6    8,   2 }
 ```
 
-`A[0] = 1`, so the `z~max~ == 26` after first digit.
+`A[0] = 1`, so the `z<sub>max</sub> == 26` after first digit.
 After calling *Solver::execute_block* with first digit `z == 15`. So far so good.
 
-`A[1] = 1`, multiply `z~max~` by `26`, now `z~max~ == 676` after 2^nd^ digit.
+`A[1] = 1`, multiply `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 676` after 2<sup>nd</sup> digit.
 After calling *Solver::execute_block* with second digit `z == 401`. So far so good.
 
-`A[2] = 1`, multiply `z~max~` by `26`, now `z~max~ == 17576` after 3^rd^ digit.
+`A[2] = 1`, multiply `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 17576` after 3<sup>rd</sup> digit.
 After calling *Solver::execute_block* with third digit `z == 10448`. Still good.
 
-`A[3] = 26`, divide `z~max~` by `26`, now `z~max~ == 676` after 4^th^ digit.
+`A[3] = 26`, divide `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 676` after 4<sup>th</sup> digit.
 After calling *Solver::execute_block* with 4th digit `z == 10443`. Too much!
 
 It means that all numbers starting with four nines cannot reach `z == 0`. We can skip all these numbers and check 99989999999999 next.
@@ -309,7 +309,7 @@ Solver::Solver(const vector<string>& input, int w_init)
 }
 ```
 
-Then - initializes `w` array and prepares `z~max~` values according to `A` array values:
+Then - initializes `w` array and prepares `z<sub>max</sub>` values according to `A` array values:
 
 ```C++
 Solver::Solver(const vector<string>& input, int w_init)
@@ -363,7 +363,7 @@ string Solver::execute()
 }
 ```
 
-`while` loop checks if `z` is not too big after processing i^th^ digit by `Solver::execute_block`. If not: `for` examines all 14 digits and `while` ends with `z == 0` (which produces the `result`):
+`while` loop checks if `z` is not too big after processing i<sup>th</sup> digit by `Solver::execute_block`. If not: `for` examines all 14 digits and `while` ends with `z == 0` (which produces the `result`):
 
 ```C++
 	while (z != 0)
