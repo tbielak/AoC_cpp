@@ -154,7 +154,7 @@ Assuming we are not so clever to find O(1)-class algorithm to solve it, we need 
 
 Let's take a closer look at `A`, `B` and `C` arrays.
 
-*Solver* class constructor reads these values from input, assuming that the input is valid (follows already mentioned pattern):
+`Solver` class constructor reads these values from input, assuming that the input is valid (follows already mentioned pattern):
 
 ```C++
 Solver::Solver(const vector<string>& input, int w_init)
@@ -203,11 +203,11 @@ int64_t Solver::execute_block(int64_t z, size_t i)
 }
 ```
 
-At:
-[1] `x` becomes a number in 0..25 range.
-[2] `z` is divided by 1 (not changed).
-[3] `x` is updated and now there is a chance it will match digit on input (`w[i]`)
-[4] if so: `z` is returned (not changed).
+At: <br />
+[1] `x` becomes a number in 0..25 range. <br />
+[2] `z` is divided by 1 (not changed). <br />
+[3] `x` is updated and now there is a chance it will match digit on input (`w[i]`) <br />
+[4] if so: `z` is returned (not changed). <br />
 [5] otherwise: `z` is multiplied by 26 and some number less than 26 is added.
 
 In other words:
@@ -235,11 +235,11 @@ int64_t Solver::execute_block(int64_t z, size_t i)
 }
 ```
 
-At:
-[1] `x` becomes a number in 0..25 range.
-[2] Then `z` is divided by 26.
-[3] `x` is updates and now there is a chance it will match digit on input (`w[i]`)
-[4] if so: `z` is returned (divided previously by 26 at [2]).
+At: <br />
+[1] `x` becomes a number in 0..25 range. <br />
+[2] Then `z` is divided by 26. <br />
+[3] `x` is updates and now there is a chance it will match digit on input (`w[i]`) <br />
+[4] if so: `z` is returned (divided previously by 26 at [2]). <br />
 [5] otherwise: `z` is multiplied by 26 (which "cancels" division at [2]) and some number less than 26 is added.
 
 In other words:
@@ -254,13 +254,13 @@ Looking at `z` as a number in numeral system with 26 as its base you can say tha
 
 Summarizing the most important observations made so far:
 - on validating submarine's model number variable `z` starts with zero value, then its value is increased or decreased during 14 executions of `Solver::execute_block` method (14 digits of submarine's model number) and we're looking for `z == 0` after 14<sup>th</sup> execution;
-- when `A[i]` is `1` there is a chance of increasing by one order of magnitude of `z<sub>26</sub>` number;
-- when `A[i]` is `26` there is a chance of decreasing by one order of magnitude of `z<sub>26</sub>` number;
+- when `A[i]` is `1` there is a chance of increasing by one order of magnitude of z<sub>26</sub> number;
+- when `A[i]` is `26` there is a chance of decreasing by one order of magnitude of z<sub>26</sub> number;
 - in `A` array there are exactly seven elements = `1` and seven elements = `26`.
 
 
 __Conclusion:__
-Increasing/decreasing the order of magnitude of `z<sub>26</sub>` number has to be correlated to `1`/`26` numbers in `A` array. This is the only chance to finish 14-digit validation with `z` in 0..25 range, and - finally - find `z == 0` numbers. In other words: we can calculate the maximum `z` value after checking i<sup>th</sup> digit of submarine's model number; when `z` value exceeds this number - there is no need to check the whole set of numbers starting with the same i<sup>th</sup> digits as the number being validated, because they all cannot lead to `z == 0`.
+Increasing/decreasing the order of magnitude of z<sub>26</sub> number has to be correlated to `1`/`26` numbers in `A` array. This is the only chance to finish 14-digit validation with `z` in 0..25 range, and - finally - find `z == 0` numbers. In other words: we can calculate the maximum `z` value after checking i<sup>th</sup> digit of submarine's model number; when `z` value exceeds this number - there is no need to check the whole set of numbers starting with the same i<sup>th</sup> digits as the number being validated, because they all cannot lead to `z == 0`.
 
 
 __Example:__
@@ -273,17 +273,17 @@ B = {  12,  10,  10,  -6,  11, -12,  11,  12,  12,  -2,  -5,  -4,  -4, -12 }
 C = {   6,   2,  13,   8,  13,   8,   3,  11,  10,   8,  14,   6    8,   2 }
 ```
 
-`A[0] = 1`, so the `z<sub>max</sub> == 26` after first digit.
-After calling *Solver::execute_block* with first digit `z == 15`. So far so good.
+`A[0] = 1`, so the `max_z == 26` after first digit.
+After calling `Solver::execute_block` with first digit `z == 15`. So far so good.
 
-`A[1] = 1`, multiply `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 676` after 2<sup>nd</sup> digit.
-After calling *Solver::execute_block* with second digit `z == 401`. So far so good.
+`A[1] = 1`, multiply `max_z` by `26`, now `max_z == 676` after 2<sup>nd</sup> digit.
+After calling `Solver::execute_block` with second digit `z == 401`. So far so good.
 
-`A[2] = 1`, multiply `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 17576` after 3<sup>rd</sup> digit.
-After calling *Solver::execute_block* with third digit `z == 10448`. Still good.
+`A[2] = 1`, multiply `max_z` by `26`, now `max_z == 17576` after 3<sup>rd</sup> digit.
+After calling `Solver::execute_block` with third digit `z == 10448`. Still good.
 
-`A[3] = 26`, divide `z<sub>max</sub>` by `26`, now `z<sub>max</sub> == 676` after 4<sup>th</sup> digit.
-After calling *Solver::execute_block* with 4th digit `z == 10443`. Too much!
+`A[3] = 26`, divide `max_z` by `26`, now `max_z == 676` after 4<sup>th</sup> digit.
+After calling `Solver::execute_block` with 4th digit `z == 10443`. Too much!
 
 It means that all numbers starting with four nines cannot reach `z == 0`. We can skip all these numbers and check 99989999999999 next.
 
@@ -309,7 +309,7 @@ Solver::Solver(const vector<string>& input, int w_init)
 }
 ```
 
-Then - initializes `w` array and prepares `z<sub>max</sub>` values according to `A` array values:
+Then - initializes `w` array and prepares `max_z` values according to `A` array values:
 
 ```C++
 Solver::Solver(const vector<string>& input, int w_init)
