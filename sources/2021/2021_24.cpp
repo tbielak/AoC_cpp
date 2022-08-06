@@ -1,7 +1,7 @@
 #include "2021_24.h"
 
 // explained here:
-// https://github.com/tbielak/AoC_cpp/blob/master/sources/2021/2021_24_explained.md
+// https://github.com/tbielak/AoC_cpp/blob/master/doc/2021_24.md
 
 namespace Day24_2021
 {

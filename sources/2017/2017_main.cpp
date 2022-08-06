@@ -22,8 +22,9 @@ const AoC::t_names names = {
     { 18, "--- Day 18: Duet ---" },
     { 19, "--- Day 19: A Series of Tubes ---" },
     { 20, "--- Day 20: Particle Swarm ---" },
-    { 21, "--- Day 21: Fractal Art ---" }
-
+    { 21, "--- Day 21: Fractal Art ---" },
+    { 22, "--- Day 22: Sporifica Virus ---" },
+    { 23, "--- Day 23: Coprocessor Conflagration ---" }
 };
 
 const AoC::t_repository repo = {
@@ -47,7 +48,9 @@ const AoC::t_repository repo = {
     { 18, {2, { { "", new Day18_2017::Main() } } } },
     { 19, {2, { { "", new Day19_2017::Main() } } } },
     { 20, {2, { { "", new Day20_2017::Main() } } } },
-    { 21, {2, { { "", new Day21_2017::Main() } } } }
+    { 21, {2, { { "", new Day21_2017::Main() } } } },
+    { 22, {2, { { "", new Day22_2017::Main() } } } },
+    { 23, {2, { { "", new Day23_2017::Main() } } } }
 };
 
 int main(int argc, char* argv[])
