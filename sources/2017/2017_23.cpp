@@ -1,5 +1,8 @@
 #include "2017_23.h"
 
+// explained here:
+// https://github.com/tbielak/AoC_cpp/blob/master/doc/2017_23.md
+
 namespace Day23_2017
 {
 	vector<bool> Main::sieveOfEratosthenes(int n)
