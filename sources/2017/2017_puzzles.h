@@ -24,5 +24,7 @@
 #include "2017_21.h"
 #include "2017_22.h"
 #include "2017_23.h"
+#include "2017_24.h"
+#include "2017_25.h"
 
 #endif

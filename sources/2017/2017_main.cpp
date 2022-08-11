@@ -24,7 +24,9 @@ const AoC::t_names names = {
     { 20, "--- Day 20: Particle Swarm ---" },
     { 21, "--- Day 21: Fractal Art ---" },
     { 22, "--- Day 22: Sporifica Virus ---" },
-    { 23, "--- Day 23: Coprocessor Conflagration ---" }
+    { 23, "--- Day 23: Coprocessor Conflagration ---" },
+    { 24, "--- Day 24: Electromagnetic Moat ---" },
+    { 25, "--- Day 25: The Halting Problem ---" }
 };
 
 const AoC::t_repository repo = {
@@ -50,7 +52,9 @@ const AoC::t_repository repo = {
     { 20, {2, { { "", new Day20_2017::Main() } } } },
     { 21, {2, { { "", new Day21_2017::Main() } } } },
     { 22, {2, { { "", new Day22_2017::Main() } } } },
-    { 23, {2, { { "", new Day23_2017::Main() } } } }
+    { 23, {2, { { "", new Day23_2017::Main() } } } },
+    { 24, {2, { { "", new Day24_2017::Main() } } } },
+    { 25, {2, { { "", new Day25_2017::Main() } } } },
 };
 
 int main(int argc, char* argv[])

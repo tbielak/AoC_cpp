@@ -13,11 +13,11 @@
 - [2020](https://adventofcode.com/2020): ALL + bonus: two different solutions of day 18
 - [2019](https://adventofcode.com/2019): days 1-20
 - [2018](https://adventofcode.com/2018): days 1-11
-- [2017](https://adventofcode.com/2017): days 1-23
+- [2017](https://adventofcode.com/2017): ALL
 - [2016](https://adventofcode.com/2016): days 1-21 + bonus: two different solutions of day 19
 - [2015](https://adventofcode.com/2015): ALL + bonuses: one additional multithreaded solution (day 4) + two CUDA solutions (days 4 and 24)
 
-Current status: 300 AoC stars covered (out of 350★)
+Current status: 304 AoC stars covered (out of 350★)
 
 ## Solutions matrix
 Year | [2015](sources/2015) | [2016](sources/2016) | [2017](sources/2017) | [2018](sources/2018) | [2019](sources/2019) | [2020](sources/2020) | [2021](sources/2021)
@@ -45,8 +45,8 @@ Day 20|[`.cpp`](sources/2015/2015_20.cpp) [`.h`](sources/2015/2015_20.h)|[`.cpp`
 Day 21|[`.cpp`](sources/2015/2015_21.cpp) [`.h`](sources/2015/2015_21.h)|[`.cpp`](sources/2016/2016_21.cpp) [`.h`](sources/2016/2016_21.h)|[`.cpp`](sources/2017/2017_21.cpp) [`.h`](sources/2017/2017_21.h)||`P`|[`.cpp`](sources/2020/2020_21.cpp) [`.h`](sources/2020/2020_21.h)|[`.cpp`](sources/2021/2021_21.cpp) [`.h`](sources/2021/2021_21.h)
 Day 22|[`.cpp`](sources/2015/2015_22.cpp) [`.h`](sources/2015/2015_22.h)|`S`|[`.cpp`](sources/2017/2017_22.cpp) [`.h`](sources/2017/2017_22.h) <br /> [`.md`](doc/2017_22.md)||`P`|[`.cpp`](sources/2020/2020_22.cpp) [`.h`](sources/2020/2020_22.h)|[`.cpp`](sources/2021/2021_22.cpp) [`.h`](sources/2021/2021_22.h)
 Day 23|[`.cpp`](sources/2015/2015_23.cpp) [`.h`](sources/2015/2015_23.h)|`S`|[`.cpp`](sources/2017/2017_23.cpp) [`.h`](sources/2017/2017_23.h) <br /> [`.md`](doc/2017_23.md)||`S`|[`.cpp`](sources/2020/2020_23.cpp) [`.h`](sources/2020/2020_23.h)|[`.cpp`](sources/2021/2021_23.cpp) [`.h`](sources/2021/2021_23.h)
-Day 24|[`.cpp`](sources/2015/2015_24.cpp) [`.h`](sources/2015/2015_24.h) <br /> `M`|`S`|||`S`|[`.cpp`](sources/2020/2020_24.cpp) [`.h`](sources/2020/2020_24.h)|[`.cpp`](sources/2021/2021_24.cpp) [`.h`](sources/2021/2021_24.h) <br /> [`.md`](doc/2021_24.md)
-Day 25|[`.cpp`](sources/2015/2015_25.cpp) [`.h`](sources/2015/2015_25.h)|`S`|||`P`|[`.cpp`](sources/2020/2020_25.cpp) [`.h`](sources/2020/2020_25.h)|[`.cpp`](sources/2021/2021_25.cpp) [`.h`](sources/2021/2021_25.h)
+Day 24|[`.cpp`](sources/2015/2015_24.cpp) [`.h`](sources/2015/2015_24.h) <br /> `M`|`S`|[`.cpp`](sources/2017/2017_24.cpp) [`.h`](sources/2017/2017_24.h)||`S`|[`.cpp`](sources/2020/2020_24.cpp) [`.h`](sources/2020/2020_24.h)|[`.cpp`](sources/2021/2021_24.cpp) [`.h`](sources/2021/2021_24.h) <br /> [`.md`](doc/2021_24.md)
+Day 25|[`.cpp`](sources/2015/2015_25.cpp) [`.h`](sources/2015/2015_25.h)|`S`|[`.cpp`](sources/2017/2017_25.cpp) [`.h`](sources/2017/2017_25.h)||`P`|[`.cpp`](sources/2020/2020_25.cpp) [`.h`](sources/2020/2020_25.h)|[`.cpp`](sources/2021/2021_25.cpp) [`.h`](sources/2021/2021_25.h)
 
 Legend: <br />
 - `.cpp` - solution source file
