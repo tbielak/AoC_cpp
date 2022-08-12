@@ -10,10 +10,6 @@ namespace Day24_2017
 			size_t pos = s.find_first_of('/');
 			int left = stoi(s.substr(0, pos));
 			int right = stoi(s.substr(pos + 1));
-			
-			if (right == 0)
-				swap(left, right);
-
 			components[left][right] = false;
 			components[right][left] = false;
 		}
