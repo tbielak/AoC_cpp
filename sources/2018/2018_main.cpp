@@ -12,7 +12,10 @@ const AoC::t_names names = {
     { 8, "--- Day 8: Memory Maneuver ---" },
     { 9, "--- Day 9: Marble Mania ---" },
     { 10, "--- Day 10: The Stars Align ---" },
-    { 11, "--- Day 11: Chronal Charge ---" }
+    { 11, "--- Day 11: Chronal Charge ---" },
+    { 12, "--- Day 12: Subterranean Sustainability ---" },
+    { 13, "--- Day 13: Mine Cart Madness ---" },
+    { 14, "--- Day 14: Chocolate Charts ---" }
 };
 
 const AoC::t_repository repo = {
@@ -26,7 +29,10 @@ const AoC::t_repository repo = {
     { 8, {2, { { "", new Day08_2018::Main() } } } },
     { 9, {2, { { "", new Day09_2018::Main() } } } },
     { 10, {2, { { "", new Day10_2018::Main() } } } },
-    { 11, {2, { { "", new Day11_2018::Main() } } } }
+    { 11, {2, { { "", new Day11_2018::Main() } } } },
+    { 12, {2, { { "", new Day12_2018::Main() } } } },
+    { 13, {2, { { "", new Day13_2018::Main() } } } },
+    { 14, {2, { { "", new Day14_2018::Main() } } } }
 };
 
 int main(int argc, char* argv[])

@@ -25,6 +25,9 @@
     <ClCompile Include="..\sources\2018\2018_09.cpp" />
     <ClCompile Include="..\sources\2018\2018_10.cpp" />
     <ClCompile Include="..\sources\2018\2018_11.cpp" />
+    <ClCompile Include="..\sources\2018\2018_12.cpp" />
+    <ClCompile Include="..\sources\2018\2018_13.cpp" />
+    <ClCompile Include="..\sources\2018\2018_14.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
     <ClCompile Include="..\sources\shared\Options.cpp" />
@@ -44,6 +47,9 @@
     <ClInclude Include="..\sources\2018\2018_09.h" />
     <ClInclude Include="..\sources\2018\2018_10.h" />
     <ClInclude Include="..\sources\2018\2018_11.h" />
+    <ClInclude Include="..\sources\2018\2018_12.h" />
+    <ClInclude Include="..\sources\2018\2018_13.h" />
+    <ClInclude Include="..\sources\2018\2018_14.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
     <ClInclude Include="..\sources\shared\Options.h" />
