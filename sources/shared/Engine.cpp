@@ -9,7 +9,7 @@ namespace AoC
 
     void Engine::intro()
     {
-        _cc << "{w}AdventOfCode " + _year + " Puzzle Solutions";
+        _cc << "{w}AdventOfCode.cpp: " + _year + " Puzzle Solutions";
         #ifdef INCLUDE_CUDA
         _cc << " (powered by CUDA)";
         #endif
