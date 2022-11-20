@@ -67,4 +67,4 @@ Directory | Contents
 [bin](bin) | Initially empty, but here you'll find executables after successful build. You can run them from this location, as they read puzzle input from *input* directory by default. Look inside to learn how to run the solutions from command line/bash prompt.
 [linux](linux) | Contains *CMakeLists.txt* used to build executables in Linux, using *gcc* and *cmake*. Look inside and follow step-by-step recipe to build the code in Ubuntu 20.04.
 [sources](sources) | Source files. Review and enjoy.
-[windows](windows) | Microsoft Visual Studio Community 2019 solutions and projects configured to easily build executables for Windows. Look inside to learn how to build and debug the code in Windows.
+[windows](windows) | Microsoft Visual Studio Community 2022 solutions and projects configured to easily build executables for Windows. Look inside to learn how to build and debug the code in Windows.
