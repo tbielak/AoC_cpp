@@ -12,7 +12,7 @@ namespace Day02_2016
 		virtual AoC::Output part_two(const vector<string>& input);
 
 	private:
-		static char press(const vector<string>& key_map, const string& digit, char& curr);
+		static char press(const vector<string>& key_map, const string& digit);
 		static string enter_code(const vector<string>& key_map, const vector<string>& input);
 	};
 }

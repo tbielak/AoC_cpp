@@ -2,9 +2,10 @@
 
 namespace Day02_2016
 {
-	char Main::press(const vector<string>& key_map, const string& digit, char& curr)
+	char Main::press(const vector<string>& key_map, const string& digit)
 	{
 		static string directions = "UDLR";
+		char curr = '5';
 		for (auto d : digit)
 			curr = key_map[directions.find_first_of(d)][curr - '0'];
 
@@ -14,9 +15,8 @@ namespace Day02_2016
 	string Main::enter_code(const vector<string>& key_map, const vector<string>& input)
 	{
 		string code;
-		char curr = '5';
 		for (const auto& digit : input)
-			code += press(key_map, digit, curr);
+			code += press(key_map, digit);
 
 		return code;
 	}
