@@ -228,7 +228,7 @@ namespace AoC
                 {
                     if (ref != output.first)
                     {
-                        _cc << "{r}ERROR: Different results obtained in {d}" << endl;
+                        _cc << "{r}ERROR: Different results obtained in successive executions{d}" << endl;
                         break;
                     }
                 }
@@ -275,8 +275,7 @@ namespace AoC
 
             if (ok)
                 print_output(output, count);
-
-            if (!ok && !first)
+            else
                 _cc << "{r}ERROR: Unable to run speed test{d}" << endl;
         }
         else

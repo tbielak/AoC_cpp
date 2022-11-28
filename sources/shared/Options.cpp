@@ -21,7 +21,14 @@ namespace AoC
             if (x == "-s")
             {
                 if (argc > i + 1)
+                {
                     get_speed(argv[++i]);
+                    if (speed == 0)
+                    {
+                        speed = 10;
+                        i--;
+                    }
+                }
                 else
                     speed = 10;
             }
