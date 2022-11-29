@@ -9,24 +9,24 @@
 class KnotHash
 {
 public:
-    typedef vector<int> t_data;
+	typedef vector<int> t_data;
 
-    KnotHash();
+	KnotHash();
 
-    int mult(const string& input);
-    string hash(const string& input);
+	int mult(const string& input);
+	string hash(const string& input);
 
 private:
-    int _pos;
-    int _skip;
-    t_data _lengths;
-    t_data _data;
+	int _pos;
+	int _skip;
+	t_data _lengths;
+	t_data _data;
 
-    static t_data _add;
+	static t_data _add;
 
-    void init();
-    char hex(int v) const;
-    void single_round();
+	void init();
+	char hex(int v) const;
+	void single_round();
 };
 
 #endif

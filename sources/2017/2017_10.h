@@ -5,12 +5,12 @@
 
 namespace Day10_2017
 {
-    class Main : public AoC::Solution
-    {
-    public:
-        virtual AoC::Output part_one(const string& input);
-        virtual AoC::Output part_two(const string& input);
-    };
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output part_one(const string& input);
+		virtual AoC::Output part_two(const string& input);
+	};
 }
 
 #endif

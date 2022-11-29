@@ -5,7 +5,7 @@
 
 namespace Day15_2016
 {
-    typedef vector<pair<int, int>> t_discs;
+	typedef vector<pair<int, int>> t_discs;
 
 	class Main : public AoC::Solution
 	{

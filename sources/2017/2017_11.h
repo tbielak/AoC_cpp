@@ -5,15 +5,15 @@
 
 namespace Day11_2017
 {
-    class Main : public AoC::Solution
-    {
-    public:
-        virtual AoC::Output both_parts(const string& input);
+	class Main : public AoC::Solution
+	{
+	public:
+		virtual AoC::Output both_parts(const string& input);
 
-    private:
-        static int iabs(int v);
-        static int distance(int x, int y);
-    };
+	private:
+		static int iabs(int v);
+		static int distance(int x, int y);
+	};
 }
 
 #endif
