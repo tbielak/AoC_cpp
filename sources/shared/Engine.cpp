@@ -204,73 +204,63 @@ namespace AoC
     {
         if (speed > 0)
         {
-            bool first = true;
-            bool ok = false;
-
-            vector<pair<double, int>> total_time;
-            vector<t_exectimes> exec_times;
-            Output ref;
-            t_output output;
             int count = 0;
+            bool ok = false;
+            bool first = true;
+            t_output output;
+            Output ref_output;
+            vector<t_exectimes> exec_times;
             double max_time = speed * 1000.;
-
             auto t0 = chrono::steady_clock::now();
             while (1)
             {
-                output = t_output();
+                count++;
                 ok = execute(first, output, input_filename, day, solution);
                 if (!ok)
                     break;
-                
+
                 if (first)
-                    ref = output.first;
+                {
+                    first = false;
+                    ref_output = output.first;
+                    for (int i = 0; i < (int)output.second.size(); i++)
+                        exec_times.push_back(t_exectimes());
+                }
                 else
                 {
-                    if (ref != output.first)
+                    if (ref_output != output.first)
                     {
                         _cc << "{r}ERROR: Different results obtained in successive executions{d}" << endl;
                         break;
                     }
                 }
 
-                const auto& ts = output.second;
-                exec_times.push_back(t_exectimes(ts.size()));
-
-                double total = 0.;
-                for (int i = 0; i < (int)ts.size(); i++)
-                {
-                    total += ts[i];
-                    exec_times.back()[i] = ts[i];
-                }
-                total_time.push_back(make_pair(total, count++));
+                for (int j = 0; j < (int)output.second.size(); j++)
+                    exec_times[j].push_back(output.second[j]);
 
                 auto t1 = chrono::steady_clock::now();
                 double time_elapsed = chrono::duration<double>((t1 - t0) * 1000).count();
-
-                if (time_elapsed >= max_time && total_time.size() >= 10)
+                if (time_elapsed >= max_time && count >= 10)
                 {
-                    sort(total_time.begin(), total_time.end());
-                    int min_i = (int)total_time.size() / 10;
-                    int max_i = (int)total_time.size() - min_i;
+                    int min_i = (int)exec_times[0].size() / 10;
+                    int max_i = (int)exec_times[0].size() - min_i;
+                    for (int j = 0; j < (int)output.second.size(); j++)
+                    {
+                        sort(exec_times[j].begin(), exec_times[j].end());
 
-                    set<int> indices;
-                    for (int i = min_i; i < max_i; i++)
-                        indices.insert(total_time[i].second);
-                    
-                    auto& ts = output.second;
-                    ts = t_exectimes(ts.size());
-                    for (auto idx : indices)
-                        for (int j = 0; j < (int)ts.size(); j++)
-                            ts[j] += exec_times[idx][j];
-                    
-                    count = (int)indices.size();
-                    for (int j = 0; j < (int)ts.size(); j++)
-                        ts[j] /= count;
+                        int c = 0;
+                        output.second[j] = 0;
+                        for (int i = min_i; i < max_i; i++)
+                        {
+                            output.second[j] += exec_times[j][i];
+                            c++;
+                        }
+                        
+                        output.second[j] /= c;
+                    }
 
                     break;
                 }
-
-                first = false;
             }
 
             if (ok)
