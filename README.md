@@ -1,4 +1,4 @@
-# AoC_cpp
+# AoC.cpp
 [Advent of Code](http://adventofcode.com) solutions in C++ 11/14/17 (Windows x86/x64, Windows with CUDA x64, Linux x64)
 
 ## Features
