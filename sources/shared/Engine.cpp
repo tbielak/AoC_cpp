@@ -42,7 +42,7 @@ namespace AoC
 	void Engine::available_solutions()
 	{
 		_cc << endl << "{y}Solutions matrix:{d}" << endl;
-		_cc << "{g}		 1111111111222222{d}" << endl;
+		_cc << "{g}         1111111111222222{d}" << endl;
 		_cc << "{g}1234567890123456789012345{d}  <== day" << endl;
 
 		string solved;
