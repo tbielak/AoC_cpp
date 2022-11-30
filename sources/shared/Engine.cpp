@@ -242,9 +242,9 @@ namespace AoC
 				double time_elapsed = chrono::duration<double>((t1 - t0) * 1000).count();
 				if (time_elapsed >= max_time && count >= 10)
 				{
-					int min_i = (int)exec_times[0].size() / 10;
-					int max_i = (int)exec_times[0].size() - min_i;
-					for (int j = 0; j < (int)output.second.size(); j++)
+					int min_i = count / 10;
+					int max_i = count - min_i;
+					for (int j = 0; j < (int)exec_times.size(); j++)
 					{
 						sort(exec_times[j].begin(), exec_times[j].end());
 
