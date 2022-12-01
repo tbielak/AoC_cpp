@@ -58,3 +58,8 @@ Directory | Contents
 [linux](linux) | Contains *CMakeLists.txt* used to build executables in Linux, using *gcc* and *cmake*. Look inside and follow step-by-step recipe to build the code in Ubuntu 20.04.
 [sources](sources) | Source files. Review and enjoy.
 [windows](windows) | Microsoft Visual Studio Community 2022 solutions and projects configured to easily build executables for Windows. Look inside to learn how to build and debug the code in Windows.
+
+
+## Other programming languages
+
+C++ isn't your favorite programming language? See some Advent of Code puzzle solutions in [C#](https://github.com/tbielak/AoC_cs)!
