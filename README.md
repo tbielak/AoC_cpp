@@ -66,4 +66,4 @@ C++ isn't your favorite programming language? See some Advent of Code puzzle sol
 
 ## Why C++?
 
-C++ is my main programming language. Unfortunately, I'm currently maintaining a few pre-C++11 projects, and the AoC puzzles are an excuse to learn more from 11/14/17 (C++20 still out of scope).
+C++ is my main programming language. Unfortunately, I'm currently maintaining a few pre-C++11 projects, and the AoC puzzles are just an excuse to learn more from 11/14/17 (C++20 still out of scope).
