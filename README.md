@@ -62,7 +62,7 @@ Directory | Contents
 
 ## Other programming languages
 
-C++ isn't your favorite programming language? See some Advent of Code puzzle solutions in [C#](https://github.com/tbielak/AoC_cs), [Python](https://github.com/tbielak/AoC_py) and [JavaScript](https://github.com/tbielak/AoC_js)!
+C++ isn't your favorite programming language? See some Advent of Code puzzle solutions in [C#](https://github.com/tbielak/AoC_cs), [Python](https://github.com/tbielak/AoC_py), [JavaScript](https://github.com/tbielak/AoC_js) and [Rust](https://github.com/tbielak/AoC_rs)!
 
 ## Why C++?
 
