@@ -47,3 +47,9 @@ project(2021)
 file(GLOB src2021 "../sources/2021/*.cpp" "../sources/shared/*.cpp")
 list(FILTER src2021 EXCLUDE REGEX ".*CUDA_misc.cpp$")
 add_executable(2021 ${src2021})
+
+# 2022 Solutions
+project(2022)
+file(GLOB src2022 "../sources/2022/*.cpp" "../sources/shared/*.cpp")
+list(FILTER src2022 EXCLUDE REGEX ".*CUDA_misc.cpp$")
+add_executable(2022 ${src2022})
