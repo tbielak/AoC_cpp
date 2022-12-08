@@ -8,7 +8,8 @@ const AoC::t_names names = {
 	{ 4, "--- Day 4: Camp Cleanup ---" },
 	{ 5, "--- Day 5: Supply Stacks ---" },
 	{ 6, "--- Day 6: Tuning Trouble ---" },
-	{ 7, "--- Day 7: No Space Left On Device ---" }
+	{ 7, "--- Day 7: No Space Left On Device ---"},
+	{ 8, "--- Day 8: Treetop Tree House ---" }
 };
 
 const AoC::t_repository repo = {
@@ -18,7 +19,8 @@ const AoC::t_repository repo = {
 	{ 4, {2, { { "", new Day04_2022::Main() } } } },
 	{ 5, {2, { { "", new Day05_2022::Main() } } } },
 	{ 6, {2, { { "", new Day06_2022::Main() } } } },
-	{ 7, {2, { { "", new Day07_2022::Main() } } } }
+	{ 7, {2, { { "", new Day07_2022::Main() } } } },
+	{ 8, {2, { { "", new Day08_2022::Main() } } } }
 };
 
 int main(int argc, char* argv[])
