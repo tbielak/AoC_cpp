@@ -41,9 +41,7 @@ namespace Day08_2022
 					scenic_score *= distance;
 				}
 
-				if (any_direction_visible)
-					visible_count++;
-
+				visible_count += any_direction_visible ? 1 : 0;
 				highest_scenic_score = max(scenic_score, highest_scenic_score);
 			}
 
