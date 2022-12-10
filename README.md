@@ -22,7 +22,7 @@ Day 6 | [⭐](sources/2015/2015_06.cpp) | [⭐](sources/2016/2016_06.cpp) | [⭐
 Day 7 | [⭐](sources/2015/2015_07.cpp) | [⭐](sources/2016/2016_07.cpp) | [⭐](sources/2017/2017_07.cpp) | [⭐](sources/2018/2018_07.cpp) | [⭐](sources/2019/2019_07.cpp) | [⭐](sources/2020/2020_07.cpp) | [⭐](sources/2021/2021_07.cpp) | [⭐](sources/2022/2022_07.cpp)
 Day 8 | [⭐](sources/2015/2015_08.cpp) | [⭐](sources/2016/2016_08.cpp) | [⭐](sources/2017/2017_08.cpp) | [⭐](sources/2018/2018_08.cpp) | [⭐](sources/2019/2019_08.cpp) | [⭐](sources/2020/2020_08.cpp) | [⭐](sources/2021/2021_08.cpp) | [⭐](sources/2022/2022_08.cpp)
 Day 9 | [⭐](sources/2015/2015_09.cpp) | [⭐](sources/2016/2016_09.cpp) | [⭐](sources/2017/2017_09.cpp) | [⭐](sources/2018/2018_09.cpp) | [⭐](sources/2019/2019_09.cpp) | [⭐](sources/2020/2020_09.cpp) | [⭐](sources/2021/2021_09.cpp) | [⭐](sources/2022/2022_09.cpp)
-Day 10 | [⭐](sources/2015/2015_10.cpp) | [⭐](sources/2016/2016_10.cpp) | [⭐](sources/2017/2017_10.cpp) | [⭐](sources/2018/2018_10.cpp) | [⭐](sources/2019/2019_10.cpp) | [⭐](sources/2020/2020_10.cpp) | [⭐](sources/2021/2021_10.cpp) |
+Day 10 | [⭐](sources/2015/2015_10.cpp) | [⭐](sources/2016/2016_10.cpp) | [⭐](sources/2017/2017_10.cpp) | [⭐](sources/2018/2018_10.cpp) | [⭐](sources/2019/2019_10.cpp) | [⭐](sources/2020/2020_10.cpp) | [⭐](sources/2021/2021_10.cpp) | [⭐](sources/2022/2022_10.cpp)
 Day 11 | [⭐](sources/2015/2015_11.cpp) | [⭐](sources/2016/2016_11.cpp) | [⭐](sources/2017/2017_11.cpp) | [⭐](sources/2018/2018_11.cpp) | [⭐](sources/2019/2019_11.cpp) | [⭐](sources/2020/2020_11.cpp) | [⭐](sources/2021/2021_11.cpp) |
 Day 12 | [⭐](sources/2015/2015_12.cpp) | [⭐](sources/2016/2016_12.cpp) | [⭐](sources/2017/2017_12.cpp) | [⭐](sources/2018/2018_12.cpp) | [⭐](sources/2019/2019_12.cpp) | [⭐](sources/2020/2020_12.cpp) | [⭐](sources/2021/2021_12.cpp) |
 Day 13 | [⭐](sources/2015/2015_13.cpp) | [⭐](sources/2016/2016_13.cpp) | [⭐](sources/2017/2017_13.cpp) | [⭐](sources/2018/2018_13.cpp) | [⭐](sources/2019/2019_13.cpp) | [⭐](sources/2020/2020_13.cpp) | [⭐](sources/2021/2021_13.cpp) |
@@ -44,7 +44,7 @@ Legend: <br />
 🌟 = solution available and explained! <br />
 ☀ = multiple solutions available <br />
 
-Current status: **328** AoC stars covered
+Current status: **330** AoC stars covered
 
 
 ## Repository contents

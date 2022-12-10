@@ -10,5 +10,6 @@
 #include "2022_07.h"
 #include "2022_08.h"
 #include "2022_09.h"
+#include "2022_10.h"
 
 #endif
