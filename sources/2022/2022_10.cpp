@@ -15,7 +15,6 @@ namespace Day10_2022
 		for (const string& s : input)
 		{
 			char instruction = s[0];
-			int value = (instruction == 'a') ? stoi(s.substr(5)) : 0;
 			int instruction_cycles = (instruction == 'a') ? 2 : 1;
 
 			for (int c = 0; c < instruction_cycles; c++)
@@ -39,7 +38,7 @@ namespace Day10_2022
 			}
 
 			if (instruction == 'a')
-				register_x += value;
+				register_x += stoi(s.substr(5));
 		}
 
 		vector<string> result;
