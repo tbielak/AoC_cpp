@@ -4,9 +4,9 @@ Follow the steps below to get sources and build Linux binaries in Ubuntu 20.04.
 
 1. Open new terminal window (press *Ctrl+Alt+T* to open it).
 
-2. Make sure you've got all required development tools: *gcc*, *cmake* and *git*. If not, you may easily download them and install:
+2. Make sure you've got all required development tools: *g++*, *cmake* and *git*. If not, you may easily download them and install:
 ```sh
-sudo apt install gcc cmake git
+sudo apt install g++ cmake git
 ```
 
 3. Download sources from *github* into your home directory (note: repository contents will be placed in *AoC_cpp* subdirectory):
