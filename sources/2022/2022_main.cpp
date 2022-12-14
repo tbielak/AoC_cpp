@@ -14,7 +14,8 @@ const AoC::t_names names = {
 	{ 10, "--- Day 10: Cathode-Ray Tube ---" },
 	{ 11, "--- Day 11: Monkey in the Middle ---" },
 	{ 12, "--- Day 12: Hill Climbing Algorithm ---" },
-	{ 13, "--- Day 13: Distress Signal ---" }
+	{ 13, "--- Day 13: Distress Signal ---" },
+	{ 14, "--- Day 14: Regolith Reservoir ---" }
 };
 
 const AoC::t_repository repo = {
@@ -30,7 +31,8 @@ const AoC::t_repository repo = {
 	{ 10, {2, { { "", new Day10_2022::Main() } } } },
 	{ 11, {2, { { "nice C++", new Day11_2022::Main() } , { "closer to C", new Day11_2022_Alt::Main() } } } },
 	{ 12, {2, { { "standard", new Day12_2022::Main() } , { "multithreaded{T}", new Day12_2022_MT::Main() } } } },
-	{ 13, {2, { { "", new Day13_2022::Main() } } } }
+	{ 13, {2, { { "", new Day13_2022::Main() } } } },
+	{ 14, {2, { { "", new Day14_2022::Main() } } } }
 };
 
 int main(int argc, char* argv[])
