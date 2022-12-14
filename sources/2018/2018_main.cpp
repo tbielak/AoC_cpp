@@ -15,7 +15,8 @@ const AoC::t_names names = {
 	{ 11, "--- Day 11: Chronal Charge ---" },
 	{ 12, "--- Day 12: Subterranean Sustainability ---" },
 	{ 13, "--- Day 13: Mine Cart Madness ---" },
-	{ 14, "--- Day 14: Chocolate Charts ---" }
+	{ 14, "--- Day 14: Chocolate Charts ---" },
+	{ 15, "--- Day 15: Beverage Bandits ---" }
 };
 
 const AoC::t_repository repo = {
@@ -32,7 +33,8 @@ const AoC::t_repository repo = {
 	{ 11, {2, { { "", new Day11_2018::Main() } } } },
 	{ 12, {2, { { "", new Day12_2018::Main() } } } },
 	{ 13, {2, { { "", new Day13_2018::Main() } } } },
-	{ 14, {2, { { "", new Day14_2018::Main() } } } }
+	{ 14, {2, { { "", new Day14_2018::Main() } } } },
+	{ 15, {2, { { "", new Day15_2018::Main() } } } }
 };
 
 int main(int argc, char* argv[])
