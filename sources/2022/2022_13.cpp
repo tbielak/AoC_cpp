@@ -23,8 +23,8 @@ namespace Day13_2022
 
 			if (!this->_is_value && !right._is_value)
 			{
-				int i = 0;
-				int j = 0;
+				size_t i = 0;
+				size_t j = 0;
 				while (i < this->_list.size() && j < right._list.size())
 				{
 					result = _list[i].compare(right._list[j]);
@@ -95,8 +95,8 @@ namespace Day13_2022
 	
 	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		int sum = 0;
-		for (int i = 0; i < input.size(); i += 3)
+		size_t sum = 0;
+		for (size_t i = 0; i < input.size(); i += 3)
 		{
 			Element left(input[i]);
 			Element right(input[i + 1]);
