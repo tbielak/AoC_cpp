@@ -12,7 +12,7 @@ namespace Day16_2022
 	*    a) assign numerical ids to valves' names to operate on integers
 	*       instead of strings -> see 'names2id' map in load()
 	*    b) find relevant valves = valves with flow > 0 + "AA" valve
-	*		-> see t_relevant type (vector of valve ids)
+	*       -> see t_relevant type (vector of valve ids)
 	*    c) store flow of each valve in t_flow map: key = valve id; value = flow
 	*    d) build graph connecting valves -> t_graph map: key = source valve id,
 	*       value = vector of destination valves' ids

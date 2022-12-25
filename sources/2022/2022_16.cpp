@@ -22,7 +22,7 @@ namespace Day16_2022
 	{
 		find_paths(time);
 
-		// solution = maximum of sum of two cumulated pressures obtained in two disjointed paths
+		// solution = maximum sum of two cumulated pressures obtained in two disjointed paths
 		int result = 0;
 		for (const auto& p1 : _paths)
 			for (const auto& p2 : _paths)
