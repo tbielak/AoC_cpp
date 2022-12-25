@@ -16,7 +16,8 @@ const AoC::t_names names = {
 	{ 12, "--- Day 12: Hill Climbing Algorithm ---" },
 	{ 13, "--- Day 13: Distress Signal ---" },
 	{ 14, "--- Day 14: Regolith Reservoir ---" },
-	{ 15, "--- Day 15: Beacon Exclusion Zone ---" }
+	{ 15, "--- Day 15: Beacon Exclusion Zone ---" },
+	{ 16, "--- Day 16: Proboscidea Volcanium ---" }
 };
 
 const AoC::t_repository repo = {
@@ -34,7 +35,8 @@ const AoC::t_repository repo = {
 	{ 12, {2, { { "standard", new Day12_2022::Main() } , { "multithreaded{T}", new Day12_2022_MT::Main() } } } },
 	{ 13, {2, { { "", new Day13_2022::Main() } } } },
 	{ 14, {2, { { "", new Day14_2022::Main() } } } },
-	{ 15, {2, { { "", new Day15_2022::Main() } } } }
+	{ 15, {2, { { "", new Day15_2022::Main() } } } },
+	{ 16, {2, { { "", new Day16_2022::Main() } } } }
 };
 
 int main(int argc, char* argv[])
