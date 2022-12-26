@@ -42,6 +42,7 @@
     <ClCompile Include="..\sources\2022\2022_16.cpp" />
     <ClCompile Include="..\sources\2022\2022_17.cpp" />
     <ClCompile Include="..\sources\2022\2022_18.cpp" />
+    <ClCompile Include="..\sources\2022\2022_19.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\shared\Console.h">
@@ -83,5 +84,6 @@
     <ClInclude Include="..\sources\2022\2022_16.h" />
     <ClInclude Include="..\sources\2022\2022_17.h" />
     <ClInclude Include="..\sources\2022\2022_18.h" />
+    <ClInclude Include="..\sources\2022\2022_19.h" />
   </ItemGroup>
 </Project>
