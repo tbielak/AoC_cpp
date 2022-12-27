@@ -32,7 +32,7 @@ Day 16 | [⭐](sources/2015/2015_16.cpp) | [⭐](sources/2016/2016_16.cpp) | [�
 Day 17 | [⭐](sources/2015/2015_17.cpp) | [⭐](sources/2016/2016_17.cpp) | [⭐](sources/2017/2017_17.cpp) |   | [⭐](sources/2019/2019_17.cpp) | [⭐](sources/2020/2020_17.cpp) | [⭐](sources/2021/2021_17.cpp) | [⭐](sources/2022/2022_17.cpp)
 Day 18 | [⭐](sources/2015/2015_18.cpp) | [⭐](sources/2016/2016_18.cpp) | [⭐](sources/2017/2017_18.cpp) |   | [⭐](sources/2019/2019_18.cpp) | [☀](sources/2020/2020_18.cpp) | [☀](sources/2021/2021_18_pairs.cpp) | [⭐](sources/2022/2022_18.cpp)
 Day 19 | [⭐](sources/2015/2015_19.cpp) | [☀](sources/2016/2016_19.cpp) | [⭐](sources/2017/2017_19.cpp) |   | [⭐](sources/2019/2019_19.cpp) | [⭐](sources/2020/2020_19.cpp) | [⭐](sources/2021/2021_19.cpp) | [⭐](sources/2022/2022_19.cpp)
-Day 20 | [⭐](sources/2015/2015_20.cpp) | [⭐](sources/2016/2016_20.cpp) | [⭐](sources/2017/2017_20.cpp) |   | [⭐](sources/2019/2019_20.cpp) | [⭐](sources/2020/2020_20.cpp) | [⭐](sources/2021/2021_20.cpp) |
+Day 20 | [⭐](sources/2015/2015_20.cpp) | [⭐](sources/2016/2016_20.cpp) | [⭐](sources/2017/2017_20.cpp) |   | [⭐](sources/2019/2019_20.cpp) | [⭐](sources/2020/2020_20.cpp) | [⭐](sources/2021/2021_20.cpp) | [⭐](sources/2021/2022_20.cpp)
 Day 21 | [⭐](sources/2015/2015_21.cpp) | [⭐](sources/2016/2016_21.cpp) | [⭐](sources/2017/2017_21.cpp) |   |   | [⭐](sources/2020/2020_21.cpp) | [⭐](sources/2021/2021_21.cpp) |
 Day 22 | [⭐](sources/2015/2015_22.cpp) |   | [🌟](doc/2017_22.md) |   |   | [⭐](sources/2020/2020_22.cpp) | [⭐](sources/2021/2021_22.cpp) |
 Day 23 | [⭐](sources/2015/2015_23.cpp) |   | [🌟](doc/2017_23.md) |   |   | [⭐](sources/2020/2020_23.cpp) | [⭐](sources/2021/2021_23.cpp) |
@@ -44,7 +44,7 @@ Legend: <br />
 🌟 = solution available and explained! <br />
 ☀ = multiple solutions available <br />
 
-Current status: **350** AoC stars covered
+Current status: **352** AoC stars covered
 
 
 ## Repository contents
