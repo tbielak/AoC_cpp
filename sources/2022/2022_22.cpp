@@ -2,6 +2,7 @@
 
 namespace Day22_2022
 {
+	// fourteen cases of pain ;)
 	tuple<int, int, int> Main::control_cube_edges(int x, int y, int facing)
 	{
 		switch (facing)
