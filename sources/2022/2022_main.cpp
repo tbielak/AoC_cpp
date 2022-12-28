@@ -22,7 +22,8 @@ const AoC::t_names names = {
 	{ 18, "--- Day 18: Boiling Boulders ---" },
 	{ 19, "--- Day 19: Not Enough Minerals ---" },
 	{ 20, "--- Day 20: Grove Positioning System ---" },
-	{ 21, "--- Day 21: Monkey Math ---" }
+	{ 21, "--- Day 21: Monkey Math ---" },
+	{ 22, "--- Day 22: Monkey Map ---" }
 };
 
 const AoC::t_repository repo = {
@@ -46,7 +47,8 @@ const AoC::t_repository repo = {
 	{ 18, {2, { { "", new Day18_2022::Main() } } } },
 	{ 19, {2, { { "", new Day19_2022::Main() } } } },
 	{ 20, {2, { { "", new Day20_2022::Main() } } } },
-	{ 21, {2, { { "", new Day21_2022::Main() } } } }
+	{ 21, {2, { { "", new Day21_2022::Main() } } } },
+	{ 22, {2, { { "", new Day22_2022::Main() } } } }
 };
 
 int main(int argc, char* argv[])

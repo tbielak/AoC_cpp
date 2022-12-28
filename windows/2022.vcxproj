@@ -42,6 +42,7 @@
     <ClCompile Include="..\sources\2022\2022_19.cpp" />
     <ClCompile Include="..\sources\2022\2022_20.cpp" />
     <ClCompile Include="..\sources\2022\2022_21.cpp" />
+    <ClCompile Include="..\sources\2022\2022_22.cpp" />
     <ClCompile Include="..\sources\2022\2022_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -73,6 +74,7 @@
     <ClInclude Include="..\sources\2022\2022_19.h" />
     <ClInclude Include="..\sources\2022\2022_20.h" />
     <ClInclude Include="..\sources\2022\2022_21.h" />
+    <ClInclude Include="..\sources\2022\2022_22.h" />
     <ClInclude Include="..\sources\2022\2022_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
