@@ -36,15 +36,15 @@ Day 20 | [⭐](sources/2015/2015_20.cpp) | [⭐](sources/2016/2016_20.cpp) | [�
 Day 21 | [⭐](sources/2015/2015_21.cpp) | [⭐](sources/2016/2016_21.cpp) | [⭐](sources/2017/2017_21.cpp) |   |   | [⭐](sources/2020/2020_21.cpp) | [⭐](sources/2021/2021_21.cpp) | [⭐](sources/2022/2022_21.cpp)
 Day 22 | [⭐](sources/2015/2015_22.cpp) |   | [🌟](doc/2017_22.md) |   |   | [⭐](sources/2020/2020_22.cpp) | [⭐](sources/2021/2021_22.cpp) | [⭐](sources/2022/2022_22.cpp)
 Day 23 | [⭐](sources/2015/2015_23.cpp) |   | [🌟](doc/2017_23.md) |   |   | [⭐](sources/2020/2020_23.cpp) | [⭐](sources/2021/2021_23.cpp) | [⭐](sources/2022/2022_23.cpp)
-Day 24 | [☀](sources/2015/2015_24.cpp) |   | [⭐](sources/2017/2017_24.cpp) |   |   | [⭐](sources/2020/2020_24.cpp) | [🌟](doc/2021_24.md) |
-Day 25 | [⭐](sources/2015/2015_25.cpp) |   | [⭐](sources/2017/2017_25.cpp) |   |   | [⭐](sources/2020/2020_25.cpp) | [⭐](sources/2021/2021_25.cpp) |
+Day 24 | [☀](sources/2015/2015_24.cpp) |   | [⭐](sources/2017/2017_24.cpp) |   |   | [⭐](sources/2020/2020_24.cpp) | [🌟](doc/2021_24.md) | [⭐](sources/2022/2022_24.cpp)
+Day 25 | [⭐](sources/2015/2015_25.cpp) |   | [⭐](sources/2017/2017_25.cpp) |   |   | [⭐](sources/2020/2020_25.cpp) | [⭐](sources/2021/2021_25.cpp) | [⭐](sources/2022/2022_25.cpp)
 
 Legend: <br />
 ⭐ = solution available (both parts) <br />
 🌟 = solution available and explained! <br />
 ☀ = multiple solutions available <br />
 
-Current status: **360** AoC stars covered
+Current status: **364** AoC stars covered
 
 
 ## Repository contents

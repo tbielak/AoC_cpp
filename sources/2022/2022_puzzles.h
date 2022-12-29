@@ -26,5 +26,7 @@
 #include "2022_21.h"
 #include "2022_22.h"
 #include "2022_23.h"
+#include "2022_24.h"
+#include "2022_25.h"
 
 #endif
