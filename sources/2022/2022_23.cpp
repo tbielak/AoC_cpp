@@ -114,9 +114,7 @@ namespace Day23_2022
 			}
 		}
 
-		std::vector<string> results;
-		results.push_back(to_string(after_10_rounds));
-		results.push_back(to_string(round));
-		return results;
+		// results
+		return make_pair(after_10_rounds, round);
 	}
 }
