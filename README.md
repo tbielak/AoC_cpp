@@ -3,7 +3,7 @@
 
 
 ## Features
-- Advent of Code 2015-2022 solutions in C++ 11/14/17
+- Advent of Code 2015-2023 solutions in C++ 11/14/17
 - using STL only (in non-CUDA solutions)
 - ready to build for Windows x86/x64 in Microsoft Visual Studio Community 2022
 - ready to build for Windows x64 with CUDA 11.5 to speed up some solutions on various CUDA architectures
@@ -11,16 +11,16 @@
 
 
 ## Solutions matrix
-AoC.cpp | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022
-------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--:
-Day 1 | [⭐](sources/2015/2015_01.cpp) | [⭐](sources/2016/2016_01.cpp) | [⭐](sources/2017/2017_01.cpp) | [⭐](sources/2018/2018_01.cpp) | [⭐](sources/2019/2019_01.cpp) | [⭐](sources/2020/2020_01.cpp) | [⭐](sources/2021/2021_01.cpp) | [⭐](sources/2022/2022_01.cpp)
-Day 2 | [⭐](sources/2015/2015_02.cpp) | [⭐](sources/2016/2016_02.cpp) | [⭐](sources/2017/2017_02.cpp) | [⭐](sources/2018/2018_02.cpp) | [⭐](sources/2019/2019_02.cpp) | [⭐](sources/2020/2020_02.cpp) | [⭐](sources/2021/2021_02.cpp) | [⭐](sources/2022/2022_02.cpp)
-Day 3 | [⭐](sources/2015/2015_03.cpp) | [⭐](sources/2016/2016_03.cpp) | [⭐](sources/2017/2017_03.cpp) | [⭐](sources/2018/2018_03.cpp) | [⭐](sources/2019/2019_03.cpp) | [⭐](sources/2020/2020_03.cpp) | [⭐](sources/2021/2021_03.cpp) | [⭐](sources/2022/2022_03.cpp)
-Day 4 | [☀](sources/2015/2015_04.cpp) | [⭐](sources/2016/2016_04.cpp) | [⭐](sources/2017/2017_04.cpp) | [⭐](sources/2018/2018_04.cpp) | [⭐](sources/2019/2019_04.cpp) | [⭐](sources/2020/2020_04.cpp) | [⭐](sources/2021/2021_04.cpp) | [⭐](sources/2022/2022_04.cpp)
-Day 5 | [⭐](sources/2015/2015_05.cpp) | [⭐](sources/2016/2016_05.cpp) | [⭐](sources/2017/2017_05.cpp) | [⭐](sources/2018/2018_05.cpp) | [⭐](sources/2019/2019_05.cpp) | [⭐](sources/2020/2020_05.cpp) | [⭐](sources/2021/2021_05.cpp) | [⭐](sources/2022/2022_05.cpp)
-Day 6 | [⭐](sources/2015/2015_06.cpp) | [⭐](sources/2016/2016_06.cpp) | [⭐](sources/2017/2017_06.cpp) | [⭐](sources/2018/2018_06.cpp) | [⭐](sources/2019/2019_06.cpp) | [⭐](sources/2020/2020_06.cpp) | [⭐](sources/2021/2021_06.cpp) | [⭐](sources/2022/2022_06.cpp)
-Day 7 | [⭐](sources/2015/2015_07.cpp) | [⭐](sources/2016/2016_07.cpp) | [⭐](sources/2017/2017_07.cpp) | [⭐](sources/2018/2018_07.cpp) | [⭐](sources/2019/2019_07.cpp) | [⭐](sources/2020/2020_07.cpp) | [⭐](sources/2021/2021_07.cpp) | [⭐](sources/2022/2022_07.cpp)
-Day 8 | [⭐](sources/2015/2015_08.cpp) | [⭐](sources/2016/2016_08.cpp) | [⭐](sources/2017/2017_08.cpp) | [⭐](sources/2018/2018_08.cpp) | [⭐](sources/2019/2019_08.cpp) | [⭐](sources/2020/2020_08.cpp) | [⭐](sources/2021/2021_08.cpp) | [⭐](sources/2022/2022_08.cpp)
+AoC.cpp | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023
+------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--:
+Day 1 | [⭐](sources/2015/2015_01.cpp) | [⭐](sources/2016/2016_01.cpp) | [⭐](sources/2017/2017_01.cpp) | [⭐](sources/2018/2018_01.cpp) | [⭐](sources/2019/2019_01.cpp) | [⭐](sources/2020/2020_01.cpp) | [⭐](sources/2021/2021_01.cpp) | [⭐](sources/2022/2022_01.cpp) | [⭐](sources/2023/2023_01.cpp)
+Day 2 | [⭐](sources/2015/2015_02.cpp) | [⭐](sources/2016/2016_02.cpp) | [⭐](sources/2017/2017_02.cpp) | [⭐](sources/2018/2018_02.cpp) | [⭐](sources/2019/2019_02.cpp) | [⭐](sources/2020/2020_02.cpp) | [⭐](sources/2021/2021_02.cpp) | [⭐](sources/2022/2022_02.cpp) | [⭐](sources/2023/2023_02.cpp)
+Day 3 | [⭐](sources/2015/2015_03.cpp) | [⭐](sources/2016/2016_03.cpp) | [⭐](sources/2017/2017_03.cpp) | [⭐](sources/2018/2018_03.cpp) | [⭐](sources/2019/2019_03.cpp) | [⭐](sources/2020/2020_03.cpp) | [⭐](sources/2021/2021_03.cpp) | [⭐](sources/2022/2022_03.cpp) | [⭐](sources/2023/2023_03.cpp)
+Day 4 | [☀](sources/2015/2015_04.cpp) | [⭐](sources/2016/2016_04.cpp) | [⭐](sources/2017/2017_04.cpp) | [⭐](sources/2018/2018_04.cpp) | [⭐](sources/2019/2019_04.cpp) | [⭐](sources/2020/2020_04.cpp) | [⭐](sources/2021/2021_04.cpp) | [⭐](sources/2022/2022_04.cpp) | [⭐](sources/2023/2023_04.cpp)
+Day 5 | [⭐](sources/2015/2015_05.cpp) | [⭐](sources/2016/2016_05.cpp) | [⭐](sources/2017/2017_05.cpp) | [⭐](sources/2018/2018_05.cpp) | [⭐](sources/2019/2019_05.cpp) | [⭐](sources/2020/2020_05.cpp) | [⭐](sources/2021/2021_05.cpp) | [⭐](sources/2022/2022_05.cpp) | [⭐](sources/2023/2023_05.cpp)
+Day 6 | [⭐](sources/2015/2015_06.cpp) | [⭐](sources/2016/2016_06.cpp) | [⭐](sources/2017/2017_06.cpp) | [⭐](sources/2018/2018_06.cpp) | [⭐](sources/2019/2019_06.cpp) | [⭐](sources/2020/2020_06.cpp) | [⭐](sources/2021/2021_06.cpp) | [⭐](sources/2022/2022_06.cpp) | [⭐](sources/2023/2023_06.cpp)
+Day 7 | [⭐](sources/2015/2015_07.cpp) | [⭐](sources/2016/2016_07.cpp) | [⭐](sources/2017/2017_07.cpp) | [⭐](sources/2018/2018_07.cpp) | [⭐](sources/2019/2019_07.cpp) | [⭐](sources/2020/2020_07.cpp) | [⭐](sources/2021/2021_07.cpp) | [⭐](sources/2022/2022_07.cpp) | [⭐](sources/2023/2023_07.cpp)
+Day 8 | [⭐](sources/2015/2015_08.cpp) | [⭐](sources/2016/2016_08.cpp) | [⭐](sources/2017/2017_08.cpp) | [⭐](sources/2018/2018_08.cpp) | [⭐](sources/2019/2019_08.cpp) | [⭐](sources/2020/2020_08.cpp) | [⭐](sources/2021/2021_08.cpp) | [⭐](sources/2022/2022_08.cpp) | [⭐](sources/2023/2023_08.cpp)
 Day 9 | [⭐](sources/2015/2015_09.cpp) | [⭐](sources/2016/2016_09.cpp) | [⭐](sources/2017/2017_09.cpp) | [⭐](sources/2018/2018_09.cpp) | [⭐](sources/2019/2019_09.cpp) | [⭐](sources/2020/2020_09.cpp) | [⭐](sources/2021/2021_09.cpp) | [⭐](sources/2022/2022_09.cpp)
 Day 10 | [⭐](sources/2015/2015_10.cpp) | [⭐](sources/2016/2016_10.cpp) | [⭐](sources/2017/2017_10.cpp) | [⭐](sources/2018/2018_10.cpp) | [⭐](sources/2019/2019_10.cpp) | [⭐](sources/2020/2020_10.cpp) | [⭐](sources/2021/2021_10.cpp) | [⭐](sources/2022/2022_10.cpp)
 Day 11 | [⭐](sources/2015/2015_11.cpp) | [⭐](sources/2016/2016_11.cpp) | [⭐](sources/2017/2017_11.cpp) | [⭐](sources/2018/2018_11.cpp) | [⭐](sources/2019/2019_11.cpp) | [⭐](sources/2020/2020_11.cpp) | [⭐](sources/2021/2021_11.cpp) | [☀](sources/2022/2022_11.cpp)
@@ -44,7 +44,7 @@ Legend: <br />
 🌟 = solution available and explained! <br />
 ☀ = multiple solutions available <br />
 
-Current status: **370** AoC stars covered
+Current status: **386** AoC stars covered
 
 
 ## Repository contents
@@ -66,4 +66,4 @@ C++ isn't your favorite programming language? See some Advent of Code puzzle sol
 
 ## Why C++?
 
-C++ is my main programming language. Unfortunately, I'm currently maintaining a few pre-C++11 projects, and the AoC puzzles are just an excuse to learn more from 11/14/17 (C++20 still out of scope).
+C++ is my main programming language. AoC puzzles are an excuse to learn more C++11/14/17 (C++20 still out of scope).

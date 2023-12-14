@@ -54,3 +54,10 @@ file(GLOB src2022 "../sources/2022/*.cpp" "../sources/shared/*.cpp")
 list(FILTER src2022 EXCLUDE REGEX ".*CUDA_misc.cpp$")
 add_executable(2022 ${src2022})
 target_link_libraries(2022 pthread)
+
+# 2023 Solutions
+project(2023)
+file(GLOB src2023 "../sources/2023/*.cpp" "../sources/shared/*.cpp")
+list(FILTER src2023 EXCLUDE REGEX ".*CUDA_misc.cpp$")
+add_executable(2023 ${src2023})
+target_link_libraries(2023)
