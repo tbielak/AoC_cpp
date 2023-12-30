@@ -9,7 +9,11 @@ const AoC::t_names names = {
 	{ 5, "--- Day 5: If You Give A Seed A Fertilizer ---" },
 	{ 6, "--- Day 6: Wait For It ---" },
 	{ 7, "--- Day 7: Camel Cards ---" },
-	{ 8, "--- Day 8: Haunted Wasteland ---" }
+	{ 8, "--- Day 8: Haunted Wasteland ---" },
+	{ 9, "--- Day 9: Mirage Maintenance ---" },
+	{ 10, "--- Day 10: Pipe Maze ---" },
+	{ 11, "--- Day 11: Cosmic Expansion ---" },
+	{ 12, "--- Day 12: Hot Springs ---" }
 };
 
 const AoC::t_repository repo = {
@@ -20,7 +24,11 @@ const AoC::t_repository repo = {
 	{ 5, {2, { { "", new Day05_2023::Main() } } } },
 	{ 6, {2, { { "", new Day06_2023::Main() } } } },
 	{ 7, {2, { { "", new Day07_2023::Main() } } } },
-	{ 8, {2, { { "", new Day08_2023::Main() } } } }
+	{ 8, {2, { { "", new Day08_2023::Main() } } } },
+	{ 9, {2, { { "", new Day09_2023::Main() } } } },
+	{ 10, {2, { { "", new Day10_2023::Main() } } } },
+	{ 11, {2, { { "", new Day11_2023::Main() } } } },
+	{ 12, {2, { { "", new Day12_2023::Main() } } } }
 };
 
 int main(int argc, char* argv[])
