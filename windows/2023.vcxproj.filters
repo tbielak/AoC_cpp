@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\sources\2023\2023_01.cpp" />
+    <ClCompile Include="..\sources\2023\2023_02.cpp" />
+    <ClCompile Include="..\sources\2023\2023_03.cpp" />
+    <ClCompile Include="..\sources\2023\2023_04.cpp" />
+    <ClCompile Include="..\sources\2023\2023_05.cpp" />
+    <ClCompile Include="..\sources\2023\2023_06.cpp" />
+    <ClCompile Include="..\sources\2023\2023_07.cpp" />
+    <ClCompile Include="..\sources\2023\2023_08.cpp" />
+    <ClCompile Include="..\sources\2023\2023_09.cpp" />
+    <ClCompile Include="..\sources\2023\2023_10.cpp" />
+    <ClCompile Include="..\sources\2023\2023_11.cpp" />
+    <ClCompile Include="..\sources\2023\2023_12.cpp" />
+    <ClCompile Include="..\sources\2023\2023_13.cpp" />
+    <ClCompile Include="..\sources\2023\2023_main.cpp" />
+    <ClCompile Include="..\sources\shared\Console.cpp" />
+    <ClCompile Include="..\sources\shared\Engine.cpp" />
+    <ClCompile Include="..\sources\shared\Options.cpp" />
+    <ClCompile Include="..\sources\shared\Output.cpp" />
+    <ClCompile Include="..\sources\shared\Solution.cpp" />
+    <ClCompile Include="..\sources\2023\2023_16.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sources\2023\2023_01.h" />
+    <ClInclude Include="..\sources\2023\2023_02.h" />
+    <ClInclude Include="..\sources\2023\2023_03.h" />
+    <ClInclude Include="..\sources\2023\2023_04.h" />
+    <ClInclude Include="..\sources\2023\2023_05.h" />
+    <ClInclude Include="..\sources\2023\2023_06.h" />
+    <ClInclude Include="..\sources\2023\2023_07.h" />
+    <ClInclude Include="..\sources\2023\2023_08.h" />
+    <ClInclude Include="..\sources\2023\2023_09.h" />
+    <ClInclude Include="..\sources\2023\2023_10.h" />
+    <ClInclude Include="..\sources\2023\2023_11.h" />
+    <ClInclude Include="..\sources\2023\2023_12.h" />
+    <ClInclude Include="..\sources\2023\2023_13.h" />
+    <ClInclude Include="..\sources\2023\2023_puzzles.h" />
+    <ClInclude Include="..\sources\shared\Console.h" />
+    <ClInclude Include="..\sources\shared\Engine.h" />
+    <ClInclude Include="..\sources\shared\Options.h" />
+    <ClInclude Include="..\sources\shared\Output.h" />
+    <ClInclude Include="..\sources\shared\Solution.h" />
+    <ClInclude Include="..\sources\shared\stl.h" />
+    <ClInclude Include="..\sources\2023\2023_16.h" />
+  </ItemGroup>
+</Project>

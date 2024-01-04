@@ -31,6 +31,10 @@
     <ClCompile Include="..\sources\2023\2023_10.cpp" />
     <ClCompile Include="..\sources\2023\2023_11.cpp" />
     <ClCompile Include="..\sources\2023\2023_12.cpp" />
+    <ClCompile Include="..\sources\2023\2023_13.cpp" />
+    <ClCompile Include="..\sources\2023\2023_14.cpp" />
+    <ClCompile Include="..\sources\2023\2023_15.cpp" />
+    <ClCompile Include="..\sources\2023\2023_16.cpp" />
     <ClCompile Include="..\sources\2023\2023_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -51,6 +55,10 @@
     <ClInclude Include="..\sources\2023\2023_10.h" />
     <ClInclude Include="..\sources\2023\2023_11.h" />
     <ClInclude Include="..\sources\2023\2023_12.h" />
+    <ClInclude Include="..\sources\2023\2023_13.h" />
+    <ClInclude Include="..\sources\2023\2023_14.h" />
+    <ClInclude Include="..\sources\2023\2023_15.h" />
+    <ClInclude Include="..\sources\2023\2023_16.h" />
     <ClInclude Include="..\sources\2023\2023_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />

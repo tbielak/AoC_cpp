@@ -25,10 +25,10 @@ Day 9 | [⭐](sources/2015/2015_09.cpp) | [⭐](sources/2016/2016_09.cpp) | [⭐
 Day 10 | [⭐](sources/2015/2015_10.cpp) | [⭐](sources/2016/2016_10.cpp) | [⭐](sources/2017/2017_10.cpp) | [⭐](sources/2018/2018_10.cpp) | [⭐](sources/2019/2019_10.cpp) | [⭐](sources/2020/2020_10.cpp) | [⭐](sources/2021/2021_10.cpp) | [⭐](sources/2022/2022_10.cpp) | [⭐](sources/2023/2023_10.cpp)
 Day 11 | [⭐](sources/2015/2015_11.cpp) | [⭐](sources/2016/2016_11.cpp) | [⭐](sources/2017/2017_11.cpp) | [⭐](sources/2018/2018_11.cpp) | [⭐](sources/2019/2019_11.cpp) | [⭐](sources/2020/2020_11.cpp) | [⭐](sources/2021/2021_11.cpp) | [☀](sources/2022/2022_11.cpp) | [⭐](sources/2023/2023_11.cpp)
 Day 12 | [⭐](sources/2015/2015_12.cpp) | [⭐](sources/2016/2016_12.cpp) | [⭐](sources/2017/2017_12.cpp) | [⭐](sources/2018/2018_12.cpp) | [⭐](sources/2019/2019_12.cpp) | [⭐](sources/2020/2020_12.cpp) | [⭐](sources/2021/2021_12.cpp) | [☀](sources/2022/2022_12.cpp) | [⭐](sources/2023/2023_12.cpp)
-Day 13 | [⭐](sources/2015/2015_13.cpp) | [⭐](sources/2016/2016_13.cpp) | [⭐](sources/2017/2017_13.cpp) | [⭐](sources/2018/2018_13.cpp) | [⭐](sources/2019/2019_13.cpp) | [⭐](sources/2020/2020_13.cpp) | [⭐](sources/2021/2021_13.cpp) | [⭐](sources/2022/2022_13.cpp)
-Day 14 | [⭐](sources/2015/2015_14.cpp) | [⭐](sources/2016/2016_14.cpp) | [⭐](sources/2017/2017_14.cpp) | [⭐](sources/2018/2018_14.cpp) | [⭐](sources/2019/2019_14.cpp) | [⭐](sources/2020/2020_14.cpp) | [⭐](sources/2021/2021_14.cpp) | [⭐](sources/2022/2022_14.cpp)
-Day 15 | [⭐](sources/2015/2015_15.cpp) | [⭐](sources/2016/2016_15.cpp) | [⭐](sources/2017/2017_15.cpp) | [⭐](sources/2018/2018_15.cpp) | [⭐](sources/2019/2019_15.cpp) | [⭐](sources/2020/2020_15.cpp) | [⭐](sources/2021/2021_15.cpp) | [⭐](sources/2022/2022_15.cpp)
-Day 16 | [⭐](sources/2015/2015_16.cpp) | [⭐](sources/2016/2016_16.cpp) | [⭐](sources/2017/2017_16.cpp) | [⭐](sources/2018/2018_16.cpp) | [⭐](sources/2019/2019_16.cpp) | [⭐](sources/2020/2020_16.cpp) | [⭐](sources/2021/2021_16.cpp) | [⭐](sources/2022/2022_16.cpp)
+Day 13 | [⭐](sources/2015/2015_13.cpp) | [⭐](sources/2016/2016_13.cpp) | [⭐](sources/2017/2017_13.cpp) | [⭐](sources/2018/2018_13.cpp) | [⭐](sources/2019/2019_13.cpp) | [⭐](sources/2020/2020_13.cpp) | [⭐](sources/2021/2021_13.cpp) | [⭐](sources/2022/2022_13.cpp) | [⭐](sources/2023/2023_13.cpp)
+Day 14 | [⭐](sources/2015/2015_14.cpp) | [⭐](sources/2016/2016_14.cpp) | [⭐](sources/2017/2017_14.cpp) | [⭐](sources/2018/2018_14.cpp) | [⭐](sources/2019/2019_14.cpp) | [⭐](sources/2020/2020_14.cpp) | [⭐](sources/2021/2021_14.cpp) | [⭐](sources/2022/2022_14.cpp) | [⭐](sources/2023/2023_14.cpp)
+Day 15 | [⭐](sources/2015/2015_15.cpp) | [⭐](sources/2016/2016_15.cpp) | [⭐](sources/2017/2017_15.cpp) | [⭐](sources/2018/2018_15.cpp) | [⭐](sources/2019/2019_15.cpp) | [⭐](sources/2020/2020_15.cpp) | [⭐](sources/2021/2021_15.cpp) | [⭐](sources/2022/2022_15.cpp) | [⭐](sources/2023/2023_15.cpp)
+Day 16 | [⭐](sources/2015/2015_16.cpp) | [⭐](sources/2016/2016_16.cpp) | [⭐](sources/2017/2017_16.cpp) | [⭐](sources/2018/2018_16.cpp) | [⭐](sources/2019/2019_16.cpp) | [⭐](sources/2020/2020_16.cpp) | [⭐](sources/2021/2021_16.cpp) | [⭐](sources/2022/2022_16.cpp) | [⭐](sources/2023/2023_16.cpp)
 Day 17 | [⭐](sources/2015/2015_17.cpp) | [⭐](sources/2016/2016_17.cpp) | [⭐](sources/2017/2017_17.cpp) | [⭐](sources/2018/2018_17.cpp) | [⭐](sources/2019/2019_17.cpp) | [⭐](sources/2020/2020_17.cpp) | [⭐](sources/2021/2021_17.cpp) | [⭐](sources/2022/2022_17.cpp)
 Day 18 | [⭐](sources/2015/2015_18.cpp) | [⭐](sources/2016/2016_18.cpp) | [⭐](sources/2017/2017_18.cpp) | [⭐](sources/2018/2018_18.cpp) | [⭐](sources/2019/2019_18.cpp) | [☀](sources/2020/2020_18.cpp) | [☀](sources/2021/2021_18_pairs.cpp) | [⭐](sources/2022/2022_18.cpp)
 Day 19 | [⭐](sources/2015/2015_19.cpp) | [☀](sources/2016/2016_19.cpp) | [⭐](sources/2017/2017_19.cpp) | [🌟](doc/2018_19.md) | [⭐](sources/2019/2019_19.cpp) | [⭐](sources/2020/2020_19.cpp) | [⭐](sources/2021/2021_19.cpp) | [⭐](sources/2022/2022_19.cpp)
@@ -44,7 +44,7 @@ Legend: <br />
 🌟 = solution available and explained! <br />
 ☀ = multiple solutions available <br />
 
-Current status: **394** AoC stars covered
+Current status: **402** AoC stars covered
 
 
 ## Repository contents
