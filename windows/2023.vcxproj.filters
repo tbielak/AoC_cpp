@@ -21,6 +21,10 @@
     <ClCompile Include="..\sources\shared\Output.cpp" />
     <ClCompile Include="..\sources\shared\Solution.cpp" />
     <ClCompile Include="..\sources\2023\2023_16.cpp" />
+    <ClCompile Include="..\sources\2023\2023_14.cpp" />
+    <ClCompile Include="..\sources\2023\2023_15.cpp" />
+    <ClCompile Include="..\sources\2023\2023_17.cpp" />
+    <ClCompile Include="..\sources\2023\2023_18.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\2023\2023_01.h" />
@@ -44,5 +48,9 @@
     <ClInclude Include="..\sources\shared\Solution.h" />
     <ClInclude Include="..\sources\shared\stl.h" />
     <ClInclude Include="..\sources\2023\2023_16.h" />
+    <ClInclude Include="..\sources\2023\2023_14.h" />
+    <ClInclude Include="..\sources\2023\2023_15.h" />
+    <ClInclude Include="..\sources\2023\2023_17.h" />
+    <ClInclude Include="..\sources\2023\2023_18.h" />
   </ItemGroup>
 </Project>
