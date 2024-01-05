@@ -19,7 +19,9 @@ const AoC::t_names names = {
 	{ 15, "--- Day 15: Lens Library ---" },
 	{ 16, "--- Day 16: The Floor Will Be Lava ---" },
 	{ 17, "--- Day 17: Clumsy Crucible ---" },
-	{ 18, "--- Day 18: Lavaduct Lagoon ---" }
+	{ 18, "--- Day 18: Lavaduct Lagoon ---" },
+	{ 19, "--- Day 19: Aplenty ---" },
+	{ 20, "--- Day 20: Pulse Propagation ---" }
 };
 
 const AoC::t_repository repo = {
@@ -40,7 +42,9 @@ const AoC::t_repository repo = {
 	{ 15, {2, { { "", new Day15_2023::Main() } } } },
 	{ 16, {2, { { "", new Day16_2023::Main() } } } },
 	{ 17, {2, { { "", new Day17_2023::Main() } } } },
-	{ 18, {2, { { "", new Day18_2023::Main() } } } }
+	{ 18, {2, { { "", new Day18_2023::Main() } } } },
+	{ 19, {2, { { "", new Day19_2023::Main() } } } },
+	{ 20, {2, { { "", new Day20_2023::Main() } } } }
 };
 
 int main(int argc, char* argv[])
