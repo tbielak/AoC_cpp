@@ -22,7 +22,7 @@ namespace Day20_2018
 			{
 			case '(': stack.push_back(_current); break;
 			case ')': _current = stack.back(); stack.pop_back(); break;
-			case '|': _current = stack[stack.size() - 1]; break;
+			case '|': _current = stack.back(); break;
 			case 'N': move(0, -1); break;
 			case 'E': move(1, 0); break;
 			case 'S': move(0, 1); break;

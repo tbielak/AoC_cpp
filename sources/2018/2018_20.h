@@ -43,8 +43,6 @@ namespace Day20_2018
 	public:
 		virtual AoC::Output part_one(const string& input);
 		virtual AoC::Output part_two(const string& input);
-
-	private:
 	};
 }
 
