@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\sources\2018\2018_20.cpp" />
     <ClCompile Include="..\sources\2023\2023_01.cpp" />
     <ClCompile Include="..\sources\2023\2023_02.cpp" />
     <ClCompile Include="..\sources\2023\2023_03.cpp" />
@@ -48,7 +47,6 @@
     <ClCompile Include="..\sources\shared\Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\sources\2018\2018_20.h" />
     <ClInclude Include="..\sources\2023\2023_01.h" />
     <ClInclude Include="..\sources\2023\2023_02.h" />
     <ClInclude Include="..\sources\2023\2023_03.h" />
