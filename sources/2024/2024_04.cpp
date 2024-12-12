@@ -1,9 +1,8 @@
-// REF
 #include "2024_04.h"
 
 namespace Day04_2024
 {
-	int count(const vector<string>& input, int yy, int xx)
+	int Main::count(const vector<string>& input, int yy, int xx)
 	{
 		int c = 0;
 		for (int my = -1; my <= 1; my++)
@@ -33,18 +32,7 @@ namespace Day04_2024
 		return c;
 	}
 
-	AoC::Output Main::part_one(const vector<string>& input)
-	{
-		int c = 0;
-		for (int y = 0; y < (int)input.size(); y++)
-			for (int x = 0; x < (int)input[y].size(); x++)
-				if (input[y][x] == 'X')
-					c += count(input, y, x);
-
-		return c;
-	}
-
-	bool box_is_x(const vector<string>& input, int y, int x)
+	bool Main::box_is_x(const vector<string>& input, int y, int x)
 	{
 		if (input[y][x] != 'A')
 			return false;
@@ -66,6 +54,17 @@ namespace Day04_2024
 			}
 
 		return false;
+	}
+
+	AoC::Output Main::part_one(const vector<string>& input)
+	{
+		int c = 0;
+		for (int y = 0; y < (int)input.size(); y++)
+			for (int x = 0; x < (int)input[y].size(); x++)
+				if (input[y][x] == 'X')
+					c += count(input, y, x);
+
+		return c;
 	}
 
 	AoC::Output Main::part_two(const vector<string>& input)
