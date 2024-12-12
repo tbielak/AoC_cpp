@@ -4,7 +4,7 @@
 
 ## Features
 - Advent of Code 2015-2024 solutions in C++ 11/14/17
-- using STL only (in non-CUDA solutions)
+- using STL only (see [here](sources/shared/stl.h) what was really needed all these years)
 - ready to build for Windows x86/x64 in Microsoft Visual Studio Community 2022
 - ready to build for Windows x64 with CUDA 11.5 to speed up some solutions on various CUDA architectures
 - ready to build for Linux x64 (tested with Ubuntu 20.04)
