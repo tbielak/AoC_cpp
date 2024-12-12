@@ -13,7 +13,7 @@ namespace AoC
 		#ifdef INCLUDE_CUDA
 		_cc << " (powered by CUDA)";
 		#endif
-		_cc << "{d}, copyright(c) 2022 by {y}TomB{d}" << endl;
+		_cc << "{d}, copyright(c) 2024 by {y}TomB{d}" << endl;
 	}
 
 	void Engine::help()

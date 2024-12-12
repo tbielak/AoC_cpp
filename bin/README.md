@@ -18,12 +18,13 @@ File | Description
 2021_x64_Release.exe | 2021 puzzles solutions
 2022_x64_Release.exe | 2022 puzzles solutions
 2023_x64_Release.exe | 2023 puzzles solutions
+2024_x64_Release.exe | 2024 puzzles solutions
 
 You can also build them in Debug configuration or for x86 platform. In result you'll see appropriate *exe* files in this folder.
 
 To run executable "as designed", just pick up one and run it from command line prompt, without any parameters:
 ```sh
-> 2023_x64_Release
+> 2024_x64_Release
 ```
 
 ## Linux executables
@@ -41,17 +42,18 @@ File | Description
 2021 | 2021 puzzles solutions (x64 code, O3 optimization)
 2022 | 2022 puzzles solutions (x64 code, O3 optimization)
 2023 | 2023 puzzles solutions (x64 code, O3 optimization)
+2024 | 2024 puzzles solutions (x64 code, O3 optimization)
 
 To run executable "as designed", just pick up one and run it from bash prompt, without any parameters:
 ```sh
-$ ./2023
+$ ./2024
 ```
 
 ## Command line options
 
 To get familiar with command line options, run the executable with *-h* switch (help):
 ```sh
-> 2023_x64_Release -h
+> 2024_x64_Release -h
 ```
 
 To run single day puzzle solution(s) use *-p* switch and select the day. Example of running 7th day puzzle solution(s):
