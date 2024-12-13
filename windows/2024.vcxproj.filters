@@ -12,6 +12,14 @@
     <ClCompile Include="..\sources\shared\Options.cpp" />
     <ClCompile Include="..\sources\shared\Output.cpp" />
     <ClCompile Include="..\sources\shared\Solution.cpp" />
+    <ClCompile Include="..\sources\2024\2024_06.cpp" />
+    <ClCompile Include="..\sources\2024\2024_07.cpp" />
+    <ClCompile Include="..\sources\2024\2024_08.cpp" />
+    <ClCompile Include="..\sources\2024\2024_09.cpp" />
+    <ClCompile Include="..\sources\2024\2024_10.cpp" />
+    <ClCompile Include="..\sources\2024\2024_11.cpp" />
+    <ClCompile Include="..\sources\2024\2024_12.cpp" />
+    <ClCompile Include="..\sources\2024\2024_13.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\2024\2024_01.h" />
@@ -26,5 +34,13 @@
     <ClInclude Include="..\sources\shared\Output.h" />
     <ClInclude Include="..\sources\shared\Solution.h" />
     <ClInclude Include="..\sources\shared\stl.h" />
+    <ClInclude Include="..\sources\2024\2024_06.h" />
+    <ClInclude Include="..\sources\2024\2024_07.h" />
+    <ClInclude Include="..\sources\2024\2024_08.h" />
+    <ClInclude Include="..\sources\2024\2024_09.h" />
+    <ClInclude Include="..\sources\2024\2024_10.h" />
+    <ClInclude Include="..\sources\2024\2024_11.h" />
+    <ClInclude Include="..\sources\2024\2024_12.h" />
+    <ClInclude Include="..\sources\2024\2024_13.h" />
   </ItemGroup>
 </Project>
