@@ -9,7 +9,6 @@ namespace Day14_2024
 	{
 	public:
 		Point(int x, int y);
-		bool operator < (const Point& rhs) const;
 
 		int x, y;
 	};

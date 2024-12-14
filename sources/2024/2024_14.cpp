@@ -7,11 +7,6 @@ namespace Day14_2024
 	{
 	}
 
-	bool Point::operator < (const Point& rhs) const
-	{
-		return (y == rhs.y) ? x < rhs.x : y < rhs.y;
-	}
-
 	vector<t_robot> Main::load(const vector<string>& input)
 	{
 		vector<t_robot> robots;
