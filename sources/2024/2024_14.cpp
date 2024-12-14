@@ -71,17 +71,16 @@ namespace Day14_2024
 		while (1)
 		{
 			c++;
-			set<Point> positions;
+			vector<string> bathroom = vector<string>(height, string(width, '.'));
 			bool duplicated_positions = false;
 			for (auto& [p, v] : robots)
 			{
 				p.x = (p.x + v.x + width) % width;
 				p.y = (p.y + v.y + height) % height;
-				auto it = positions.find(p);
-				if (it != positions.end())
+				if (bathroom[p.y][p.x] == '*')
 					duplicated_positions = true;
 				else
-					positions.insert(p);
+					bathroom[p.y][p.x] = '*';
 			}
 
 			if (!duplicated_positions)
