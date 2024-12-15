@@ -31,12 +31,13 @@ namespace Day15_2024
 		return (y == rhs.y) ? x < rhs.x : y < rhs.y;
 	}
 
-	Warehouse::Warehouse(const vector<string>& input, bool expand /* = false */)
+	Warehouse::Warehouse(const vector<string>& input, bool expanded /* = false */)
+	:	_expanded(expanded)
 	{
 		size_t i = 0;
 		for (; !input[i].empty(); i++)
 		{
-			if (expand)
+			if (expanded)
 			{
 				_map.push_back(string());
 				for (char c : input[i])
@@ -129,7 +130,7 @@ namespace Day15_2024
 		_robot.y += dy;
 	}
 
-	Warehouse& Warehouse::part_one()
+	Warehouse& Warehouse::go()
 	{
 		for (auto c : _moves)
 		{
@@ -137,24 +138,8 @@ namespace Day15_2024
 			{
 			case '>': move(Point(1, 0)); break;
 			case '<': move(Point(-1, 0)); break;
-			case 'v': move(Point(0, 1)); break;
-			case '^': move(Point(0, -1)); break;
-			}
-		}
-
-		return *this;
-	}
-
-	Warehouse& Warehouse::part_two()
-	{
-		for (auto c : _moves)
-		{
-			switch (c)
-			{
-			case '>': move(Point(1, 0)); break;
-			case '<': move(Point(-1, 0)); break;
-			case 'v': move_y(1); break;
-			case '^': move_y(-1); break;
+			case 'v': if (_expanded) move_y(1); else move(Point(0, 1)); break;
+			case '^': if (_expanded) move_y(-1); else move(Point(0, -1)); break;
 			}
 		}
 
@@ -174,11 +159,11 @@ namespace Day15_2024
 
 	AoC::Output Main::part_one(const vector<string>& input)
 	{
-		return Warehouse(input).part_one().count('O');
+		return Warehouse(input).go().count('O');
 	}
 
 	AoC::Output Main::part_two(const vector<string>& input)
 	{
-		return Warehouse(input, true).part_two().count('[');
+		return Warehouse(input, true).go().count('[');
 	}
 }

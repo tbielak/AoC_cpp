@@ -20,13 +20,13 @@ namespace Day15_2024
 	class Warehouse
 	{
 	public:
-		Warehouse(const vector<string>& input, bool expand = false);
+		Warehouse(const vector<string>& input, bool expanded = false);
 		
-		Warehouse& part_one();
-		Warehouse& part_two();
+		Warehouse& go();
 		int count(char c) const;
 
 	private:
+		bool _expanded;
 		int _width, _height;
 		vector<string> _map;
 		Point _robot;
