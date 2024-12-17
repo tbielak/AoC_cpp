@@ -62,7 +62,7 @@ namespace Day16_2024
 
 			// go forward if there is no wall
 			if (maze[position + moves[direction]] != '#')
-				pq.push(make_tuple(score + 1, position + moves[direction], direction, path + "G"));
+				pq.push(make_tuple(score + 1, position + moves[direction], direction, path + "S"));
 
 			// turn left and right
 			pq.push(make_tuple(score + 1000, position, (direction + 3) % 4, path + "L"));
