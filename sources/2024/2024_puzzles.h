@@ -18,5 +18,7 @@
 #include "2024_15.h"
 #include "2024_16.h"
 #include "2024_17.h"
+#include "2024_18.h"
+#include "2024_19.h"
 
 #endif
