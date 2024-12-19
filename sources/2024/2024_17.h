@@ -12,9 +12,9 @@ namespace Day17_2024
 		virtual AoC::Output part_two(const vector<string>& input);
 
 	private:
-		pair<vector<int64_t>, string> load(const vector<string>& input);
-		int64_t combo(const vector<int64_t>& regs, int op);
-		string execute(vector<int64_t>& regs, string program);
+		static pair<vector<int64_t>, string> load(const vector<string>& input);
+		static int64_t combo(const vector<int64_t>& regs, int op);
+		static string execute(vector<int64_t>& regs, string program);
 	};
 }
 
