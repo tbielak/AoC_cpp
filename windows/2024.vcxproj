@@ -38,6 +38,7 @@
     <ClCompile Include="..\sources\2024\2024_17.cpp" />
     <ClCompile Include="..\sources\2024\2024_18.cpp" />
     <ClCompile Include="..\sources\2024\2024_19.cpp" />
+    <ClCompile Include="..\sources\2024\2024_20.cpp" />
     <ClCompile Include="..\sources\2024\2024_main.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
@@ -65,6 +66,7 @@
     <ClInclude Include="..\sources\2024\2024_17.h" />
     <ClInclude Include="..\sources\2024\2024_18.h" />
     <ClInclude Include="..\sources\2024\2024_19.h" />
+    <ClInclude Include="..\sources\2024\2024_20.h" />
     <ClInclude Include="..\sources\2024\2024_puzzles.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />

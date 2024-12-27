@@ -26,6 +26,7 @@
     <ClCompile Include="..\sources\2024\2024_17.cpp" />
     <ClCompile Include="..\sources\2024\2024_18.cpp" />
     <ClCompile Include="..\sources\2024\2024_19.cpp" />
+    <ClCompile Include="..\sources\2024\2024_20.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sources\2024\2024_01.h" />
@@ -54,5 +55,6 @@
     <ClInclude Include="..\sources\2024\2024_17.h" />
     <ClInclude Include="..\sources\2024\2024_18.h" />
     <ClInclude Include="..\sources\2024\2024_19.h" />
+    <ClInclude Include="..\sources\2024\2024_20.h" />
   </ItemGroup>
 </Project>
