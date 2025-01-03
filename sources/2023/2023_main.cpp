@@ -22,7 +22,9 @@ const AoC::t_names names = {
 	{ 18, "--- Day 18: Lavaduct Lagoon ---" },
 	{ 19, "--- Day 19: Aplenty ---" },
 	{ 20, "--- Day 20: Pulse Propagation ---" },
-	{ 21, "--- Day 21: Step Counter ---" }
+	{ 21, "--- Day 21: Step Counter ---" },
+	{ 22, "--- Day 22: Sand Slabs ---" },
+	{ 23, "--- Day 23: A Long Walk ---" }
 };
 
 const AoC::t_repository repo = {
@@ -46,7 +48,9 @@ const AoC::t_repository repo = {
 	{ 18, {2, { { "", new Day18_2023::Main() } } } },
 	{ 19, {2, { { "", new Day19_2023::Main() } } } },
 	{ 20, {2, { { "", new Day20_2023::Main() } } } },
-	{ 21, {2, { { "", new Day21_2023::Main() } } } }
+	{ 21, {2, { { "", new Day21_2023::Main() } } } },
+	{ 22, {2, { { "", new Day22_2023::Main() } } } },
+	{ 23, {2, { { "", new Day23_2023::Main() } } } }
 };
 
 int main(int argc, char* argv[])
