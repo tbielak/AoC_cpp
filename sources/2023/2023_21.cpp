@@ -7,7 +7,7 @@ namespace Day21_2023
 {
 	bool Main::assumptions_fulfilled(const vector<string>& input)
 	{
-		// checking the most importat assumptions on which solution is based
+		// checking the most important assumptions on which solution is based
 		for (const auto& s : input)
 			if (s.size() != 131)
 				return false;
