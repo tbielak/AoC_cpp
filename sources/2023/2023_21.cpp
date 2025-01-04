@@ -21,7 +21,7 @@ namespace Day21_2023
 		for (int i = 0; i < 131; i++)
 			if (input[65][i] == '#' || input[i][65] == '#' ||
 				input[0][i] == '#' || input[130][i] == '#' || input[i][0] == '#' || input[i][130] == '#')
-				return true;
+				return false;
 
 		return true;
 	}
