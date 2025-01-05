@@ -34,6 +34,7 @@
     <ClCompile Include="..\sources\2018\2018_18.cpp" />
     <ClCompile Include="..\sources\2018\2018_19.cpp" />
     <ClCompile Include="..\sources\2018\2018_20.cpp" />
+    <ClCompile Include="..\sources\2018\2018_21.cpp" />
     <ClCompile Include="..\sources\shared\Console.cpp" />
     <ClCompile Include="..\sources\shared\Engine.cpp" />
     <ClCompile Include="..\sources\shared\Options.cpp" />
@@ -62,6 +63,7 @@
     <ClInclude Include="..\sources\2018\2018_18.h" />
     <ClInclude Include="..\sources\2018\2018_19.h" />
     <ClInclude Include="..\sources\2018\2018_20.h" />
+    <ClInclude Include="..\sources\2018\2018_21.h" />
     <ClInclude Include="..\sources\shared\Console.h" />
     <ClInclude Include="..\sources\shared\Engine.h" />
     <ClInclude Include="..\sources\shared\Options.h" />

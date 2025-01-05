@@ -21,7 +21,8 @@ const AoC::t_names names = {
 	{ 17, "--- Day 17: Reservoir Research ---" },
 	{ 18, "--- Day 18: Settlers of The North Pole ---" },
 	{ 19, "--- Day 19: Go With The Flow ---" },
-	{ 20, "--- Day 20: A Regular Map ---" }
+	{ 20, "--- Day 20: A Regular Map ---" },
+	{ 21, "--- Day 21: Chronal Conversion ---" }
 };
 
 const AoC::t_repository repo = {
@@ -44,7 +45,8 @@ const AoC::t_repository repo = {
 	{ 17, {2, { { "", new Day17_2018::Main() } } } },
 	{ 18, {2, { { "", new Day18_2018::Main() } } } },
 	{ 19, {2, { { "", new Day19_2018::Main() } } } },
-	{ 20, {2, { { "", new Day20_2018::Main() } } } }
+	{ 20, {2, { { "", new Day20_2018::Main() } } } },
+	{ 21, {2, { { "", new Day21_2018::Main() } } } }
 };
 
 int main(int argc, char* argv[])
