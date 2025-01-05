@@ -23,7 +23,8 @@ const AoC::t_names names = {
 	{ 19, "--- Day 19: Linen Layout ---" },
 	{ 20, "--- Day 20: Race Condition ---" },
 	{ 21, "--- Day 21: Keypad Conundrum ---" },
-	{ 22, "--- Day 22: Monkey Market ---" }
+	{ 22, "--- Day 22: Monkey Market ---" },
+	{ 23, "--- Day 23: LAN Party ---" }
 };
 
 const AoC::t_repository repo = {
@@ -48,7 +49,8 @@ const AoC::t_repository repo = {
 	{ 19, {2, { { "", new Day19_2024::Main() } } } },
 	{ 20, {2, { { "", new Day20_2024::Main() } } } },
 	{ 21, {2, { { "", new Day21_2024::Main() } } } },
-	{ 22, {2, { { "", new Day22_2024::Main() } } } }
+	{ 22, {2, { { "", new Day22_2024::Main() } } } },
+	{ 23, {2, { { "", new Day23_2024::Main() } } } }
 };
 
 int main(int argc, char* argv[])
